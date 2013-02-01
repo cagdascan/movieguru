@@ -1,0 +1,44 @@
+/* Put your custom CSS here */
+body {
+	margin:0;
+	padding:0;
+}
+.ui-field-contain .ui-controlgroup-label {
+	display:block;
+	width:100%;
+	text-align:center;
+	margin:0.5em 0;
+}
+
+.ui-field-contain .ui-controlgroup-controls {
+	width:100%;
+}
+.logo {
+	margin:auto;
+	display:block;
+	padding:1px 0;
+}
+#checkboxes1 {
+	margin-top:0;
+}
+.txtort {
+	text-align:center;
+}
+.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#mgenre .ui-icon {
+	background: url("mycons/film-roll.png") no-repeat scroll 50% 50% / 26px 22px transparent;
+}
+#mtime .ui-icon {
+	background: url("mycons/calendar.png") no-repeat scroll 50% 50% / 23px 25px transparent;
+}
+#mrating .ui-icon {
+	background: url("mycons/rating.png") no-repeat scroll 50% 50% / 28px 28px transparent;
+}
+#mgogo .ui-icon {
+	background: url("mycons/finish.png") no-repeat scroll 50% 50% / 30px 15px transparent;
+	width:42px;
+}
+header img {
+display:block;
+}

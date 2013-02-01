@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>
+        </title>
+
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+        <script>
+		try {
+
+			$(function() {
+
+			});
+
+			} catch (error) {
+			console.error("Your javascript has an error: " + error);
+		}
+        </script>
+
+        <!-- User-generated js 
+
+		<script>
+		$(document).on('pageinit', '#page1', function(){
+
+			
+			$('form').submit(function(){
+				str = $("form").serialize();
+				$.mobile.changePage('#page2');
+				return false;        
+			});
+		
+		});-->
+		<script>
+			$('#gonderbunu').live('click',function(){
+			var secilenler = $('.secimler').serialize().toString();
+			//alert(secilenler);
+			//return false;
+			$.mobile.changePage('#loading');
+			
+				$.getJSON("http://bayez.biz/moviegurus/?" + $('.secimler').serialize(),
+					function (data) 
+					{
+					  $.each(data, function(i,item)
+					  {
+						$(".1").append(item.title + " ");
+						//$(".2").append(item.rating + " ");
+						//$(".3").append(item.directors + " ");
+					  });
+					  $.mobile.changePage('#sonuc');
+					});
+				});
+		</script>
+    </head>
+    <body>
+
+		
+        <div data-role="page" id="page1">
+            <div data-role="header" >
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content" data-theme="c" style="padding:4px 5px 5px;">
+				<h4 style="margin: 6px 0 4px;text-align:center;">Choose your favourite genres!</h4>
+				<form data-role="none" class="secimler">
+					<div data-role="field-contain" class="ui-grid-a" >
+						<fieldset data-role="controlgroup"  data-type="vertical" class="ui-block-a">
+							<input id="checkbox1" value="Action" name="genre" type="checkbox" style="background:#ff0000;" />
+							<label for="checkbox1">Action</label>
+							<input id="checkbox2" value="Adventure" name="genre" type="checkbox" />
+							<label for="checkbox2">Adventure</label>
+							<input id="checkbox5" value="Comedy" name="genre" type="checkbox" />
+							<label for="checkbox5">Comedy</label>
+							<input id="checkbox6" value="Crime" name="genre" type="checkbox" />
+							<label for="checkbox6">Crime</label>
+							<input id="checkbox8" value="Drama" name="genre" type="checkbox" />
+							<label for="checkbox8">Drama</label>
+							<input id="checkbox9" value="Family" name="genre" type="checkbox" />
+							<label for="checkbox9">Family</label>
+							<input id="checkbox10" value="Fantasy" name="genre" type="checkbox" />
+							<label for="checkbox10">Fantasy</label>
+						</fieldset>
+						<fieldset data-role="controlgroup" data-type="vertical" class="ui-block-b">
+							<input id="checkbox13" value="History" name="genre" type="checkbox" />
+							<label for="checkbox13">History</label>
+							<input id="checkbox14" value="Horror" name="genre" type="checkbox" />
+							<label for="checkbox14">Horror</label>
+							<input id="checkbox20" value="Romance" name="genre" type="checkbox" />
+							<label for="checkbox20">Romance</label>
+							<input id="checkbox21" value="Sci-fi" name="genre" type="checkbox" />
+							<label for="checkbox21">Sci-fi</label>
+							<input id="checkbox24" value="Thriller" name="genre" type="checkbox" />
+							<label for="checkbox24">Thriller</label>
+							<input id="checkbox25" value="War" name="genre" type="checkbox" />
+							<label for="checkbox25">War</label>
+							<input id="checkbox26" value="Western" name="genre" type="checkbox"/>
+							<label for="checkbox26">Western</label>			
+						</fieldset>
+					</div>
+				</form>
+			</div>
+
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-theme="e" >Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>	
+        </div>
+		
+
+		<div data-role="page" id="page2">
+            <div data-role="header" >
+				<img class="logo" src="logo.png"/>
+			</div>
+
+			<div data-role="content" style="padding:4px 5px 5px;">
+				<h4 style="margin: 6px 0 4px;text-align:center;">How old is your mood, now?</h4>
+				<form data-role="none" class="secimler">
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<input type="radio" name="year" id="radio-choice-1" value="2010" checked="checked" />
+							<label for="radio-choice-1">Seize the day 2010+</label>
+
+							<input type="radio" name="year" id="radio-choice-2" value="2000"  />
+							<label for="radio-choice-2">2000's like yesterday</label>
+
+							<input type="radio" name="year" id="radio-choice-3" value="1990"  />
+							<label for="radio-choice-3">90's were cool</label>
+
+							<input type="radio" name="year" id="radio-choice-4" value="1980"  />
+							<label for="radio-choice-4">I Love 80's</label>
+							
+							<input type="radio" name="year" id="radio-choice-5" value="older"  />
+							<label for="radio-choice-5">Grandpa's Please</label>
+							
+							<input type="radio" name="year" id="radio-choice-6" value="alltime"  />
+							<label for="radio-choice-6">Whenever</label>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-theme="e" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="page3">
+            <div data-role="header" >
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content">
+				<form data-role="none" class="secimler">
+				<div data-role="rangeslider">
+				<label for="range-1a">Minimum IMDB Rating:</label>
+				<input name="rating" id="range-1a" min="0" max="10" value="0" step="0.1" type="range" />
+				<label for="range-1b">Maximum IMDB Rating:</label>
+				<input name="rating" id="range-1b" min="0" max="10" value="10" step="0.1" type="range" />
+				</div>
+			</div><!-- /content -->
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" data-theme="e">Rating</a></li>
+						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="page4">
+            <div data-role="header" >
+				<img class="logo" src="logo.png"/>
+			</div>
+
+			<div data-role="content">
+<input type="button" value="Generate My Pleasure" id="gonderbunu" />
+			</div><!-- /content -->
+			
+		</div>
+		
+		<div data-role="page" id="loading">
+            <div data-role="header" >
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>Loading...</p>
+			</div><!-- /content -->
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" >Rating</a></li>
+						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="sonuc">
+            <div data-role="header" >
+				<img class="logo" src="logo.png"/>
+			</div>
+
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div class="1"> </div>
+				<div class="2"> </div>
+				<div class="3"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" data-theme="e">Rating</a></li>
+						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	
+
+    </body>
+</html>
+
