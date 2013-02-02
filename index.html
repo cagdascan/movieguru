@@ -45,7 +45,6 @@
 			$('#gonderbunu').live('click',function(){
 			var secilenler = $('.secimler').serialize().toString();
 			//alert(secilenler);
-			console.log(secilenler); //for debugging purposes
 			//return false;
 			$.mobile.changePage('#loading');
 			
@@ -55,21 +54,33 @@
 					  $.each(data, function(i,item)
 					  {
 						$(".1").append(item.title + " ");
-						$(".2").append(item.rating + " ");
-						$(".3").append(item.year + " ");
+						//$(".2").append(item.rating + " ");
+						//$(".3").append(item.directors + " ");
 					  });
 					  $.mobile.changePage('#sonuc');
 					});
 				});
-			//console.log(secilenler);
 		</script>
     </head>
     <body>
 
 		
         <div data-role="page" id="page1">
-            <div data-role="header" >
-				<img class="logo" src="logo.png"/>
+            <div data-role="header" style="width:100%;" data-theme="c">
+				<div data-role="navbar" class="ui-navbar">
+					<ul class="ui-grid-b">
+						<li class="ui-block-a" style="width:25%;">
+							<a href="#" data-icon="arrow-l" data-iconpos="top" >i</a>
+						</li>
+						<li class="ui-block-b" style="width:50%;">
+							<img class="logo" src="logo.png"/>
+						</li>
+						<li class="ui-block-c" style="width:25%;">
+							<a href="#page2"data-icon="arrow-r" data-iconpos="top">Next</a>
+						</li>
+					</ul>
+					
+				</div>
 			</div>
 			<div data-role="content" data-theme="c" style="padding:4px 5px 5px;">
 				<h4 style="margin: 6px 0 4px;text-align:center;">Choose your favourite genres!</h4>
@@ -111,13 +122,13 @@
 				</form>
 			</div>
 
-			<div data-role="footer" data-id="fool" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-theme="e" >Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Time</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
-						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
 			</div>	
@@ -125,8 +136,21 @@
 		
 
 		<div data-role="page" id="page2">
-            <div data-role="header" >
-				<img class="logo" src="logo.png"/>
+            <div data-role="header" style="width:100%;" data-theme="c">
+				<div data-role="navbar" class="ui-navbar">
+					<ul class="ui-grid-b">
+						<li class="ui-block-a" style="width:25%;">
+							<a href="#page1" data-icon="arrow-l" data-iconpos="top" >Back</a>
+						</li>
+						<li class="ui-block-b" style="width:50%;">
+							<img class="logo" src="logo.png"/>
+						</li>
+						<li class="ui-block-c" style="width:25%;">
+							<a href="#page3"data-icon="arrow-r" data-iconpos="top">Next</a>
+						</li>
+					</ul>
+					
+				</div>
 			</div>
 
 			<div data-role="content" style="padding:4px 5px 5px;">
@@ -146,29 +170,39 @@
 							<input type="radio" name="year" id="radio-choice-4" value="1980"  />
 							<label for="radio-choice-4">I Love 80's</label>
 							
-							<input type="radio" name="year" id="radio-choice-5" value="older"  />
+							<input type="radio" name="year" id="radio-choice-5" value="1800"  />
 							<label for="radio-choice-5">Grandpa's Please</label>
-							
-							<input type="radio" name="year" id="radio-choice-6" value="alltime"  />
-							<label for="radio-choice-6">Whenever</label>
 						</fieldset>
 					</div>
 				</form>
 			</div>
-			<div data-role="footer" data-id = "fool" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-theme="e" data-direction="reverse" data-transition="slide">Time</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
-						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div data-role="page" id="page3">
-            <div data-role="header" >
-				<img class="logo" src="logo.png"/>
+            <div data-role="header" style="width:100%;" data-theme="c">
+				<div data-role="navbar" class="ui-navbar">
+					<ul class="ui-grid-b">
+						<li class="ui-block-a" style="width:25%;">
+							<a href="#page2" data-icon="arrow-l" data-iconpos="top" >Back</a>
+						</li>
+						<li class="ui-block-b" style="width:50%;">
+							<img class="logo" src="logo.png"/>
+						</li>
+						<li class="ui-block-c" style="width:25%;">
+							<a href="#"data-icon="arrow-r" data-iconpos="top">Next</a>
+						</li>
+					</ul>
+					
+				</div>
 			</div>
 			<div data-role="content">
 				<form data-role="none" class="secimler">
@@ -178,27 +212,18 @@
 				<label for="range-1b">Maximum IMDB Rating:</label>
 				<input name="rating" id="range-1b" min="0" max="10" value="10" step="0.1" type="range" />
 				</div>
+				<input type="button" value="Generate My Pleasure" id="gonderbunu" />
 			</div><!-- /content -->
-			<div data-role="footer" data-id= "fool" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" data-theme="e">Rating</a></li>
-						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div data-role="page" id="page4">
-            <div data-role="header" >
-				<img class="logo" src="logo.png"/>
-			</div>
-
-			<div data-role="content">
-				<input type="button" value="Generate My Pleasure" id="gonderbunu" />
-			</div><!-- /content -->
-			
 		</div>
 		
 		<div data-role="page" id="loading">
@@ -208,13 +233,13 @@
 			<div data-role="content">    
 				<p>Loading...</p>
 			</div><!-- /content -->
-			<div data-role="footer" data-id = "fool" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" >Rating</a></li>
-						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
 			</div>
@@ -231,13 +256,13 @@
 				<div class="2"> </div>
 				<div class="3"> </div>
 			</div><!-- /content -->
-			<div data-role="footer" data-id = "fool" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" data-theme="e">Rating</a></li>
-						<li><a href="#page4" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
 			</div>
