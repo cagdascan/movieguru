@@ -14,9 +14,9 @@
         </script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
         </script>
-        <script src="my.js">
-        </script>
-        <script>
+        <!--<script src="my.js">
+        </script> -->
+        <scripht>
 		try {
 
 			$(function() {
@@ -44,6 +44,7 @@
 		<script>
 			$('#gonderbunu').live('click',function(){
 			var secilenler = $('.secimler').serialize().toString();
+			console.log(secilenler);
 			//alert(secilenler);
 			//return false;
 			$.mobile.changePage('#loading');
@@ -54,19 +55,20 @@
 					  $.each(data, function(i,item)
 					  {
 						$(".1").append(item.title + " ");
-						//$(".2").append(item.rating + " ");
-						//$(".3").append(item.directors + " ");
+						$(".2").append(item.rating + " ");
+						$(".3").append(item.year + " ");
 					  });
 					  $.mobile.changePage('#sonuc');
 					});
 				});
+
 		</script>
     </head>
     <body>
 
 		
         <div data-role="page" id="page1">
-            <div data-role="header" style="width:100%;" data-theme="c">
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="c">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
 						<li class="ui-block-a" style="width:25%;">
@@ -122,7 +124,7 @@
 				</form>
 			</div>
 
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-theme="e" >Genre</a></li>
@@ -136,7 +138,7 @@
 		
 
 		<div data-role="page" id="page2">
-            <div data-role="header" style="width:100%;" data-theme="c">
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="c">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
 						<li class="ui-block-a" style="width:25%;">
@@ -176,7 +178,7 @@
 					</div>
 				</form>
 			</div>
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
@@ -188,7 +190,7 @@
 			</div>
 		</div>
 		<div data-role="page" id="page3">
-            <div data-role="header" style="width:100%;" data-theme="c">
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="c">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
 						<li class="ui-block-a" style="width:25%;">
@@ -214,7 +216,7 @@
 				</div>
 				<input type="button" value="Generate My Pleasure" id="gonderbunu" />
 			</div><!-- /content -->
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
@@ -227,7 +229,7 @@
 		</div>
 		
 		<div data-role="page" id="loading">
-            <div data-role="header" >
+            <div data-role="header" data-position="fixed" data-id="foo1">
 				<img class="logo" src="logo.png"/>
 			</div>
 			<div data-role="content">    
@@ -246,7 +248,7 @@
 		</div>
 		
 		<div data-role="page" id="sonuc">
-            <div data-role="header" >
+            <div data-role="header" data-position="fixed" data-id="foo1">
 				<img class="logo" src="logo.png"/>
 			</div>
 
@@ -256,7 +258,7 @@
 				<div class="2"> </div>
 				<div class="3"> </div>
 			</div><!-- /content -->
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
