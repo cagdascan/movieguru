@@ -45,6 +45,7 @@
 			$('#gonderbunu').live('click',function(){
 			var secilenler = $('.secimler').serialize().toString();
 			//alert(secilenler);
+			console.log(secilenler); //for debugging purposes
 			//return false;
 			$.mobile.changePage('#loading');
 			
@@ -54,12 +55,13 @@
 					  $.each(data, function(i,item)
 					  {
 						$(".1").append(item.title + " ");
-						//$(".2").append(item.rating + " ");
-						//$(".3").append(item.directors + " ");
+						$(".2").append(item.rating + " ");
+						$(".3").append(item.year + " ");
 					  });
 					  $.mobile.changePage('#sonuc');
 					});
 				});
+			//console.log(secilenler);
 		</script>
     </head>
     <body>
@@ -194,7 +196,7 @@
 			</div>
 
 			<div data-role="content">
-<input type="button" value="Generate My Pleasure" id="gonderbunu" />
+				<input type="button" value="Generate My Pleasure" id="gonderbunu" />
 			</div><!-- /content -->
 			
 		</div>
