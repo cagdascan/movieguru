@@ -47,8 +47,8 @@
 			console.log(secilenler);
 			//alert(secilenler);
 			//return false;
-			$.mobile.changePage('#loading');
-			
+			//$.mobile.changePage('#loading');
+			$.mobile.showPageLoadingMsg("b", "Loading", false);
 				$.getJSON("http://bayez.biz/moviegurus/?" + $('.secimler').serialize(),
 					function (data) 
 					{
@@ -222,24 +222,6 @@
 			</div>
 		</div><!--End of page 3 -->
 		
-		<div data-role="page" id="loading"> <!--Loading Page -->
-            <div data-role="header" data-position="fixed" data-id="foo1">
-				<img class="logo" src="logo.png"/>
-			</div>
-			<div data-role="content">    
-				<p>Loading...</p>
-			</div><!-- /content -->
-			<div data-role="footer" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
-					<ul>
-						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
-						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Rating</a></li>
-						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
-					</ul>
-				</div>
-			</div>
-		</div><!--End of loading page -->
 
 		<div data-role="page" id="sonuc"><!--Sonuc sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1">
