@@ -3,6 +3,11 @@ body {
 	margin:0;
 	padding:0;
 }
+
+.ui-page { 
+	-webkit-backface-visibility: hidden; 
+	} /*workaround for problems in transitions --may crash in android-- */
+
 .ui-field-contain .ui-controlgroup-label {
 	display:block;
 	width:100%;
@@ -30,7 +35,7 @@ body {
 	background: url("mycons/film-roll.png") no-repeat scroll 50% 50% / 26px 22px transparent;
 }
 #mtime .ui-icon {
-	background: url("mycons/calendar.png") no-repeat scroll 50% 50% / 23px 25px transparent;
+	background: url("mycons/calender.png") no-repeat scroll 50% 50% / 23px 25px transparent;
 }
 #mrating .ui-icon {
 	background: url("mycons/rating.png") no-repeat scroll 50% 50% / 28px 28px transparent;

@@ -16,7 +16,7 @@
         </script>
         <!--<script src="my.js">
         </script> -->
-        <scripht>
+        <script>
 		try {
 
 			$(function() {
@@ -66,9 +66,8 @@
     </head>
     <body>
 
-		
-        <div data-role="page" id="page1">
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="c">
+        <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
 						<li class="ui-block-a" style="width:25%;">
@@ -81,7 +80,6 @@
 							<a href="#page2"data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
-					
 				</div>
 			</div>
 			<div data-role="content" data-theme="c" style="padding:4px 5px 5px;">
@@ -121,13 +119,12 @@
 							<label for="checkbox26">Western</label>			
 						</fieldset>
 					</div>
-				</form>
+				</form><!--Genre secim formu -->
 			</div>
-
-			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
-						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-theme="e" >Genre</a></li>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" class="ui-btn-active ui-state-persist">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Time</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
@@ -136,8 +133,7 @@
 			</div>	
         </div>
 		
-
-		<div data-role="page" id="page2">
+		<div data-role="page" id="page2"><!--Page 2 -Zaman secim sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="c">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
@@ -151,10 +147,8 @@
 							<a href="#page3"data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
-					
 				</div>
 			</div>
-
 			<div data-role="content" style="padding:4px 5px 5px;">
 				<h4 style="margin: 6px 0 4px;text-align:center;">How old is your mood, now?</h4>
 				<form data-role="none" class="secimler">
@@ -178,8 +172,8 @@
 					</div>
 				</form>
 			</div>
-			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" class="ui-btn-active ui-state-persist">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-theme="e" data-direction="reverse" data-transition="slide">Time</a></li>
@@ -188,8 +182,9 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div data-role="page" id="page3">
+		</div> <!--End of page 2 -->
+
+		<div data-role="page" id="page3"> <!--Page 3 - rating secim sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="c">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
@@ -203,7 +198,6 @@
 							<a href="#"data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
-					
 				</div>
 			</div>
 			<div data-role="content">
@@ -216,8 +210,8 @@
 				</div>
 				<input type="button" value="Generate My Pleasure" id="gonderbunu" />
 			</div><!-- /content -->
-			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" class="ui-btn-active ui-state-persist">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
@@ -226,17 +220,17 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div><!--End of page 3 -->
 		
-		<div data-role="page" id="loading">
+		<div data-role="page" id="loading"> <!--Loading Page -->
             <div data-role="header" data-position="fixed" data-id="foo1">
 				<img class="logo" src="logo.png"/>
 			</div>
 			<div data-role="content">    
 				<p>Loading...</p>
 			</div><!-- /content -->
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<div data-role="footer" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" class="ui-btn-active ui-state-persist">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
@@ -245,21 +239,20 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		
-		<div data-role="page" id="sonuc">
+		</div><!--End of loading page -->
+
+		<div data-role="page" id="sonuc"><!--Sonuc sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1">
 				<img class="logo" src="logo.png"/>
 			</div>
-
 			<div data-role="content">    
 				<p>This is the movie</p>
 				<div class="1"> </div>
 				<div class="2"> </div>
 				<div class="3"> </div>
 			</div><!-- /content -->
-			<div data-role="footer" data-id="foo1" data-theme="c" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" class="ui-btn-active ui-state-persist">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
@@ -268,9 +261,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		
-	
+		</div> <!--end of sonuc sayfasi -->
 
     </body>
 </html>
