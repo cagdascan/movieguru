@@ -42,26 +42,39 @@
 		
 		});-->
 		<script>
-			$('#gonderbunu').live('click',function(){
-			var secilenler = $('.secimler').serialize().toString();
-			console.log(secilenler);
-			//alert(secilenler);
-			//return false;
-			//$.mobile.changePage('#loading');
-			$.mobile.showPageLoadingMsg("b", "Loading", false);
+			$('#gonderbunu').live('click',function() //generate my pleasure buttonu
+			{
+				var secilenler = $('.secimler').serialize().toString();
+				console.log(secilenler);//for debugging
+				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
 				$.getJSON("http://bayez.biz/moviegurus/?" + $('.secimler').serialize(),
 					function (data) 
 					{
-					  $.each(data, function(i,item)
-					  {
-						$(".1").append(item.title + " ");
-						$(".2").append(item.rating + " ");
-						$(".3").append(item.year + " ");
-					  });
-					  $.mobile.changePage('#sonuc');
+						var titles = [];
+						var years = [];
+						var ratings = [];
+						var result_title = function(i){
+							return "#result"+i+"_title";
+						};
+						var result_rating = function(i){
+							return "#result"+i+"_rating";
+						};
+						var result_year = function(i){
+							return "#result"+i+"_year";
+						};
+						$.each(data, function(i,item)
+						{
+							titles.push(item.title);
+							years.push(item.year);
+							ratings.push(item.rating);
+							
+							$(result_title(i)).append (titles[i]);
+							$(result_rating(i)).append (ratings[i]);
+						    $(result0_year(i)).append (years[i]);
+					  	});
+					  $.mobile.changePage('#result0');
 					});
-				});
-
+			}); 
 		</script>
     </head>
     <body>
@@ -223,15 +236,15 @@
 		</div><!--End of page 3 -->
 		
 
-		<div data-role="page" id="sonuc"><!--Sonuc sayfasi -->
+		<div data-role="page" id="result0"><!--Sonuc sayfasi 0-->
             <div data-role="header" data-position="fixed" data-id="foo1">
 				<img class="logo" src="logo.png"/>
 			</div>
 			<div data-role="content">    
 				<p>This is the movie</p>
-				<div class="1"> </div>
-				<div class="2"> </div>
-				<div class="3"> </div>
+				<div id="result0_title"> </div>
+				<div id="result0_rating"> </div>
+				<div id="result0_year"> </div>
 			</div><!-- /content -->
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
@@ -243,7 +256,29 @@
 					</ul>
 				</div>
 			</div>
-		</div> <!--end of sonuc sayfasi -->
+		</div>
+
+		<div data-role="page" id="result1"><!--Sonuc sayfasi 1-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result1_title"> </div>
+				<div id="result1_rating"> </div>
+				<div id="result1_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
     </body>
 </html>
