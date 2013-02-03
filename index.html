@@ -75,6 +75,22 @@
 					  $.mobile.changePage('#result0');
 					});
 			}); 
+
+			$('#result0').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result1');
+        	});
+        	$('#result1').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result2');
+        	}); 
+        	$('#result2').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result3');
+        	}); 
+        	$('#result3').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result4');
+        	}); 
+        	$('#result4').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result0');
+        	});   
 		</script>
     </head>
     <body>
@@ -267,6 +283,72 @@
 				<div id="result1_title"> </div>
 				<div id="result1_rating"> </div>
 				<div id="result1_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+		<div data-role="page" id="result2"><!--Sonuc sayfasi 2-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result2_title"> </div>
+				<div id="result2_rating"> </div>
+				<div id="result2_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+		<div data-role="page" id="result3"><!--Sonuc sayfasi 3-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result3_title"> </div>
+				<div id="result3_rating"> </div>
+				<div id="result3_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+		<div data-role="page" id="result4"><!--Sonuc sayfasi 4-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result4_title"> </div>
+				<div id="result4_rating"> </div>
+				<div id="result4_year"> </div>
 			</div><!-- /content -->
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
