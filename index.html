@@ -42,7 +42,7 @@
 		
 		});-->
 		<script>
-			$('#gonderbunu').live('click',function() //generate my pleasure buttonu
+			$('#mgogo').live('click',function() //generate my pleasure buttonu
 			{
 				var secilenler = $('.secimler').serialize().toString();
 				console.log(secilenler);//for debugging
@@ -97,15 +97,15 @@
 
         <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar">
-					<ul class="ui-grid-b">
-						<li class="ui-block-a" style="width:25%;">
+				<div data-role="navbar" class="ui-navbar" >
+					<ul class="ui-grid-b" >
+						<li class="ui-block-a" style="width:20%;">
 							<a href="#" data-icon="info" data-iconpos="top" >info</a>
 						</li>
-						<li class="ui-block-b" style="width:50%;">
+						<li class="ui-block-b" style="width:60%;">
 							<a href="#"><img class="logo" src="logo.png"/></a>
 						</li>
-						<li class="ui-block-c" style="width:25%;">
+						<li class="ui-block-c" style="width:20%;">
 							<a href="#page2"data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
@@ -154,7 +154,7 @@
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" class="ui-btn-active ui-state-persist">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
@@ -166,13 +166,13 @@
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
-						<li class="ui-block-a" style="width:25%;">
+						<li class="ui-block-a" style="width:20%;">
 							<a href="#page1" data-icon="arrow-l" data-iconpos="top" >Back</a>
 						</li>
-						<li class="ui-block-b" style="width:50%;">
-							<img class="logo" src="logo.png"/>
+						<li class="ui-block-b" style="width:60%;">
+							<a href="#"><img class="logo" src="logo.png"/></a>
 						</li>
-						<li class="ui-block-c" style="width:25%;">
+						<li class="ui-block-c" style="width:20%;">
 							<a href="#page3"data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
@@ -187,16 +187,22 @@
 							<label for="radio-choice-1">Seize the day 2010+</label>
 
 							<input type="radio" name="year" id="radio-choice-2" value="2000"  />
-							<label for="radio-choice-2">2000's like yesterday</label>
+							<label for="radio-choice-2">2000s like yesterday</label>
 
 							<input type="radio" name="year" id="radio-choice-3" value="1990"  />
-							<label for="radio-choice-3">90's were cool</label>
+							<label for="radio-choice-3">90s were cool</label>
 
 							<input type="radio" name="year" id="radio-choice-4" value="1980"  />
-							<label for="radio-choice-4">I Love 80's</label>
+							<label for="radio-choice-4">I Love 80s</label>
+
+							<input type="radio" name="year" id="radio-choice-5" value="1970"  />
+							<label for="radio-choice-5">Feel like daddy. Give me 70s</label>							
+
+							<input type="radio" name="year" id="radio-choice-6" value="1960"  />
+							<label for="radio-choice-6">60s to understand Grandma</label>
 							
-							<input type="radio" name="year" id="radio-choice-5" value="1800"  />
-							<label for="radio-choice-5">Grandpa's Please</label>
+							<input type="radio" name="year" id="radio-choice-7" value="1800"  />
+							<label for="radio-choice-7">Ancient pieces. Before 1960.</label>
 						</fieldset>
 					</div>
 				</form>
@@ -205,7 +211,7 @@
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" class="ui-btn-active ui-state-persist"data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" class="ui-btn-active ui-state-persist"data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
@@ -217,13 +223,13 @@
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
-						<li class="ui-block-a" style="width:25%;">
+						<li class="ui-block-a" style="width:20%;">
 							<a href="#page2" data-icon="arrow-l" data-iconpos="top" >Back</a>
 						</li>
-						<li class="ui-block-b" style="width:50%;">
-							<img class="logo" src="logo.png"/>
+						<li class="ui-block-b" style="width:60%;">
+							<a href="#"><img class="logo" src="logo.png"/></a>
 						</li>
-						<li class="ui-block-c" style="width:25%;">
+						<li class="ui-block-c" style="width:20%;">
 							<a href="#"data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
@@ -237,13 +243,12 @@
 				<label for="range-1b">Maximum IMDB Rating:</label>
 				<input name="rating" id="range-1b" min="0" max="10" value="10" step="0.1" type="range" />
 				</div>
-				<input type="button" value="Generate My Pleasure" id="gonderbunu" />
 			</div><!-- /content -->
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
@@ -259,14 +264,16 @@
 			<div data-role="content">    
 				<p>This is the movie</p>
 				<div id="result0_title"> </div>
-				<div id="result0_rating"> </div>
+				<div id="result0_rating"> 
+<object style="width:90%;height:auto;display:block;"><param name="movie" value="http://www.traileraddict.com/emd/10310"></param><param name="allowscriptaccess" value="always"></param><param name="wmode" value="transparent"></param><param name="allowfullscreen" value="true"></param><embed src="http://www.traileraddict.com/emd/10310" type="application/x-shockwave-flash" wmode="transparent" allowfullscreen="true" allowscriptaccess="always" ></embed></object>				
+				</div>
 				<div id="result0_year"> </div>
 			</div><!-- /content -->
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
 					</ul>
@@ -288,7 +295,7 @@
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
 					</ul>
@@ -310,7 +317,7 @@
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
 					</ul>
@@ -332,7 +339,7 @@
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
 					</ul>
@@ -354,7 +361,7 @@
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
 					<ul>
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Time</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
 					</ul>

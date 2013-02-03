@@ -20,6 +20,7 @@ body {
 }
 .logo {
 	margin:auto;
+	margin-top:-30px;
 
 }
 #checkboxes1 {
@@ -29,18 +30,18 @@ body {
 	text-align:center;
 }
 .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
-.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+.nav-glyphish-example .ui-btn .ui-icon { width: 42px!important; height: 30px!important; margin-left: -21px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 #mgenre .ui-icon {
-	background:url("mycons/film-roll.png") no-repeat scroll 50% 50% / 26px 22px transparent;
+	background:url("mycons/film-roll.png") no-repeat 50% 50% transparent!important;
 }
 #mtime .ui-icon {
-	background: url("mycons/calendar.png") no-repeat scroll 50% 50% / 23px 25px transparent;
+	background: url("mycons/calendar.png") no-repeat scroll 50% 50% transparent;
 }
 #mrating .ui-icon {
-	background: url("mycons/rating.png") no-repeat scroll 50% 50% / 28px 28px transparent;
+	background: url("mycons/rating.png") no-repeat scroll 50% 50%  transparent;
 }
 #mgogo .ui-icon {
-	background: url("mycons/finish.png") no-repeat scroll 50% 50% / 30px 15px transparent;
+	background: url("mycons/finish.png") no-repeat scroll 50% 50% transparent;
 	width:42px;
 }
 header img {
