@@ -23,6 +23,11 @@ body {
 	margin-top:-30px;
 
 }
+.logo2 {
+	margin:auto;
+	padding:5px 0 15px;
+	display:block;
+}
 #checkboxes1 {
 	margin-top:0;
 }
@@ -33,20 +38,48 @@ body {
 .nav-glyphish-example .ui-btn .ui-icon { width: 42px!important; height: 30px!important; margin-left: -21px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 #mgenre .ui-icon {
 	background:url("mycons/film-roll.png") no-repeat 50% 50% transparent!important;
+	color:#999 !important;
+}
+#mgenre2 .ui-icon {
+	background:url("mycons/film-roll2.png") no-repeat 50% 50% transparent!important;
 }
 #mtime .ui-icon {
 	background: url("mycons/calendar.png") no-repeat scroll 50% 50% transparent;
 }
+#mtime2 .ui-icon {
+	background: url("mycons/calendar2.png") no-repeat scroll 50% 50% transparent;
+}
+#mgenre  .ui-btn-text, #mtime .ui-btn-text, #mrating .ui-btn-text, #mrating .ui-btn-text, #mgogo .ui-btn-text {
+	color:#aaa;
+}
 #mrating .ui-icon {
 	background: url("mycons/rating.png") no-repeat scroll 50% 50%  transparent;
 }
+#mrating2 .ui-icon {
+	background: url("mycons/rating2.png") no-repeat scroll 50% 50%  transparent;
+}
 #mgogo .ui-icon {
 	background: url("mycons/finish.png") no-repeat scroll 50% 50% transparent;
-	width:42px;
+}
+#mgogo2 .ui-icon {
+	background: url("mycons/finish2.png") no-repeat scroll 50% 50% transparent;
 }
 header img {
 
 }
 header {
 	
+}
+.ui-btn-up-f {
+border: 1px solid #111;
+background: #333;
+font-weight: bold;
+color: #fff;
+text-shadow: 0 1px 1px #111;
+background-image: -webkit-gradient(linear,left top,left bottom,from( #444 ),to( #777 ));
+background-image: -webkit-linear-gradient( #444,#777 );
+background-image: -moz-linear-gradient( #444,#777 );
+background-image: -ms-linear-gradient( #444,#777 );
+background-image: -o-linear-gradient( #444,#777 );
+background-image: linear-gradient( #444,#777 );
 }
