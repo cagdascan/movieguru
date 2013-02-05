@@ -91,22 +91,6 @@
         	$('#result4').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
         		$.mobile.changePage('#result0');
         	});   
-
-        	// $('#result0').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        	// 	$.mobile.changePage('#result1');
-        	// });
-        	// $('#result1').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        	// 	$.mobile.changePage('#result2');
-        	// }); 
-        	// $('#result2').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        	// 	$.mobile.changePage('#result3');
-        	// }); 
-        	// $('#result3').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        	// 	$.mobile.changePage('#result4');
-        	// }); 
-        	// $('#result4').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        	// 	$.mobile.changePage('#result0');
-        	// });  
 		</script>
     </head>
     <body>
@@ -197,29 +181,33 @@
 			<div data-role="content" style="padding:4px 5px 5px;">
 				<h4 style="margin: 6px 0 4px;text-align:center;">How old is your mood, now?</h4>
 				<form data-role="none" class="secimler">
-					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup">
+					<div data-role="fieldcontain" class="ui-grid-a"> 
+						<div data-role="controlgroup" data-type="vertical" class="ui-block-a">
 							<input type="radio" name="year" id="radio-choice-1" value="2010" checked="checked" />
-							<label for="radio-choice-1">Seize the day 2010+</label>
+							<label for="radio-choice-1"><img src="mycons/2010.png" /></label>
 
 							<input type="radio" name="year" id="radio-choice-2" value="2000"  />
-							<label for="radio-choice-2">2000s like yesterday</label>
+							<label for="radio-choice-2"><img src="mycons/2000.png" /></label>
 
 							<input type="radio" name="year" id="radio-choice-3" value="1990"  />
-							<label for="radio-choice-3">90s were cool</label>
+							<label for="radio-choice-3"><img src="mycons/1990.png" /></label>
 
 							<input type="radio" name="year" id="radio-choice-4" value="1980"  />
-							<label for="radio-choice-4">I Love 80s</label>
-
+							<label for="radio-choice-4"><img src="mycons/1980.png" /></label>
+						</div>
+						<div data-role="controlgroup" data-type="vertical" class="ui-block-b">
 							<input type="radio" name="year" id="radio-choice-5" value="1970"  />
-							<label for="radio-choice-5">Feel like daddy. Give me 70s</label>							
+							<label for="radio-choice-5"><img src="mycons/1970.png" /></label>							
 
 							<input type="radio" name="year" id="radio-choice-6" value="1960"  />
-							<label for="radio-choice-6">60s to understand Grandma</label>
+							<label for="radio-choice-6"><img src="mycons/1960.png" /></label>
 							
 							<input type="radio" name="year" id="radio-choice-7" value="1800"  />
-							<label for="radio-choice-7">Ancient pieces. Before 1960.</label>
-						</fieldset>
+							<label for="radio-choice-7"><img src="mycons/older.png" /></label>
+							
+							<input type="radio" name="year" id="radio-choice-8" value="0"  />
+							<label for="radio-choice-8"><img src="mycons/alltime.png" /></label>
+						</div>
 					</div>
 				</form>
 			</div>
