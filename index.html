@@ -29,6 +29,9 @@
         </script>
         <script>//local database script
 			var db = null;
+			var movies = [];
+			var movie_view = [];
+
 			function html5_storage_support() {
 			  try {
 			    return 'localStorage' in window && window['localStorage'] == null;
@@ -42,43 +45,53 @@
 			} else {
 			  
 				//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
-				db = openDatabase("MyContacts", "1", "My Personal Contacts", 100000);
+				db = openDatabase("myMovies", "1", "My Watch List", 100000);
 			  
-				function storeMyMovie1(id) {
-					var movie1	= id.innerHTML;
+				function storeMyMovie(id) {
+					// var movies = [];
+					var i = movies.length + 1;
+					movies[i]	= id.innerHTML;
 					// var movie2	= document.getElementById('movie2').innerHTML;
-					localStorage.setItem('movie1',movie1);
+					localStorage.setItem('movie'+i, movies[i]);
+					// i = i +1;
 					// localStorage.setItem('movie2',movie2);
 					
 				}
 
-				function storeMyMovie2(id) {
-					var movie2	= id.innerHTML;
-					// var movie2	= document.getElementById('movie2').innerHTML;
-					localStorage.setItem('movie2',movie2);
-					// localStorage.setItem('movie2',movie2);
+				// function storeMyMovie2(id) {
+				// 	var movie2	= id.innerHTML;
+				// 	// var movie2	= document.getElementById('movie2').innerHTML;
+				// 	localStorage.setItem('movie2',movie2);
+				// 	// localStorage.setItem('movie2',movie2);
 					
-				}
+				// }
 
 
 			  //GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES OR DEFINE IF THEY DO NOT EXIST
 			  
 
 
-			  function getMyMovie1() {
-			      var movie1_view = localStorage.getItem('movie1');
-			      document.getElementById('movie1_view').innerHTML = movie1_view;
+			  function getMyMovie() {
+
+			  	  var i = 1;
+			      movie_view[i] = localStorage.getItem('movie'+i);
+			      document.getElementById('movie'+i+'_view').innerHTML = movie_view[i];
+			      i = i +1;
 			      
 			  }
 
-			  function getMyMovie2() {
-			  		var movie2_view = localStorage.getItem('movie2');
-			    	document.getElementById('movie2_view').innerHTML = movie2_view;
-			  }
+			  // function getMyMovie2() {
+			  // 		var movie2_view = localStorage.getItem('movie2');
+			  //   	document.getElementById('movie2_view').innerHTML = movie2_view;
+			  // }
 
 			  function getMyAllMovies() {
-			  	  getMyMovie2();
-			  	  getMyMovie1();
+			  	  
+			  	  for ( var i = 0; i < movies.length; i++ ) {
+ 
+  						getMyMovie();
+ 
+					}
 			  }
 
 			  function clearLocal() {
@@ -310,7 +323,7 @@
 				<label for="range-1b">Maximum IMDB Rating:</label>
 				<input name="rating" id="range-1b" min="0" max="10" value="10" step="0.1" type="range" />
 				</div> -->
-				<div id="myContacts">
+				<div id="myMovies">
   					<!-- <div>N: <span id="fullname" contenteditable="true" onkeyup="storeMyContact(this.id)"></span></div>
   					<div>P: <span id="phone" contenteditable="true" onkeyup="storeMyContact(this.id)"></span></	div>
   					<div>E: <span id="email" contenteditable="true" onkeyup="storeMyContact(this.id)"></span></div>
@@ -320,23 +333,21 @@
   					<div id="movie1">Matrix</div>
   						<script>
 							$("#movie1").click(function( event ) {
-								var movie1	= document.getElementById('movie1');
-	  							storeMyMovie1(movie1);
-	  							getMyMovie1();
+	  							storeMyMovie(document.getElementById('movie1'));
+	  							getMyMovie();
 							});
 						</script>
 
   					<div id = "movie2">batman</div>
   						<script>
 							$("#movie2").click(function( event ) {
-								var movie2	= document.getElementById('movie2');
-	  							storeMyMovie2(movie2);
-	  							getMyMovie2();
+	  							storeMyMovie(document.getElementById('movie2'));
+	  							getMyMovie();
 							});
 						</script>
   					
-  					<div id = "movie1_view">a</div>
-  					<div id = "movie2_view">b</div>
+  					<div id = "movie1_view"></div>
+  					<div id = "movie2_view"></div>
 
   					<div><a onclick="clearLocal(); getMyAllMovies();" href="javascript:void(0);">Clear All Of My Data</a></div>
 
