@@ -27,6 +27,69 @@
 			console.error("Your javascript has an error: " + error);
 		}
         </script>
+        <script>//local database script
+			var db = null;
+			function html5_storage_support() {
+			  try {
+			    return 'localStorage' in window && window['localStorage'] == null;
+			  } catch (e) {
+			    return false;
+			  }
+			}
+			//CHECK TO SEE IF THE BROWSER IS COMPATIBLE 
+			if (!html5_storage_support) {
+			  alert("This Might Be a Good Time to Upgrade Your Browser or Turn On Jeavascript");
+			} else {
+			  
+				//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
+				db = openDatabase("MyContacts", "1", "My Personal Contacts", 100000);
+			  
+				function storeMyMovie1(id) {
+					var movie1	= id.innerHTML;
+					// var movie2	= document.getElementById('movie2').innerHTML;
+					localStorage.setItem('movie1',movie1);
+					// localStorage.setItem('movie2',movie2);
+					
+				}
+
+				function storeMyMovie2(id) {
+					var movie2	= id.innerHTML;
+					// var movie2	= document.getElementById('movie2').innerHTML;
+					localStorage.setItem('movie2',movie2);
+					// localStorage.setItem('movie2',movie2);
+					
+				}
+
+
+			  //GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES OR DEFINE IF THEY DO NOT EXIST
+			  
+
+
+			  function getMyMovie1() {
+			      var movie1_view = localStorage.getItem('movie1');
+			      document.getElementById('movie1_view').innerHTML = movie1_view;
+			      
+			  }
+
+			  function getMyMovie2() {
+			  		var movie2_view = localStorage.getItem('movie2');
+			    	document.getElementById('movie2_view').innerHTML = movie2_view;
+			  }
+
+			  function getMyAllMovies() {
+			  	  getMyMovie2();
+			  	  getMyMovie1();
+			  }
+
+			  function clearLocal() {
+			    clear: localStorage.clear(); 
+			    return false;
+			  }
+			}
+			</script><!--local database end-->
+
+			
+
 
         <!-- User-generated js 
 
@@ -240,13 +303,50 @@
 				</div>
 			</div>
 			<div data-role="content">
-				<form data-role="none" class="secimler">
+				<!-- <form data-role="none" class="secimler">
 				<div data-role="rangeslider">
 				<label for="range-1a">Minimum IMDB Rating:</label>
 				<input name="rating" id="range-1a" min="0" max="10" value="0" step="0.1" type="range" />
 				<label for="range-1b">Maximum IMDB Rating:</label>
 				<input name="rating" id="range-1b" min="0" max="10" value="10" step="0.1" type="range" />
+				</div> -->
+				<div id="myContacts">
+  					<!-- <div>N: <span id="fullname" contenteditable="true" onkeyup="storeMyContact(this.id)"></span></div>
+  					<div>P: <span id="phone" contenteditable="true" onkeyup="storeMyContact(this.id)"></span></	div>
+  					<div>E: <span id="email" contenteditable="true" onkeyup="storeMyContact(this.id)"></span></div>
+  					<div><a onclick="clearLocal(); getMyContact();" href="javascript:void(0);">Clear All Of My Data</a></div> -->
+
+  					<!-- <p id = "movie1">matrix</p> -->
+  					<div id="movie1">Matrix</div>
+  						<script>
+							$("#movie1").click(function( event ) {
+								var movie1	= document.getElementById('movie1');
+	  							storeMyMovie1(movie1);
+	  							getMyMovie1();
+							});
+						</script>
+
+  					<div id = "movie2">batman</div>
+  						<script>
+							$("#movie2").click(function( event ) {
+								var movie2	= document.getElementById('movie2');
+	  							storeMyMovie2(movie2);
+	  							getMyMovie2();
+							});
+						</script>
+  					
+  					<div id = "movie1_view">a</div>
+  					<div id = "movie2_view">b</div>
+
+  					<div><a onclick="clearLocal(); getMyAllMovies();" href="javascript:void(0);">Clear All Of My Data</a></div>
+
+
+  					
+
 				</div>
+				<script>
+  					getMyAllMovies();
+				</script>
 			</div><!-- /content -->
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
