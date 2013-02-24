@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <title>
-        </title>
+        <title>Movie Guru</title>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
         <link rel="stylesheet" href="my.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -23,8 +22,8 @@
 			console.error("Your javascript has an error: " + error);
 		}
         </script>
-        <script>//local database script
 
+        <script>//local database script
 			//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
 			var db = openDatabase("myMovies", "1", "My Watch List", 100000);
 			var movies = [];
@@ -36,16 +35,18 @@
 				localStorage.setItem('movie'+i, movies[i]);					
 			}
 			
-			function removeMyMovie() {
-				// movies[i]	= id.innerHTML;
-				localStorage.removeItem('movie1');				
+			function removeMyMovie(id) {
+				//var id = id;// movies[i]	= id.innerHTML;
+				
+				localStorage.removeItem('movie1');//sadece ilk filmi siliyor
+				//console.log(id);			
 			}
 
 			//GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES 
 			function getMyAllMovies() {
 		  	  	for ( var i = 1; i <= localStorage.length; i++ ) { 
 		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
-		      		$('#movie_wish_list').append('<li><a href="#"><img src="../../_assets/img/album-bb.jpg"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="../../_assets/img/album-bb.jpg"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
 				}
 			  }
 
@@ -202,7 +203,7 @@
             
 		</div> <!--End of page 2 -->
 
-		<div data-role="page" id="page3"> <!--Page 3 - rating secim sayfasi -->
+		<div data-role="page" id="page3"> <!--Page 3 - Watch list sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
 				<div data-role="navbar" class="ui-navbar">
 					<ul class="ui-grid-b">
@@ -242,13 +243,13 @@
 							});
 						</script>
   					
-  					<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" id="movie_wish_list">
-						    
+  					<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="movie_wish_list">
+						    <!-- watch list itemlari burayi populate edecek -->
 					</ul>
-						<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+						<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;"> <!-- delete movie from watchlist -->
 						    <h3>Delete Movie?</h3>
 						    <p>The movie will be deleted from your Watch List</p>
-						    <a onclick="removeMyMovie(); getMyAllMovies();" href="javascript:void(0);" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
+						    <a onclick="removeMyMovie(movie1); getMyAllMovies();" href="javascript:void(0);" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
 						    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
 						</div>
 
