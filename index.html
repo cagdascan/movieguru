@@ -75,6 +75,7 @@
 						var titles = [];
 						var years = [];
 						var ratings = [];
+						var arkas = [];
 						var posters = [];
 						var result_title = function(i){
 							return "#result"+i+"_title";
@@ -85,6 +86,9 @@
 						var result_year = function(i){
 							return "#result"+i+"_year";
 						};
+						var result_arka = function(i){
+							return "#result"+i+"_arka";
+						};
 						var result_poster = function(i){
 							return ".result"+i+"_poster";
 						};
@@ -92,12 +96,14 @@
 						{
 							titles.push(item.title);
 							years.push(item.year);
-							ratings.push(item.rating);
+							ratings.push("<p>" + item.rating + "</p><span>rating</span>");
+							arkas.push("<img style='display:block;width:100%;height:auto;' src='" + item.poster + "' />");
 							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.poster + "' />");
 							
 							$(result_title(i)).append (titles[i]);
 							$(result_rating(i)).append (ratings[i]);
 						    $(result_year(i)).append (years[i]);
+							$(result_arka(i)).append (arkas[i]);
 							$(result_poster(i)).append (posters[i]);
 					  	});
 					  $.mobile.changePage('#result0');
@@ -267,10 +273,12 @@
 				</div>
 			</div>
 			<div data-role="content" class="content_sonuc">    
-				<div class="result0_poster poster"> </div>
-				
-				<div id="result0_title" class="titlem"> </div>
-				<div class="result0_poster vitrin"> </div>
+				<div id="result0_arka" class="arka"> </div>
+				<div class="content_sonuc_inner">
+					<div id="result0_title" class="titlem"> </div>
+					<div class="result0_poster poster"> </div>
+					<div id="result0_rating" class="rating"></div>
+				</div>
 				<div id="addToWatchList1" data-role="button" class="addwatch">Add to watchlist</div>
 
 						<script>
