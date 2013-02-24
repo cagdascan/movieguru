@@ -117,11 +117,11 @@ background-image: linear-gradient( #444,#777 );
 .titlem {
 	position:absolute;
 	top:3vw;
-	right:5vw;
+	right:3vw;
 	font-size:6.4vw;
 	color:#fff;
 	display:block;
-	width:90%;
+	width:48%;
 	margin:auto;
 	text-align:center;
 	text-shadow:1px 1px 0 #333;
@@ -132,20 +132,15 @@ background-image: linear-gradient( #444,#777 );
 	width:100%;
 	height:auto;
 	opacity:0.5;
+	display:block;
 	padding:0;
 	margin:0;
 	background:#000;
 }
 .vitrin {
 position:absolute;
-top: 20vw;
+top: 3vw;
 left: 3%;
 width: 44vw;
-}
-.addwatch {
-	position:absolute;
-	width:%40;
-	margin:auto;
-	top:30%;
-	left:70%;
+
 }
