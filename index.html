@@ -77,6 +77,7 @@
 						var ratings = [];
 						var arkas = [];
 						var posters = [];
+						var plots = [];
 						var result_title = function(i){
 							return "#result"+i+"_title";
 						};
@@ -92,19 +93,24 @@
 						var result_poster = function(i){
 							return ".result"+i+"_poster";
 						};
+						var result_plot = function(i){
+							return "#result"+i+"_plot";
+						};
+						
 						$.each(data, function(i,item)
 						{
 							titles.push(item.title);
 							years.push(item.year);
-							ratings.push("<p>" + item.rating + "</p><span>rating</span>");
+							ratings.push("<p>" + item.rating + "</p>");
 							arkas.push("<img style='display:block;width:100%;height:auto;' src='" + item.poster + "' />");
 							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.poster + "' />");
-							
+							plots.push(item.plot_simple);
 							$(result_title(i)).append (titles[i]);
 							$(result_rating(i)).append (ratings[i]);
 						    $(result_year(i)).append (years[i]);
 							$(result_arka(i)).append (arkas[i]);
 							$(result_poster(i)).append (posters[i]);
+							$(result_plot(i)).append (plots[i]);
 					  	});
 					  $.mobile.changePage('#result0');
 					});
@@ -261,7 +267,7 @@
 				<div data-role="navbar" class="ui-navbar" >
 					<ul class="ui-grid-b" >
 						<li class="ui-block-a" style="width:20%;">
-							<a href="#" data-icon="grid" data-iconpos="top" >Menu</a>
+							<a href="#" data-icon="bars" data-iconpos="top" >Menu</a>
 						</li>
 						<li class="ui-block-b" style="width:60%;">
 							<a href="#"><img class="logo" src="logo.png"/></a>
@@ -278,9 +284,11 @@
 					<div id="result0_title" class="titlem"> </div>
 					<div class="result0_poster poster"> </div>
 					<div id="result0_rating" class="rating"></div>
+					<div class="addwatch">
+						<div id="addToWatchList1" data-role="button" data-icon="star">Add</div>
+					</div>
+					<div id="result0_plot" class="plotm"> </div>
 				</div>
-				<div id="addToWatchList1" data-role="button" class="addwatch">Add to watchlist</div>
-
 						<script>
 							$("#addToWatchList1").click(function( event ) {
 	  							storeMyMovie(document.getElementById('result0_title'));
@@ -308,10 +316,16 @@
 				</div>
 			</div>
 			<div data-role="content" class="content_sonuc">    
-				<div class="result1_poster poster"> </div>
-				<div class="result1_poster vitrin"> </div>
-				<div id="result1_title" class="titlem"> </div>
-				<div id="addToWatchList2" data-role="button" class="addwatch">Add to watchlist</div>
+				<div id="result1_arka" class="arka"> </div>
+				<div class="content_sonuc_inner">
+					<div id="result1_title" class="titlem"> </div>
+					<div class="result1_poster poster"> </div>
+					<div id="result1_rating" class="rating"></div>
+					<div class="addwatch">
+						<div id="addToWatchList2" data-role="button" data-icon="star">Add</div>
+					</div>
+					<div id="result1_plot" class="plotm"> </div>
+				</div>
 
 						<script>
 							$("#addToWatchList2").click(function( event ) {
@@ -339,10 +353,16 @@
 				</div>
 			</div>
 			<div data-role="content" class="content_sonuc">    
-				<div class="result2_poster poster"> </div>
-				<div class="result2_poster vitrin"> </div>
-				<div id="result2_title" class="titlem"> </div>
-				<div id="addToWatchList3" data-role="button" class="addwatch">Add to watchlist</div>
+				<div id="result2_arka" class="arka"> </div>
+				<div class="content_sonuc_inner">
+					<div id="result2_title" class="titlem"> </div>
+					<div class="result2_poster poster"> </div>
+					<div id="result2_rating" class="rating"></div>
+					<div class="addwatch">
+						<div id="addToWatchList3" data-role="button" data-icon="star">Add</div>
+					</div>
+					<div id="result2_plot" class="plotm"> </div>
+				</div>
 
 						<script>
 							$("#addToWatchList3").click(function( event ) {
@@ -370,10 +390,16 @@
 				</div>
 			</div>
 			<div data-role="content" class="content_sonuc">    
-				<div class="result3_poster poster"> </div>
-				<div class="result3_poster vitrin"> </div>
-				<div id="result3_title" class="titlem"> </div>
-				<div id="addToWatchList4" data-role="button" class="addwatch">Add to watchlist</div>
+				<div id="result3_arka" class="arka"> </div>
+				<div class="content_sonuc_inner">
+					<div id="result3_title" class="titlem"> </div>
+					<div class="result3_poster poster"> </div>
+					<div id="result3_rating" class="rating"></div>
+					<div class="addwatch">
+						<div id="addToWatchList4" data-role="button" data-icon="star">Add</div>
+					</div>
+					<div id="result3_plot" class="plotm"> </div>
+				</div>
 
 						<script>
 							$("#addToWatchList4").click(function( event ) {
@@ -401,10 +427,16 @@
 				</div>
 			</div>
 			<div data-role="content" class="content_sonuc">    
-				<div class="result4_poster poster"> </div>
-				<div class="result4_poster vitrin"> </div>
-				<div id="result4_title" class="titlem"> </div>
-				<div id="addToWatchList5" data-role="button" class="addwatch">Add to watchlist</div>
+				<div id="result4_arka" class="arka"> </div>
+				<div class="content_sonuc_inner">
+					<div id="result4_title" class="titlem"> </div>
+					<div class="result4_poster poster"> </div>
+					<div id="result4_rating" class="rating"></div>
+					<div class="addwatch">
+						<div id="addToWatchList5" data-role="button" data-icon="star">Add</div>
+					</div>
+					<div id="result4_plot" class="plotm"> </div>
+				</div>
 
 						<script>
 							$("#addToWatchList5").click(function( event ) {

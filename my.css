@@ -176,9 +176,21 @@ background-image: linear-gradient( #444,#777 );
 	clear:both;
 }
 .addwatch {
-	position:absolute;
-	width:%40;
-	margin:auto;
-	top:30%;
-	left:70%;
+	float:left;
+	width:45%;
+	margin:3% auto;
+	margin-left: 4%;
+}
+.plotm {
+	clear: both;
+	display: block;
+	color: #fff;
+	text-shadow: 1px 1px 0px #000;
+	font-family: arial;
+	font-size: 3vw;
+	background:rgba(0,0,0,0.5);
+	margin-top: 3vw;
+	float: left;
+	width: 94%;
+	padding: 3%;
 }
