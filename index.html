@@ -130,6 +130,7 @@
 						var titles = [];
 						var years = [];
 						var ratings = [];
+						var posters = [];
 						var result_title = function(i){
 							return "#result"+i+"_title";
 						};
@@ -139,15 +140,20 @@
 						var result_year = function(i){
 							return "#result"+i+"_year";
 						};
+						var result_poster = function(i){
+							return ".result"+i+"_poster";
+						};
 						$.each(data, function(i,item)
 						{
 							titles.push(item.title);
 							years.push(item.year);
 							ratings.push(item.rating);
+							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.poster + "' />");
 							
 							$(result_title(i)).append (titles[i]);
 							$(result_rating(i)).append (ratings[i]);
 						    $(result_year(i)).append (years[i]);
+							$(result_poster(i)).append (posters[i]);
 					  	});
 					  $.mobile.changePage('#result0');
 					});
