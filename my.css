@@ -89,3 +89,64 @@ background-image: -ms-linear-gradient( #444,#777 );
 background-image: -o-linear-gradient( #444,#777 );
 background-image: linear-gradient( #444,#777 );
 }
+.ust {
+	margin:0.3em 30% !important;
+}
+.ui-checkbox {
+	width:50%;
+}
+
+/*	
+.ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner, .ui-controlgroup-horizontal .ui-radio .ui-btn-inner {
+	padding:3.1vw 5px !important;
+	font-size:4.1vw !important;
+}*/
+.yavuz .ui-btn-up {
+	font-size:15px !important;
+	border-radius:0;
+}
+.yavuz .ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner {
+	padding:1.2em 5px !important;
+	border-radius:0;
+}
+.yavuz .ui-controlgroup .ui-checkbox {
+	border-radius:0;
+	-webkit-border-radius:0;
+}
+.content_sonuc {
+	position:relative;
+	padding:0;
+	margin:0;
+	width:100%;
+	height:auto;
+}
+.titlem {
+	position:absolute;
+	top:3vw;
+	right:3vw;
+	font-size:6.4vw;
+	color:#fff;
+	display:block;
+	width:48%;
+	margin:auto;
+	text-align:center;
+	text-shadow:1px 1px 0 #333;
+	font-weight:bold;
+
+}
+.poster {
+	width:100%;
+	height:auto;
+	opacity:0.5;
+	display:block;
+	padding:0;
+	margin:0;
+	background:#000;
+}
+.vitrin {
+position:absolute;
+top: 3vw;
+left: 3%;
+width: 44vw;
+
+}

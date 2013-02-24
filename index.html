@@ -124,7 +124,7 @@
 				var secilenler = $('.secimler').serialize().toString();
 				console.log(secilenler);//for debugging
 				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?" + $('.secimler').serialize(),
+				$.getJSON("http://bayez.biz/moviegurus/?rating=7.0&rating=10.0&" + $('.secimler').serialize(),
 					function (data) 
 					{
 						var titles = [];
@@ -194,45 +194,60 @@
 					</ul>
 				</div>
 			</div>
-			<div data-role="content" data-theme="c" style="padding:4px 5px 5px;">
-				<h4 style="margin: 6px 0 4px;text-align:center;">Choose your favourite genres!</h4>
+			<div data-role="content" data-theme="a" style="padding:4px 5px 5px;">
+				<h4 style="margin: 6px 0 4px;text-align:center;">You may choose one or more genres</h4>
 				<form data-role="none" class="secimler">
-					<div data-role="field-contain" class="ui-grid-a" >
-						<fieldset data-role="controlgroup"  data-type="vertical" class="ui-block-a">
-							<input id="checkbox1" value="Action" name="genre" type="checkbox" style="background:#ff0000;" />
+					<div data-role="field-contain" class="yavuz">
+						<fieldset data-role="controlgroup"  data-type="horizontal">
+							<input id="checkbox1" value="Action" name="genre" type="checkbox" />
 							<label for="checkbox1">Action</label>
 							<input id="checkbox2" value="Adventure" name="genre" type="checkbox" />
 							<label for="checkbox2">Adventure</label>
+							<input id="checkbox3" value="Animation" name="genre" type="checkbox" />
+							<label for="checkbox3">Animation</label>
+							<input id="checkbox4" value="Biography" name="genre" type="checkbox" />
+							<label for="checkbox4">Biography</label>
 							<input id="checkbox5" value="Comedy" name="genre" type="checkbox" />
 							<label for="checkbox5">Comedy</label>
 							<input id="checkbox6" value="Crime" name="genre" type="checkbox" />
 							<label for="checkbox6">Crime</label>
-							<input id="checkbox8" value="Drama" name="genre" type="checkbox" />
+							<input id="checkbox7" value="Docu" name="genre" type="checkbox" />
+							<label for="checkbox7">Docu</label>
+							<input id="checkbox8" value="Drama" name="genre" type="checkbox" style="background:#ff0000;" />
 							<label for="checkbox8">Drama</label>
 							<input id="checkbox9" value="Family" name="genre" type="checkbox" />
 							<label for="checkbox9">Family</label>
 							<input id="checkbox10" value="Fantasy" name="genre" type="checkbox" />
 							<label for="checkbox10">Fantasy</label>
-						</fieldset>
-						<fieldset data-role="controlgroup" data-type="vertical" class="ui-block-b">
-							<input id="checkbox13" value="History" name="genre" type="checkbox" />
-							<label for="checkbox13">History</label>
-							<input id="checkbox14" value="Horror" name="genre" type="checkbox" />
-							<label for="checkbox14">Horror</label>
-							<input id="checkbox20" value="Romance" name="genre" type="checkbox" />
-							<label for="checkbox20">Romance</label>
-							<input id="checkbox21" value="Sci-fi" name="genre" type="checkbox" />
-							<label for="checkbox21">Sci-fi</label>
-							<input id="checkbox24" value="Thriller" name="genre" type="checkbox" />
-							<label for="checkbox24">Thriller</label>
-							<input id="checkbox25" value="War" name="genre" type="checkbox" />
-							<label for="checkbox25">War</label>
-							<input id="checkbox26" value="Western" name="genre" type="checkbox"/>
-							<label for="checkbox26">Western</label>			
+							<input id="checkbox11" value="Film-Noir" name="genre" type="checkbox" />
+							<label for="checkbox11">Film-Noir</label>
+							<input id="checkbox12" value="History" name="genre" type="checkbox" />
+							<label for="checkbox12">History</label>
+							<input id="checkbox13" value="Horror" name="genre" type="checkbox" />
+							<label for="checkbox13">Horror</label>
+							<input id="checkbox14" value="Music" name="genre" type="checkbox" />
+							<label for="checkbox14">Music</label>
+							<input id="checkbox15" value="Musical" name="genre" type="checkbox" />
+							<label for="checkbox15">Musical</label>
+							<input id="checkbox16" value="Mystery" name="genre" type="checkbox" />
+							<label for="checkbox16">Mystery</label>
+							<input id="checkbox17" value="Romance" name="genre" type="checkbox" />
+							<label for="checkbox17">Romance</label>
+							<input id="checkbox18" value="Sci-Fi" name="genre" type="checkbox"/>
+							<label for="checkbox18">Sci-Fi</label>
+							<input id="checkbox19" value="Sport" name="genre" type="checkbox"/>
+							<label for="checkbox19">Sport</label>
+							<input id="checkbox20" value="Thriller" name="genre" type="checkbox"/>
+							<label for="checkbox20">Thriller</label>
+							<input id="checkbox21" value="War" name="genre" type="checkbox"/>
+							<label for="checkbox21">War</label>
+							<input id="checkbox22" value="Western" name="genre" type="checkbox"/>
+							<label for="checkbox22">Western</label>									
 						</fieldset>
 					</div>
 				</form><!--Genre secim formu -->
 			</div>
+			<!-- //Footer Navbar Askýda 24.02.2013//
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
 				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 					<ul>
@@ -242,7 +257,8 @@
 						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
-			</div>	
+			</div>
+			-->
         </div>
 		
 		<div data-role="page" id="page2"><!--Page 2 -Zaman secim sayfasi -->
