@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -448,3 +449,428 @@
     </body>
 </html>
 
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>
+        </title>
+
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        
+        <script>
+		try {
+
+			$(function() {
+
+			});
+
+			} catch (error) {
+			console.error("Your javascript has an error: " + error);
+		}
+        </script>
+
+        <script>//local database script
+
+			//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
+			var db = openDatabase("myMovies", "1", "My Watch List", 100000);
+			var movies = [];
+			var movie_wish_list = [];
+			var i = localStorage.length + 1;
+		  
+			function storeMyMovie(id) {
+				movies[i]	= id.innerHTML;
+				localStorage.setItem('movie'+i, movies[i]);					
+			}
+			
+			//GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES 
+			function getMyAllMovies() {
+		  	  	for ( var i = 1; i <= localStorage.length; i++ ) { 
+		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
+		      		$('#movie_wish_list').append('<li>'+movie_wish_list[i]+'</li>');
+				}
+			  }
+
+			function clearLocal() {
+			    clear: localStorage.clear(); 
+			    return false;
+			  }			
+		</script><!--local database end-->
+
+		<script>
+			$('#mgogo').live('click',function() //generate my pleasure buttonu
+			{
+				var secilenler = $('.secimler').serialize().toString();
+				console.log(secilenler);//for debugging
+				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
+				$.getJSON("http://bayez.biz/moviegurus/?" + $('.secimler').serialize(),
+					function (data) 
+					{
+						var titles = [];
+						var years = [];
+						var ratings = [];
+						var result_title = function(i){
+							return "#result"+i+"_title";
+						};
+						var result_rating = function(i){
+							return "#result"+i+"_rating";
+						};
+						var result_year = function(i){
+							return "#result"+i+"_year";
+						};
+						$.each(data, function(i,item)
+						{
+							titles.push(item.title);
+							years.push(item.year);
+							ratings.push(item.rating);
+							
+							$(result_title(i)).append (titles[i]);
+							$(result_rating(i)).append (ratings[i]);
+						    $(result_year(i)).append (years[i]);
+					  	});
+					  $.mobile.changePage('#result0');
+					});
+			}); 
+
+			$('#result0').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result1');
+        	});
+        	$('#result1').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result2');
+        	}); 
+        	$('#result2').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result3');
+        	}); 
+        	$('#result3').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result4');
+        	}); 
+        	$('#result4').live('click',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+        		$.mobile.changePage('#result0');
+        	});   
+		</script>
+    </head>
+    <body>
+
+        <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
+				<div data-role="navbar" class="ui-navbar" >
+					<ul class="ui-grid-b" >
+						<li class="ui-block-a" style="width:20%;">
+							<a href="#" data-icon="info" data-iconpos="top" >info</a>
+						</li>
+						<li class="ui-block-b" style="width:60%;">
+							<a href="#"><img class="logo" src="logo.png"/></a>
+						</li>
+						<li class="ui-block-c" style="width:20%;">
+							<a href="#page2"data-icon="arrow-r" data-iconpos="top">Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content" data-theme="c" style="padding:4px 5px 5px;">
+				<h4 style="margin: 6px 0 4px;text-align:center;">Choose your favourite genres!</h4>
+				<form data-role="none" class="secimler">
+					<div data-role="field-contain" class="ui-grid-a" >
+						<fieldset data-role="controlgroup"  data-type="vertical" class="ui-block-a">
+							<input id="checkbox1" value="Action" name="genre" type="checkbox" style="background:#ff0000;" />
+							<label for="checkbox1">Action</label>
+							<input id="checkbox2" value="Adventure" name="genre" type="checkbox" />
+							<label for="checkbox2">Adventure</label>
+							<input id="checkbox5" value="Comedy" name="genre" type="checkbox" />
+							<label for="checkbox5">Comedy</label>
+							<input id="checkbox6" value="Crime" name="genre" type="checkbox" />
+							<label for="checkbox6">Crime</label>
+							<input id="checkbox8" value="Drama" name="genre" type="checkbox" />
+							<label for="checkbox8">Drama</label>
+							<input id="checkbox9" value="Family" name="genre" type="checkbox" />
+							<label for="checkbox9">Family</label>
+							<input id="checkbox10" value="Fantasy" name="genre" type="checkbox" />
+							<label for="checkbox10">Fantasy</label>
+						</fieldset>
+						<fieldset data-role="controlgroup" data-type="vertical" class="ui-block-b">
+							<input id="checkbox13" value="History" name="genre" type="checkbox" />
+							<label for="checkbox13">History</label>
+							<input id="checkbox14" value="Horror" name="genre" type="checkbox" />
+							<label for="checkbox14">Horror</label>
+							<input id="checkbox20" value="Romance" name="genre" type="checkbox" />
+							<label for="checkbox20">Romance</label>
+							<input id="checkbox21" value="Sci-fi" name="genre" type="checkbox" />
+							<label for="checkbox21">Sci-fi</label>
+							<input id="checkbox24" value="Thriller" name="genre" type="checkbox" />
+							<label for="checkbox24">Thriller</label>
+							<input id="checkbox25" value="War" name="genre" type="checkbox" />
+							<label for="checkbox25">War</label>
+							<input id="checkbox26" value="Western" name="genre" type="checkbox"/>
+							<label for="checkbox26">Western</label>			
+						</fieldset>
+					</div>
+				</form><!--Genre secim formu -->
+			</div>
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre2" data-role="button" data-icon="custom" class="ui-btn-up-f ui-btn-active ui-state-persist">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>	
+        </div>
+		
+		<div data-role="page" id="page2"><!--Page 2 -Zaman secim sayfasi -->
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
+				<div data-role="navbar" class="ui-navbar">
+					<ul class="ui-grid-b">
+						<li class="ui-block-a" style="width:20%;">
+							<a href="#page1" data-icon="arrow-l" data-iconpos="top" >Back</a>
+						</li>
+						<li class="ui-block-b" style="width:60%;">
+							<a href="#"><img class="logo" src="logo.png"/></a>
+						</li>
+						<li class="ui-block-c" style="width:20%;">
+							<a href="#page3"data-icon="arrow-r" data-iconpos="top">Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content" style="padding:4px 5px 5px;">
+				<h4 style="margin: 6px 0 4px;text-align:center;">How old is your mood, now?</h4>
+				<form data-role="none" class="secimler">
+					<div data-role="fieldcontain" class="ui-grid-a"> 
+						<div data-role="controlgroup" data-type="vertical" class="ui-block-a">
+							<input type="radio" name="year" id="radio-choice-1" value="2010" checked="checked" />
+							<label for="radio-choice-1"><img src="mycons/2010.png" /></label>
+
+							<input type="radio" name="year" id="radio-choice-2" value="2000"  />
+							<label for="radio-choice-2"><img src="mycons/2000.png" /></label>
+
+							<input type="radio" name="year" id="radio-choice-3" value="1990"  />
+							<label for="radio-choice-3"><img src="mycons/1990.png" /></label>
+
+							<input type="radio" name="year" id="radio-choice-4" value="1980"  />
+							<label for="radio-choice-4"><img src="mycons/1980.png" /></label>
+						</div>
+						<div data-role="controlgroup" data-type="vertical" class="ui-block-b">
+							<input type="radio" name="year" id="radio-choice-5" value="1970"  />
+							<label for="radio-choice-5"><img src="mycons/1970.png" /></label>							
+
+							<input type="radio" name="year" id="radio-choice-6" value="1960"  />
+							<label for="radio-choice-6"><img src="mycons/1960.png" /></label>
+							
+							<input type="radio" name="year" id="radio-choice-7" value="1800"  />
+							<label for="radio-choice-7"><img src="mycons/older.png" /></label>
+							
+							<input type="radio" name="year" id="radio-choice-8" value="0"  />
+							<label for="radio-choice-8"><img src="mycons/alltime.png" /></label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime2" data-role="button" data-icon="custom" class="ui-btn-up-f ui-btn-active ui-state-persist"data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--End of page 2 -->
+
+		<div data-role="page" id="page3"> <!--Page 3 - rating secim sayfasi -->
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
+				<div data-role="navbar" class="ui-navbar">
+					<ul class="ui-grid-b">
+						<li class="ui-block-a" style="width:20%;">
+							<a href="#page2" data-icon="arrow-l" data-iconpos="top" >Back</a>
+						</li>
+						<li class="ui-block-b" style="width:60%;">
+							<a href="#"><img class="logo" src="logo.png"/></a>
+						</li>
+						<li class="ui-block-c" style="width:20%;">
+							<a href="#"data-icon="arrow-r" data-iconpos="top">Next</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				
+				<div id="myMovies">
+  				
+  					<div id="movie1">Matrix</div>
+  						<script>
+							$("#movie1").click(function( event ) {
+	  							storeMyMovie(document.getElementById('movie1'));
+							});
+						</script>
+
+  					<div id = "movie2">batman</div>
+  						<script>
+							$("#movie2").click(function( event ) {
+	  							storeMyMovie(document.getElementById('movie2'));
+							});
+						</script>
+  					
+  					<div >
+  						<ul id = "movie_wish_list">
+
+  						</ul>
+  					</div>
+  					<script type="text/javascript">console.log (localStorage.length);</script>
+  					
+
+  					<div><a onclick="clearLocal(); getMyAllMovies();" href="javascript:void(0);">Clear All Of My Data</a></div>
+
+
+  					
+
+				</div>
+
+				<script>
+  					getMyAllMovies();
+				</script>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating2" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-up-f ui-btn-active ui-state-persist">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div><!--End of page 3 -->
+		
+
+		<div data-role="page" id="result0"><!--Sonuc sayfasi 0-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo2" src="logo.png"/>
+			</div>
+			<div data-role="content" class="ui-grid-c">    
+				<div class="ui-block-a">z</div>
+				<div  data-role="controlgroup"  class="ui-block-b" data-type="horizontal" >
+					<a href="index.html"  data-role="button">Movie</a>
+					<a href="index.html"  data-role="button">Trailer</a>
+				</div>
+				<div class="ui-block-c">c</div>
+			
+				<div id="result0_title"> </div>
+				<div id="result0_rating"> </div>
+				<div id="result0_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo2" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-up-f ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="result1"><!--Sonuc sayfasi 1-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo2" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result1_title"> </div>
+				<div id="result1_rating"> </div>
+				<div id="result1_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+		<div data-role="page" id="result2"><!--Sonuc sayfasi 2-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo2" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result2_title"> </div>
+				<div id="result2_rating"> </div>
+				<div id="result2_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+		<div data-role="page" id="result3"><!--Sonuc sayfasi 3-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo2" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result3_title"> </div>
+				<div id="result3_rating"> </div>
+				<div id="result3_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+		<div data-role="page" id="result4"><!--Sonuc sayfasi 4-->
+            <div data-role="header" data-position="fixed" data-id="foo1">
+				<img class="logo2" src="logo.png"/>
+			</div>
+			<div data-role="content">    
+				<p>This is the movie</p>
+				<div id="result4_title"> </div>
+				<div id="result4_rating"> </div>
+				<div id="result4_year"> </div>
+			</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c" >
+					<ul>
+						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
+						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
+						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
+						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-active ui-state-persist">Go Go</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+
+    </body>
+</html>
+
+>>>>>>> local db v0.5
