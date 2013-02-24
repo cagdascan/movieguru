@@ -36,11 +36,16 @@
 				localStorage.setItem('movie'+i, movies[i]);					
 			}
 			
+			function removeMyMovie() {
+				// movies[i]	= id.innerHTML;
+				localStorage.removeItem('movie1');				
+			}
+
 			//GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES 
 			function getMyAllMovies() {
 		  	  	for ( var i = 1; i <= localStorage.length; i++ ) { 
 		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
-		      		$('#movie_wish_list').append('<li>'+movie_wish_list[i]+'</li>');
+		      		$('#movie_wish_list').append('<li><a href="#"><img src="../../_assets/img/album-bb.jpg"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
 				}
 			  }
 
@@ -237,12 +242,17 @@
 							});
 						</script>
   					
-  					<div >
-  						<ul id = "movie_wish_list">
+  					<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" id="movie_wish_list">
+						    
+					</ul>
+						<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+						    <h3>Delete Movie?</h3>
+						    <p>The movie will be deleted from your Watch List</p>
+						    <a onclick="removeMyMovie(); getMyAllMovies();" href="javascript:void(0);" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
+						    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
+						</div>
 
-  						</ul>
-  					</div>
-  					<script type="text/javascript">console.log (localStorage.length);</script>
+  					<script type="text/javascript">console.log (localStorage.length);</script> <!-- for debugging purposes --> 
   					
 
   					<div><a onclick="clearLocal(); getMyAllMovies();" href="javascript:void(0);">Clear All Of My Data</a></div>
