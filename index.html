@@ -31,6 +31,8 @@
 			var db = null;
 			var movies = [];
 			var movie_view = [];
+			var movie_wish_list = [];
+			var i = 1;
 
 			function html5_storage_support() {
 			  try {
@@ -46,10 +48,11 @@
 			  
 				//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
 				db = openDatabase("myMovies", "1", "My Watch List", 100000);
+				console.log (localStorage.length);
 			  
 				function storeMyMovie(id) {
 					// var movies = [];
-					var i = movies.length + 1;
+					// var i = movies.length + 1;
 					movies[i]	= id.innerHTML;
 					// var movie2	= document.getElementById('movie2').innerHTML;
 					localStorage.setItem('movie'+i, movies[i]);
@@ -71,14 +74,14 @@
 			  
 
 
-			  function getMyMovie() {
+			  // function getMyMovie() {
 
-			  	  var i = 1;
-			      movie_view[i] = localStorage.getItem('movie'+i);
-			      document.getElementById('movie'+i+'_view').innerHTML = movie_view[i];
-			      i = i +1;
+			  	  
+			  //     movie_view[i] = localStorage.getItem('movie'+i);
+			  //     document.getElementById('movie'+i+'_view').innerHTML = movie_view[i];
+			  //     // i = i +1;
 			      
-			  }
+			  // }
 
 			  // function getMyMovie2() {
 			  // 		var movie2_view = localStorage.getItem('movie2');
@@ -87,9 +90,10 @@
 
 			  function getMyAllMovies() {
 			  	  
-			  	  for ( var i = 0; i < movies.length; i++ ) {
- 
-  						getMyMovie();
+			  	  for ( var i = 1; i <= localStorage.length; i++ ) { 
+			  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
+			      		document.getElementById('movie_wish_list').innerHTML = movie_view[i];
+  						// getMyMovie();
  
 					}
 			  }
@@ -334,7 +338,8 @@
   						<script>
 							$("#movie1").click(function( event ) {
 	  							storeMyMovie(document.getElementById('movie1'));
-	  							getMyMovie();
+	  							i ++;
+	  							// getMyMovie();
 							});
 						</script>
 
@@ -342,12 +347,13 @@
   						<script>
 							$("#movie2").click(function( event ) {
 	  							storeMyMovie(document.getElementById('movie2'));
-	  							getMyMovie();
+	  							i ++;
+	  							// getMyMovie();
 							});
 						</script>
   					
-  					<div id = "movie1_view"></div>
-  					<div id = "movie2_view"></div>
+  					<div id = "movie_wish_list">Wish List</div>
+  					
 
   					<div><a onclick="clearLocal(); getMyAllMovies();" href="javascript:void(0);">Clear All Of My Data</a></div>
 
