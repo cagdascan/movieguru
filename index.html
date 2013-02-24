@@ -38,7 +38,7 @@
 			function removeMyMovie(id) {
 				//var id = id;// movies[i]	= id.innerHTML;
 				
-				localStorage.removeItem('movie1');//sadece ilk filmi siliyor
+				localStorage.removeItem('movie1');//sadece ilk filmi siliyor -- istedigin filmi silecek sekilde yap!!!!
 				//console.log(id);			
 			}
 
@@ -46,8 +46,15 @@
 			function getMyAllMovies() {
 		  	  	for ( var i = 1; i <= localStorage.length; i++ ) { 
 		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
-		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="../../_assets/img/album-bb.jpg"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
 				}
+			  }
+
+			function getMyMovie() {
+		  	  	
+		  	  		movie_wish_list[localStorage.length] = localStorage.getItem('movie'+localStorage.length);
+		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[localStorage.length]+'</h2><p>'+movie_wish_list[localStorage.length]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+				
 			  }
 
 			function clearLocal() {
@@ -219,30 +226,7 @@
 					</ul>
 				</div>
 			</div>
-			<div data-role="content">
-				<!-- <form data-role="none" class="secimler">
-				<div data-role="rangeslider">
-				<label for="range-1a">Minimum IMDB Rating:</label>
-				<input name="rating" id="range-1a" min="0" max="10" value="0" step="0.1" type="range" />
-				<label for="range-1b">Maximum IMDB Rating:</label>
-				<input name="rating" id="range-1b" min="0" max="10" value="10" step="0.1" type="range" />
-				</div> -->
-				<div id="myMovies">
-  				
-  					<div id="movie1">Matrix</div>
-  						<script>
-							$("#movie1").click(function( event ) {
-	  							storeMyMovie(document.getElementById('movie1'));
-							});
-						</script>
-
-  					<div id = "movie2">batman</div>
-  						<script>
-							$("#movie2").click(function( event ) {
-	  							storeMyMovie(document.getElementById('movie2'));
-							});
-						</script>
-  					
+			<div data-role="content">  					
   					<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="movie_wish_list">
 						    <!-- watch list itemlari burayi populate edecek -->
 					</ul>
@@ -256,26 +240,12 @@
   					<script type="text/javascript">console.log (localStorage.length);</script> <!-- for debugging purposes --> 
   					
 
-  					<div><a onclick="clearLocal(); getMyAllMovies();" href="javascript:void(0);">Clear All Of My Data</a></div>
-
-
-  					
-
-				</div>
-
+  					<div><a onclick="clearLocal(); getMyAllMovies(); location.reload();" href="javascript:void(0);">Clear My List</a></div>	
 				<script>
   					getMyAllMovies();
 				</script>
 			</div><!-- /content -->
 			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
-					<ul>
-						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
-						<li><a href="#page3" id="mrating2" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-up-f ui-btn-active ui-state-persist">Rating</a></li>
-						<li><a href="#" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
-					</ul>
-				</div>
 			</div>
 		</div><!--End of page 3 -->
 		
@@ -301,7 +271,15 @@
 				
 				<div id="result0_title" class="titlem"> </div>
 				<div class="result0_poster vitrin"> </div>
-				<div data-role="button" class="addwatch">Add to watchlist</div>
+				<div id="addToWatchList1" data-role="button" class="addwatch">Add to watchlist</div>
+
+						<script>
+							$("#addToWatchList1").click(function( event ) {
+	  							storeMyMovie(document.getElementById('result0_title'));
+	  							getMyMovie();
+							});
+						</script>
+
 			</div><!-- /content -->
 		</div>
 
@@ -325,6 +303,14 @@
 				<div class="result1_poster poster"> </div>
 				<div class="result1_poster vitrin"> </div>
 				<div id="result1_title" class="titlem"> </div>
+				<div id="addToWatchList2" data-role="button" class="addwatch">Add to watchlist</div>
+
+						<script>
+							$("#addToWatchList2").click(function( event ) {
+	  							storeMyMovie(document.getElementById('result1_title'));
+	  							getMyMovie();
+							});
+						</script>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -348,6 +334,14 @@
 				<div class="result2_poster poster"> </div>
 				<div class="result2_poster vitrin"> </div>
 				<div id="result2_title" class="titlem"> </div>
+				<div id="addToWatchList3" data-role="button" class="addwatch">Add to watchlist</div>
+
+						<script>
+							$("#addToWatchList3").click(function( event ) {
+	  							storeMyMovie(document.getElementById('result2_title'));
+	  							getMyMovie();
+							});
+						</script>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -371,6 +365,14 @@
 				<div class="result3_poster poster"> </div>
 				<div class="result3_poster vitrin"> </div>
 				<div id="result3_title" class="titlem"> </div>
+				<div id="addToWatchList4" data-role="button" class="addwatch">Add to watchlist</div>
+
+						<script>
+							$("#addToWatchList4").click(function( event ) {
+	  							storeMyMovie(document.getElementById('result3_title'));
+	  							getMyMovie();
+							});
+						</script>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -394,6 +396,14 @@
 				<div class="result4_poster poster"> </div>
 				<div class="result4_poster vitrin"> </div>
 				<div id="result4_title" class="titlem"> </div>
+				<div id="addToWatchList5" data-role="button" class="addwatch">Add to watchlist</div>
+
+						<script>
+							$("#addToWatchList5").click(function( event ) {
+	  							storeMyMovie(document.getElementById('result4_title'));
+	  							getMyMovie();
+							});
+						</script>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
