@@ -64,12 +64,6 @@ body {
 #mrating2 .ui-icon {
 	background: url("mycons/rating2.png") no-repeat scroll 50% 50%  transparent;
 }
-#mgogo .ui-icon {
-	background: url("mycons/finish.png") no-repeat scroll 50% 50% transparent;
-}
-#mgogo2 .ui-icon {
-	background: url("mycons/finish2.png") no-repeat scroll 50% 50% transparent;
-}
 header img {
 
 }

@@ -124,7 +124,7 @@
 				var secilenler = $('.secimler').serialize().toString();
 				console.log(secilenler);//for debugging
 				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?rating=7.0&rating=10.0&" + $('.secimler').serialize(),
+				$.getJSON("http://bayez.biz/moviegurus/?rating=7.0&rating=10.0&year=2000&" + $('.secimler').serialize(),
 					function (data) 
 					{
 						var titles = [];
@@ -189,7 +189,7 @@
 							<a href="#"><img class="logo" src="logo.png"/></a>
 						</li>
 						<li class="ui-block-c" style="width:20%;">
-							<a href="#page2"data-icon="arrow-r" data-iconpos="top">Next</a>
+							<a href="#" id="mgogo" data-icon="arrow-r" data-iconpos="top">Next</a>
 						</li>
 					</ul>
 				</div>
@@ -261,65 +261,8 @@
 			-->
         </div>
 		
-		<div data-role="page" id="page2"><!--Page 2 -Zaman secim sayfasi -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar">
-					<ul class="ui-grid-b">
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#page1" data-icon="arrow-l" data-iconpos="top" >Back</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#page3"data-icon="arrow-r" data-iconpos="top">Next</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div data-role="content" style="padding:4px 5px 5px;">
-				<h4 style="margin: 6px 0 4px;text-align:center;">How old is your mood, now?</h4>
-				<form data-role="none" class="secimler">
-					<div data-role="fieldcontain" class="ui-grid-a"> 
-						<div data-role="controlgroup" data-type="vertical" class="ui-block-a">
-							<input type="radio" name="year" id="radio-choice-1" value="2010" checked="checked" />
-							<label for="radio-choice-1"><img src="mycons/2010.png" /></label>
-
-							<input type="radio" name="year" id="radio-choice-2" value="2000"  />
-							<label for="radio-choice-2"><img src="mycons/2000.png" /></label>
-
-							<input type="radio" name="year" id="radio-choice-3" value="1990"  />
-							<label for="radio-choice-3"><img src="mycons/1990.png" /></label>
-
-							<input type="radio" name="year" id="radio-choice-4" value="1980"  />
-							<label for="radio-choice-4"><img src="mycons/1980.png" /></label>
-						</div>
-						<div data-role="controlgroup" data-type="vertical" class="ui-block-b">
-							<input type="radio" name="year" id="radio-choice-5" value="1970"  />
-							<label for="radio-choice-5"><img src="mycons/1970.png" /></label>							
-
-							<input type="radio" name="year" id="radio-choice-6" value="1960"  />
-							<label for="radio-choice-6"><img src="mycons/1960.png" /></label>
-							
-							<input type="radio" name="year" id="radio-choice-7" value="1800"  />
-							<label for="radio-choice-7"><img src="mycons/older.png" /></label>
-							
-							<input type="radio" name="year" id="radio-choice-8" value="0"  />
-							<label for="radio-choice-8"><img src="mycons/alltime.png" /></label>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">				
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
-					<ul>
-						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
-						<li><a href="#page2" id="mtime2" data-role="button" data-icon="custom" class="ui-btn-up-f ui-btn-active ui-state-persist"data-direction="reverse" data-transition="slide">Year</a></li>
-						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
-						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
-					</ul>
-				</div>
-			</div>
+		<div data-role="page" id="page2"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR-->
+            
 		</div> <!--End of page 2 -->
 
 		<div data-role="page" id="page3"> <!--Page 3 - rating secim sayfasi -->
@@ -390,7 +333,7 @@
 						<li><a href="#page1" id="mgenre" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Genre</a></li>
 						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-direction="reverse" data-transition="slide">Year</a></li>
 						<li><a href="#page3" id="mrating2" data-role="button" data-icon="custom" data-transition="slide" class="ui-btn-up-f ui-btn-active ui-state-persist">Rating</a></li>
-						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
+						<li><a href="#" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
 					</ul>
 				</div>
 			</div>
