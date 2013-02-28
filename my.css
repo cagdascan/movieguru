@@ -3,20 +3,8 @@ body {
 	margin:0;
 	padding:0;
 }
-
-.ui-page { 
-	-webkit-backface-visibility: hidden; 
-	} /*workaround for problems in transitions --may crash in android-- */
-
-.ui-field-contain .ui-controlgroup-label {
-	display:block;
-	width:100%;
-	text-align:center;
-	margin:0.5em 0;
-}
-
-.ui-field-contain .ui-controlgroup-controls {
-	width:100%;
+h4 {
+	font-size:5vw;
 }
 .logo {
 	margin:auto;
@@ -61,43 +49,18 @@ body {
 header img {
 
 }
-header {
-	
-}
-.ui-btn-up-f {
-border: 1px solid #111;
-background: #333;
-font-weight: bold;
-color: #fff;
-text-shadow: 0 1px 1px #111;
-background-image: -webkit-gradient(linear,left top,left bottom,from( #444 ),to( #777 ));
-background-image: -webkit-linear-gradient( #444,#777 );
-background-image: -moz-linear-gradient( #444,#777 );
-background-image: -ms-linear-gradient( #444,#777 );
-background-image: -o-linear-gradient( #444,#777 );
-background-image: linear-gradient( #444,#777 );
-}
 .ust {
 	margin:0.3em 30% !important;
 }
-.ui-checkbox {
-	width:50%;
-}
-
-/*	
-.ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner, .ui-controlgroup-horizontal .ui-radio .ui-btn-inner {
-	padding:3.1vw 5px !important;
-	font-size:4.1vw !important;
-}*/
-.yavuz .ui-btn-up {
+.ogedizilim .ui-btn-up {
 	font-size:15px !important;
 	border-radius:0;
 }
-.yavuz .ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner {
+.ogedizilim .ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner {
 	padding:1.2em 5px !important;
 	border-radius:0;
 }
-.yavuz .ui-controlgroup .ui-checkbox {
+.ogedizilim .ui-controlgroup .ui-checkbox {
 	border-radius:0;
 	-webkit-border-radius:0;
 }
