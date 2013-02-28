@@ -32,21 +32,17 @@
 		  
 			function storeMyMovie(id) {
 				movies[i]	= id.innerHTML;
-				localStorage.setItem('movie'+i, movies[i]);					
+				localStorage.setItem('movie'+i, movies[i]);	
+				console.log(localStorage.length);				
 			}
 			
-			function removeMyMovie(id) {
-				//var id = id;// movies[i]	= id.innerHTML;
-				
-				localStorage.removeItem('movie1');//sadece ilk filmi siliyor -- istedigin filmi silecek sekilde yap!!!!
-				//console.log(id);			
-			}
+
 
 			//GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES 
 			function getMyAllMovies() {
 		  	  	for ( var i = 1; i <= localStorage.length; i++ ) { 
 		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
-		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+		      		$('.movie_wish_list').append('<li><a href="#"><img src="logo.png"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
 				}
 			  }
 
@@ -56,6 +52,16 @@
 		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[localStorage.length]+'</h2><p>'+movie_wish_list[localStorage.length]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
 				
 			  }
+			  function removeMyMovie() {
+				//var id = id;// movies[i]	= id.innerHTML;
+				
+				localStorage.removeItem('movie1');
+				getMyAllMovies();
+				location.reload();
+
+				//sadece ilk filmi siliyor -- istedigin filmi silecek sekilde yap!!!!
+				//console.log(id);			
+			}
 
 			function clearLocal() {
 			    clear: localStorage.clear(); 
@@ -246,11 +252,11 @@
 						<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;"> <!-- delete movie from watchlist -->
 						    <h3>Delete Movie?</h3>
 						    <p>The movie will be deleted from your Watch List</p>
-						    <a onclick="removeMyMovie(movie1); getMyAllMovies();" href="javascript:void(0);" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
+						    <a onclick="removeMyMovie(); getMyAllMovies(); location.reload();" href="javascript:void(0);" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
 						    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
 						</div>
 
-  					<script type="text/javascript">console.log (localStorage.length);</script> <!-- for debugging purposes --> 
+  					<script type="text/javascript">console.log ("lol");</script> <!-- for debugging purposes --> 
   					
 
   					<div><a onclick="clearLocal(); getMyAllMovies(); location.reload();" href="javascript:void(0);">Clear My List</a></div>	
