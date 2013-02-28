@@ -136,7 +136,7 @@
     <body>
 
         <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
+            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a" class="header_a">
 				<div data-role="navbar" class="ui-navbar" >
 					<ul class="ui-grid-b" >
 						<li class="ui-block-a" style="width:20%;">
@@ -152,10 +152,10 @@
 				</div>
 			</div>
 			<div data-role="content" data-theme="a" style="padding:4px 5px 5px;">
-				<h4 style="margin: 6px 0 4px;text-align:center;">You may choose one or more genres</h4>
+				<h4 style="margin: 6px 0 4px;text-align:center;">CHECK ONE OR MORE GENRES</h4>
 				<form data-role="none" class="secimler">
-					<div data-role="field-contain" class="yavuz">
-						<fieldset data-role="controlgroup"  data-type="horizontal">
+					<div data-role="field-contain" class="ogedizilim ui-grid-a" data-mini="true">
+						<fieldset data-role="controlgroup" data-type="vertical" class="ui-block-a" style="margin-right:-1px;"> 
 							<input id="checkbox1" value="Action" name="genre" type="checkbox" />
 							<label for="checkbox1">Action</label>
 							<input id="checkbox2" value="Adventure" name="genre" type="checkbox" />
@@ -178,6 +178,8 @@
 							<label for="checkbox10">Fantasy</label>
 							<input id="checkbox11" value="Film-Noir" name="genre" type="checkbox" />
 							<label for="checkbox11">Film-Noir</label>
+						</fieldset>
+						<fieldset data-role="controlgroup" data-type="vertical" data-role="fieldcontain" class="ui-block-b"> 
 							<input id="checkbox12" value="History" name="genre" type="checkbox" />
 							<label for="checkbox12">History</label>
 							<input id="checkbox13" value="Horror" name="genre" type="checkbox" />
