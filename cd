@@ -1,0 +1,429 @@
+[33mcommit 31cc8f24d59697b81f844f48577fa7f8046c42b0[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Thu Feb 28 23:13:35 2013 +0200
+
+    ikonlarda değişiklik genres.
+
+[33mcommit 51cc30a8dcef351f399e21392ab913707c26164d[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Mon Feb 25 18:20:21 2013 +0200
+
+    Rating ve Title Estetik Geliştirme
+
+[33mcommit 4f75f7f971913c3abe4f19481c4197da04150d14[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 23:24:23 2013 +0200
+
+    final commit for phase1
+
+[33mcommit b6b07d1335595a192addf1181aaaa4e6211dcb92[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 21:13:59 2013 +0200
+
+    Silinenler
+
+[33mcommit c96da8cbbb7b605f3394e636665935e5e2bbc3f3[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 20:21:33 2013 +0200
+
+    Revert "production version 0.1"
+    
+    This reverts commit edeb76f30871188bd51334e276c308f561e36081.
+
+[33mcommit edeb76f30871188bd51334e276c308f561e36081[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 20:11:03 2013 +0200
+
+    production version 0.1
+
+[33mcommit 3007744d5a9b41d797294de5d5e06e36cd95dc5c[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 20:08:54 2013 +0200
+
+    Plot - Rating - Tüm resultlara uygulandı
+
+[33mcommit 77b4bc4a522a6ad11a6df12eaa37d77f8e3846af[m
+Author: oyton <oytunokt@gmail.com>
+Date:   Sun Feb 24 18:42:04 2013 +0200
+
+    data get from imdb
+    
+    dedicated to Aaron Swartz
+
+[33mcommit 8c792773ae0df8cf6af5fec2378fade26732af42[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 18:42:26 2013 +0200
+
+    Rating Göstergesi - Css Bugları
+
+[33mcommit 535fdaf8f268f6ab3fba065ad43ea439dff33719[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 18:28:43 2013 +0200
+
+    yavuz uydurma
+
+[33mcommit c567eda166d1493a701f004191ffb4da300c8c47[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 18:05:11 2013 +0200
+
+    watch list progress
+
+[33mcommit 1adda91f27ea875b6a571d16093bc7cf101436e8[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 16:31:36 2013 +0200
+
+    watclist remove item v0.1
+
+[33mcommit 435a016148775e47de7af6f4c3e905d4333be229[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 15:18:48 2013 +0200
+
+    Revert "Revert "Watchlist için temel button""
+    
+    This reverts commit 55a04232199882d22540ca45e0b8364e51dc3411.
+
+[33mcommit 55a04232199882d22540ca45e0b8364e51dc3411[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 15:13:57 2013 +0200
+
+    Revert "Watchlist için temel button"
+    
+    This reverts commit 390a2a685dd89056cae16c0ce40a70452e38d216.
+
+[33mcommit 39659239d006584daa031b264292fbd22f0cab5b[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 15:11:46 2013 +0200
+
+    Watchlist için temel button
+
+[33mcommit 038c6f88f3ac04b3d4b6cc29066dd14d1906f539[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 08:29:52 2013 +0200
+
+    new watch list try 1
+
+[33mcommit 58cd0b813462a606a04430b500495c70431cc3b1[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 07:47:10 2013 +0200
+
+    Sonuç sayfaları navigasyonları ve  panel butonu
+
+[33mcommit d137866299881b5348a90ec1302f4f1d5bf0dfee[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 06:53:53 2013 +0200
+
+    watchlist
+
+[33mcommit 74b30f6b99a2ca0c1988640cfc41ac36e7e132a3[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 06:32:45 2013 +0200
+
+    Revert "conflict resolution"
+    
+    This reverts commit 16eddf93cc7944839c79af3098e3b42ee1083c64.
+
+[33mcommit 16eddf93cc7944839c79af3098e3b42ee1083c64[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 06:31:17 2013 +0200
+
+    conflict resolution
+
+[33mcommit 78566edbf6a55b14e7fd5dc782407de803237083[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 06:26:55 2013 +0200
+
+    Revert "Revert "Revert "local db v0.5"""
+    
+    This reverts commit 2ff164bf8770c1bff004dddf32bf911183fd461e.
+
+[33mcommit 95e148baef94160f83be9cb37764a24bd1b11c14[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 06:22:12 2013 +0200
+
+    Result sayfası navigasyonları devam ediyor
+
+[33mcommit 7c5106229cf37ffe11756c15a3bb4202448fd6c8[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 06:14:20 2013 +0200
+
+    local db v0.5
+
+[33mcommit 7574a0215ec9e9fa55b30421dd1a1e7a035fd06c[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 05:55:03 2013 +0200
+
+    Result Sayfalarına resim uygulandı
+
+[33mcommit f83d523a9161e3f9c171c4366c944b08bfe64975[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 05:33:03 2013 +0200
+
+    Zaman Seçim sayfası Page 2 boşaltıldı. Kw olacak
+
+[33mcommit c9b113457717a2f982cdeb13b8a57ec5bd609d06[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 05:24:55 2013 +0200
+
+    Sonuç sayfasının Temel Görsel Çalışmaları başladı
+
+[33mcommit f6b689c1cc187a1ecc55211503098cd0f28011aa[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 05:21:38 2013 +0200
+
+    Footer Navbar Askıya Alındı - Genreler arttı
+
+[33mcommit e2a61527805b482055d0c791201016d1472ea785[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 05:12:08 2013 +0200
+
+    Poster Url çekmek için Js kodları güncellendi
+
+[33mcommit 0162c4c31097a9a15809488337606de2a05d1298[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 24 05:09:26 2013 +0200
+
+    Js ve Css Kütüphaneleri Güncellendi
+
+[33mcommit da43070c2809a476b08963ebcd12cd1791ec1907[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 24 04:59:38 2013 +0200
+
+    local db v0.3
+
+[33mcommit e7e8a2cb4e475ff405a1209ca0cd8f909387b6c7[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 23 20:52:47 2013 +0200
+
+    local database v0.2
+
+[33mcommit 9093a2b842f1b8e13d1c0c05a4cde9461f519ba0[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 23 19:37:21 2013 +0200
+
+    local database v0.1
+
+[33mcommit 88e6b4446326db1c1d3e1361de389aa0ceb6a172[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Thu Feb 14 00:03:30 2013 +0200
+
+    typo fix
+
+[33mcommit 856751be7b743ed8d14abcccb002aa8171162e50[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 10 02:17:24 2013 +0200
+
+    trailer deneme
+
+[33mcommit 0c9a35315e7c684dace550ba4617cc0bd7a04013[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Tue Feb 5 22:38:28 2013 +0200
+
+    Yearlar ikona dönüştü
+    
+    özel istekleriniz varsa düzenleme yaparız
+
+[33mcommit 5914db292e99541de1111e94f019eca4533915f7[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Mon Feb 4 18:20:19 2013 +0200
+
+    Butonlar normal ve current renkleriyle biraz daha uygulamaya benzedi.
+
+[33mcommit 61a446578f060b062e0da34530774977ec6660f8[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 3 21:35:23 2013 +0200
+
+    swipe sonuc navigasyonu commented
+
+[33mcommit 39e428d5fb5cc24ff522ea0d0a5ae23231d8f42e[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 3 19:46:11 2013 +0200
+
+    Çeşitli Düzenlemeler
+    
+    Logo Düzenlendi
+    Navbar ikon renkleri
+    Generate butonu kalktı
+    safaride ikonlar göründü
+    60-70ler eklendi
+    Fragman çalışması başladı
+
+[33mcommit 2d4b91a2e521fc12b35bad349a4e3c62ee084464[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 3 14:55:49 2013 +0200
+
+    Result navigation
+    
+    5 adet sonuc safyasi olusturuldu. Gelen film sonuclari herbiri bir
+    sayfada olacak sekilde gosteriliyor. Click eventiyle sayfa gecisleri
+    saglaniyor. iphone'da click yerine swipe left right kullanilacak.
+
+[33mcommit 0f1ccec3f12ed5750f042af4213bd45dfa9d7ad6[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 3 14:21:26 2013 +0200
+
+    logo css
+
+[33mcommit fded1fdfacd7911e32ae7d4e92b46caeeb94104a[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 3 14:03:48 2013 +0200
+
+    Minor bug fix
+
+[33mcommit 2ff4b56a2810e90006be3ac0c9578639afbb7742[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 3 14:01:25 2013 +0200
+
+    getJSON modifiye edildi
+    
+    Gelen json parse edilip arraylerde saklandi. Array elemanlari sonuc
+    sayfalarinda indexlerine gore gosteriliyor.
+
+[33mcommit a4e59ee05e90794d0012cfb11bc9c31c80bf5fde[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 3 01:16:07 2013 +0200
+
+    Loading page silindi yerine loading spinner eklendi
+
+[33mcommit 610db800c7b683aa5398af0469e5d6303164c4fe[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 3 01:04:28 2013 +0200
+
+    Dosya ismi değişikliği
+
+[33mcommit e5ff5af154b92e7800305a6d8d400b6108b95b07[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 3 00:34:40 2013 +0200
+
+    Dosya ismi değişikliği
+
+[33mcommit e7d2ed5f13bc0917ac0b139f975f9660ee90413d[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sun Feb 3 00:35:14 2013 +0200
+
+    typo fix
+
+[33mcommit 4a1ffffabcd8f6ccece61700d3f9bff7a13a0258[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 3 00:31:18 2013 +0200
+
+    Mycons renkler açıldı
+
+[33mcommit 2176edeed7b72eaafd18b80805501963751c7f98[m
+Author: Yavuz Kirez <yavuzkirez@gmail.com>
+Date:   Sun Feb 3 00:12:50 2013 +0200
+
+    Filmroll iconu rengi açıldı
+
+[33mcommit c490629100bffc3bdec1a7af53961d7071e7a693[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 23:46:31 2013 +0200
+
+    Full theme a
+
+[33mcommit c30ae102007fcbaedca5e29740cf71b1b430c8d8[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 23:38:57 2013 +0200
+
+    UI
+    
+    Tema changes
+
+[33mcommit 12e0b8fe164111ca08e2fbd6e08d94af1f779559[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 23:24:41 2013 +0200
+
+    some more UI changes
+
+[33mcommit 809a43fd097b6d2e0485aaedd22e254bc90fafc2[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 19:14:20 2013 +0200
+
+    Minor UI change
+    
+    New info button
+
+[33mcommit 5fab9b57238c10f9aa43206759b89054d6b14fdd[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 18:38:04 2013 +0200
+
+    Some UI changes
+    
+    Fixed positioned footer and headers
+
+[33mcommit dadceaf0163f2bc8ec50917a0074c1dd9ba38561[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 18:13:17 2013 +0200
+
+    Clear commit
+    
+    Cleared some useless files
+
+[33mcommit 50ce3ccddb0a498b20be7a55ba92d6263ff28ac3[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 18:06:44 2013 +0200
+
+    Clean commit
+    
+    I failed last commit - so this is the final one
+
+[33mcommit b4fac662018cbed91781ec2adf62c919593e27ec[m
+Merge: 3f8d7a5 1cf8c15
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 17:59:08 2013 +0200
+
+    Backend front end merge
+
+[33mcommit 1cf8c157d2923d4a5997f8f35b2d6ed0015c2136[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 17:57:44 2013 +0200
+
+    UI changes
+    
+    Yavuz's last ui changes
+
+[33mcommit 58a1573f2d43cb211d5965b24358f86795a812da[m
+Author: oyton <oytunokt@gmail.com>
+Date:   Sat Feb 2 16:36:17 2013 +0200
+
+    Serverside Scripts, WSGI along with data retrieval scripts
+
+[33mcommit 3f8d7a5404499201173cba982df5a6092023ed9e[m
+Author: Çağdaş Can <cagdascan@gmail.com>
+Date:   Sat Feb 2 06:06:30 2013 -0800
+
+    Create gh-pages branch via GitHub
+
+[33mcommit 885355fbac1a229c1b0d2a7913247856c5a995d8[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 14:38:56 2013 +0200
+
+    Persistent navbar
+    
+    Navigation bar on the footer made persistent by adding data-id =
+    "footer" on every page
+
+[33mcommit 86a46b8f839207ff99628485c2c1fa4b37afe67a[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Sat Feb 2 14:05:04 2013 +0200
+
+    minor changes
+    
+    nothing special
+
+[33mcommit 8e9b58ee112c166cc6d08ebcdca0a6bc7109e308[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Fri Feb 1 20:03:39 2013 +0200
+
+    First push of front-end design
+
+[33mcommit 8877caa23b413a225d5e02a7652634cfba0b4fc1[m
+Author: ccan <cagdascan@gmail.com>
+Date:   Tue Jan 29 00:18:04 2013 +0200
+
+    README file changes
+
+[33mcommit 4961aa2343e71cb6fe418c70a90db8f780bbdcbf[m
+Author: Çağdaş Can <cagdascan@gmail.com>
+Date:   Mon Jan 28 13:17:40 2013 -0800
+
+    Initial commit
