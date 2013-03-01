@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- cagdas merge deneme lol 222-->
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -28,12 +28,13 @@
 			var db = openDatabase("myMovies", "1", "My Watch List", 100000);
 			var movies = [];
 			var movie_wish_list = [];
-			var i = localStorage.length + 1;
+			var i = 1;
 		  
 			function storeMyMovie(id) {
+				var i = localStorage.length + 1;
 				movies[i]	= id.innerHTML;
 				localStorage.setItem('movie'+i, movies[i]);	
-				console.log(localStorage.length);				
+				//console.log(localStorage.length);				
 			}
 			
 
@@ -68,6 +69,8 @@
 			    return false;
 			  }			
 		</script><!--local database end-->
+
+
 
 		<script>
 			$('#mgogo').live('click',function() //generate my pleasure buttonu
@@ -140,7 +143,6 @@
 		</script>
     </head>
     <body>
-
         <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a" class="header_a">
 				<div data-role="navbar" class="ui-navbar" >
@@ -258,7 +260,7 @@
 						    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
 						</div>
 
-  					<script type="text/javascript">console.log ("lol");</script> <!-- for debugging purposes --> 
+  					<script type="text/javascript">//console.log ("lol");</script> <!-- for debugging purposes --> 
   					
 
   					<div><a onclick="clearLocal(); getMyAllMovies(); location.reload();" href="javascript:void(0);">Clear My List</a></div>	
@@ -274,8 +276,6 @@
 		<div data-role="page" id="result0"><!--Sonuc sayfasi 0-->
             <div data-role="panel" id="mypanel" data-display="overlay">
     			<a href = "#page3"> My Watch List</a>
-    			
-
   			</div><!-- /panel -->
             <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
 				<div data-role="navbar" class="ui-navbar" >
@@ -302,15 +302,11 @@
 					<div id="result0_rating" class="rating"></div>
 					<div class="addwatch">
 						<div id="addToWatchList1" data-role="button" data-icon="star">Add</div>
+						<div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div>
 					</div>
 					<div id="result0_plot" class="plotm"> </div>
 				</div>
-						<script>
-							$("#addToWatchList1").click(function( event ) {
-	  							storeMyMovie(document.getElementById('result0_title'));
-	  							getMyMovie();
-							});
-						</script>
+						
 
 			</div><!-- /content -->
 		</div>
@@ -344,16 +340,12 @@
 					<div id="result1_rating" class="rating"></div>
 					<div class="addwatch">
 						<div id="addToWatchList2" data-role="button" data-icon="star">Add</div>
+						<div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div>
 					</div>
 					<div id="result1_plot" class="plotm"> </div>
 				</div>
 
-						<script>
-							$("#addToWatchList2").click(function( event ) {
-	  							storeMyMovie(document.getElementById('result1_title'));
-	  							getMyMovie();
-							});
-						</script>
+						
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -390,12 +382,7 @@
 					<div id="result2_plot" class="plotm"> </div>
 				</div>
 
-						<script>
-							$("#addToWatchList3").click(function( event ) {
-	  							storeMyMovie(document.getElementById('result2_title'));
-	  							getMyMovie();
-							});
-						</script>
+						
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -432,12 +419,7 @@
 					<div id="result3_plot" class="plotm"> </div>
 				</div>
 
-						<script>
-							$("#addToWatchList4").click(function( event ) {
-	  							storeMyMovie(document.getElementById('result3_title'));
-	  							getMyMovie();
-							});
-						</script>
+						
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -473,19 +455,49 @@
 					</div>
 					<div id="result4_plot" class="plotm"> </div>
 				</div>
-
-						<script>
-							$("#addToWatchList5").click(function( event ) {
-	  							storeMyMovie(document.getElementById('result4_title'));
-	  							getMyMovie();
-							});
-						</script>
-						<script>
-  							getMyAllMovies();
-						</script>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
+		<script>
+			$("#addToWatchList1").click(function( event ) {
+	  				storeMyMovie(document.getElementById('result0_title'));
+	  				getMyMovie();
+	  				$("div.hidden").fadeIn( 500 );
+	  				$("div.hidden").fadeOut( 1000 );
+				});
+		
+				$("#addToWatchList2").click(function( event ) {
+					storeMyMovie(document.getElementById('result1_title'));
+					getMyMovie();
+					$("div.hidden").fadeIn( 500 );
+	  				$("div.hidden").fadeOut( 1000 );				
+				});
+			
+				$("#addToWatchList3").click(function( event ) {
+					storeMyMovie(document.getElementById('result2_title'));
+					getMyMovie();
+					$("div.hidden").fadeIn( 500 );
+  					$("div.hidden").fadeOut( 1000 );		
+				});
+			
+				$("#addToWatchList4").click(function( event ) {
+					storeMyMovie(document.getElementById('result3_title'));
+					getMyMovie();
+					$("div.hidden").fadeIn( 500 );
+  					$("div.hidden").fadeOut( 1000 );	
+				});
+			
+				$("#addToWatchList5").click(function( event ) {
+					storeMyMovie(document.getElementById('result4_title'));
+					getMyMovie();
+					$("div.hidden").fadeIn( 500 );
+	  				$("div.hidden").fadeOut( 1000 );	
+				});
+
+			getMyAllMovies();
+			console.log(localStorage.length);//debug
+			console.log(i);//debug				
+		</script>
     </body>
 </html>
 
