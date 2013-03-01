@@ -43,22 +43,28 @@
 			function getMyAllMovies() {
 		  	  	for ( var i = 1; i <= localStorage.length; i++ ) {
 		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
-		      		$('.movie_wish_list').append('<li><a href="#"><img src="logo.png"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+		      		$('#movie_watch_list').append('<li><a href="#"><img src="logo.png"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
 				}
 			  }
 
 			function getMyMovie() {
 
 		  	  		movie_wish_list[localStorage.length] = localStorage.getItem('movie'+localStorage.length);
-		      		$('.movie_wish_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[localStorage.length]+'</h2><p>'+movie_wish_list[localStorage.length]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+
+
+		      		$('#movie_watch_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[localStorage.length]+'</h2><p>'+movie_wish_list[localStorage.length]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+				
 
 			  }
 			  function removeMyMovie() {
 				//var id = id;// movies[i]	= id.innerHTML;
 
 				localStorage.removeItem('movie1');
+				// location.reload();
+				// $('#movie_watch_list').replaceWith('<ul id="movie_watch_list" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true"><li>lol</ul>');
+				//location.reload();
 				getMyAllMovies();
-				location.reload();
+				
 
 				//sadece ilk filmi siliyor -- istedigin filmi silecek sekilde yap!!!!
 				//console.log(id);
@@ -248,13 +254,18 @@
 			</div>
 			<div data-role="content">
 					<h1>My Watch List</h1>
-  					<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="movie_wish_list">
+
+					<div class ="movie_wish_list">	  					
+  						<ul id="movie_watch_list" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
+						    
+
 						    <!-- watch list itemlari burayi populate edecek -->
-					</ul>
+						</ul>
+					</div>
 						<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;"> <!-- delete movie from watchlist -->
 						    <h3>Delete Movie?</h3>
 						    <p>The movie will be deleted from your Watch List</p>
-						    <a onclick="removeMyMovie(); getMyAllMovies(); location.reload();" href="javascript:void(0);" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
+						    <a onclick="removeMyMovie();" href="#page3" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
 						    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
 						</div>
 
@@ -299,8 +310,11 @@
 					<div class="result0_poster poster"> </div>
 					<div id="result0_rating" class="rating"></div>
 					<div class="addwatch">
-						<div id="addToWatchList1" data-role="button" data-icon="star">Add</div>
-						<div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div>
+						<div id="addToWatchList1"> <a href="#popupInfo1" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
+						<div data-role="popup" id="popupInfo1" class="ui-content" data-theme="e" style="max-width:200px;">
+  							<p>Added to your watch list</p>
+						</div>
 					</div>
 					<div id="result0_plot" class="plotm"> </div>
 				</div>
@@ -337,8 +351,11 @@
 					<div class="result1_poster poster"> </div>
 					<div id="result1_rating" class="rating"></div>
 					<div class="addwatch">
-						<div id="addToWatchList2" data-role="button" data-icon="star">Add</div>
-						<div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div>
+						<div id="addToWatchList2"> <a href="#popupInfo2" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
+						<div data-role="popup" id="popupInfo2" class="ui-content" data-theme="e" style="max-width:200px;">
+  							<p>Added to your watch list</p>
+						</div>
 					</div>
 					<div id="result1_plot" class="plotm"> </div>
 				</div>
@@ -375,7 +392,11 @@
 					<div class="result2_poster poster"> </div>
 					<div id="result2_rating" class="rating"></div>
 					<div class="addwatch">
-						<div id="addToWatchList3" data-role="button" data-icon="star">Add</div>
+						<div id="addToWatchList3"> <a href="#popupInfo3" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
+						<div data-role="popup" id="popupInfo3" class="ui-content" data-theme="e" style="max-width:200px;">
+  							<p>Added to your watch list</p>
+						</div>
 					</div>
 					<div id="result2_plot" class="plotm"> </div>
 				</div>
@@ -412,7 +433,11 @@
 					<div class="result3_poster poster"> </div>
 					<div id="result3_rating" class="rating"></div>
 					<div class="addwatch">
-						<div id="addToWatchList4" data-role="button" data-icon="star">Add</div>
+						<div id="addToWatchList4"> <a href="#popupInfo4" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
+						<div data-role="popup" id="popupInfo4" class="ui-content" data-theme="e" style="max-width:200px;">
+  							<p>Added to your watch list</p>
+						</div>
 					</div>
 					<div id="result3_plot" class="plotm"> </div>
 				</div>
@@ -449,7 +474,12 @@
 					<div class="result4_poster poster"> </div>
 					<div id="result4_rating" class="rating"></div>
 					<div class="addwatch">
-						<div id="addToWatchList5" data-role="button" data-icon="star">Add</div>
+						<div id="addToWatchList5"> <a href="#popupInfo5" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
+						<div data-role="popup" id="popupInfo5" class="ui-content" data-theme="e" style="max-width:200px;">
+  							<p>Added to your watch list</p>
+						</div>
+						
 					</div>
 					<div id="result4_plot" class="plotm"> </div>
 				</div>
@@ -459,43 +489,48 @@
 		<script>
 			$("#addToWatchList1").click(function( event ) {
 	  				storeMyMovie(document.getElementById('result0_title'));
-	  				getMyMovie();
-	  				$("div.hidden").fadeIn( 500 );
-	  				$("div.hidden").fadeOut( 1000 );
+	  				getMyMovie();	  				
+	  				$("div#popupInfo1").delay(1000).fadeOut( 1000 );
 				});
 
 				$("#addToWatchList2").click(function( event ) {
 					storeMyMovie(document.getElementById('result1_title'));
 					getMyMovie();
-					$("div.hidden").fadeIn( 500 );
-	  				$("div.hidden").fadeOut( 1000 );
+
+					$("div#popupInfo2").delay(1000).fadeOut( 1000 );				
+
 				});
 
 				$("#addToWatchList3").click(function( event ) {
 					storeMyMovie(document.getElementById('result2_title'));
 					getMyMovie();
-					$("div.hidden").fadeIn( 500 );
-  					$("div.hidden").fadeOut( 1000 );
+
+					$("div#popupInfo3").delay(1000).fadeOut( 1000 );		
+
 				});
 
 				$("#addToWatchList4").click(function( event ) {
 					storeMyMovie(document.getElementById('result3_title'));
 					getMyMovie();
-					$("div.hidden").fadeIn( 500 );
-  					$("div.hidden").fadeOut( 1000 );
+
+					$("div#popupInfo4").delay(1000).fadeOut( 1000 );	
+
 				});
 
 				$("#addToWatchList5").click(function( event ) {
 					storeMyMovie(document.getElementById('result4_title'));
 					getMyMovie();
-					$("div.hidden").fadeIn( 500 );
-	  				$("div.hidden").fadeOut( 1000 );
-				});
 
+					$("div#popupInfo5").delay(1000).fadeOut( 1000 );	
+
+				});
+	
 			getMyAllMovies();
 			console.log(localStorage.length);//debug
-			console.log(i);//debug
-		</script>
+
+			console.log(i);//debug	
+		</script>		
+
     </body>
 </html>
 
