@@ -52,18 +52,118 @@ header img {
 .ust {
 	margin:0.3em 30% !important;
 }
+/*** GENRE SECIM ARAYUZU ***/
 .ogedizilim .ui-btn-up {
 	font-size:15px !important;
 	border-radius:0;
 }
 .ogedizilim .ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner {
-	padding:1.2em 5px !important;
+	padding:40px 5% 10px!important;
 	border-radius:0;
 }
 .ogedizilim .ui-controlgroup .ui-checkbox {
 	border-radius:0;
 	-webkit-border-radius:0;
+	margin:0.5%; 
+	width:24%;
+	position:relative;
 }
+.ogedizilim .ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner .ui-btn-text{
+	width: 100%;
+	display: block;
+	margin: auto;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: arial;
+	text-shadow: 0px -1px 0 #000;
+}
+.ogedizilim .ui-controlgroup-horizontal .ui-checkbox input{
+	display:none;
+}
+.ogedizilim .ui-controlgroup-horizontal .ui-checkbox .ui-btn-inner .ui-btn-text img {
+	position:absolute;
+	top:-50px;
+	left:-30%;
+	z-index:100;
+}
+.ogedizilim label {
+	border-right:1px solid #111;
+}
+.ogedizilim .ui-controlgroup-controls {
+	width:100%;
+}
+.ogedizilim .ui-controlgroup-horizontal .ui-btn {
+border-right-width: 1px;
+}
+.icon-action {
+	background:url(mycons/action.png) no-repeat 50% 12px;
+}
+.icon-adventure {
+	background:url(mycons/adventure.png) no-repeat 50% 12px;
+}
+.icon-animation{
+	background:url(mycons/animation.png) no-repeat 50% 12px;
+}
+.icon-biogrhapy{
+	background:url(mycons/biography.png) no-repeat 50% 12px;
+}
+.icon-comedy{
+	background:url(mycons/comedy.png) no-repeat 50% 12px;
+}
+.icon-crime{
+	background:url(mycons/crime.png) no-repeat 50% 12px;
+}
+.icon-docu{
+	background:url(mycons/docu.png) no-repeat 50% 12px;
+}
+.icon-drama{
+	background:url(mycons/drama.png) no-repeat 50% 12px;
+}
+.icon-family{
+	background:url(mycons/family.png) no-repeat 50% 12px;
+}
+.icon-fantasy{
+	background:url(mycons/fantasy.png) no-repeat 50% 12px;
+}
+.icon-film-noir{
+	background:url(mycons/film-noir.png) no-repeat 50% 12px;
+}
+.icon-history{
+	background:url(mycons/history.png) no-repeat 50% 12px;
+}
+.icon-horror{
+	background:url(mycons/horror.png) no-repeat 50% 12px;
+}
+.icon-music{
+	background:url(mycons/music.png) no-repeat 50% 12px;
+}
+.icon-musical{
+	background:url(mycons/musical.png) no-repeat 50% 12px;
+}
+.icon-mystery{
+	background:url(mycons/mystery.png) no-repeat 50% 12px;
+}
+.icon-romance{
+	background:url(mycons/romance.png) no-repeat 50% 12px;
+}
+.icon-sci-fi{
+	background:url(mycons/sci-fi.png) no-repeat 50% 12px;
+}
+.icon-sport{
+	background:url(mycons/sport.png) no-repeat 50% 12px;
+}
+.icon-thriller{
+	background:url(mycons/thriller.png) no-repeat 50% 12px;
+}
+.icon-war{
+	background:url(mycons/war.png) no-repeat 50% 12px;
+}
+.icon-western{
+	background:url(mycons/western.png) no-repeat 50% 12px;
+}
+
+
+/*** GENRE SECIM ARAYUZU *** ENDS ***/
 .content_sonuc {
 	position:relative;
 	padding:0;
@@ -185,3 +285,4 @@ header img {
 	width: 94%;
 	padding: 3%;
 }
+
