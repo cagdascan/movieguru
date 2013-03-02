@@ -3,18 +3,20 @@ body {
 	margin:0;
 	padding:0;
 }
-h4 {
+h2 {
 	font-size:5vw;
+	margin: 4px 0 8px;
+	text-align:center;
+	text-shadow: 0 -1px 0 #111;
 }
-.logo {
-	margin:auto;
-	margin-top:-30px;
-
+.ui-body-c, .ui-overlay-c {
+	background:#222 !important;
 }
-.logo2 {
-	margin:auto;
-	padding:5px 0 15px;
-	display:block;
+.ui-content {
+	padding:5px;
+}
+h1 {
+	margin:6px auto 2px!important;
 }
 #checkboxes1 {
 	margin-top:0;
@@ -37,7 +39,7 @@ h4 {
 #mtime2 .ui-icon {
 	background: url("mycons/calendar2.png") no-repeat scroll 50% 50% transparent;
 }
-#mgenre  .ui-btn-text, #mtime .ui-btn-text, #mrating .ui-btn-text, #mrating .ui-btn-text, #mgogo .ui-btn-text {
+#mgenre  .ui-btn-text, #mtime .ui-btn-text, #mrating .ui-btn-text, #mrating .ui-btn-text {
 	color:#aaa;
 }
 #mrating .ui-icon {
@@ -45,9 +47,6 @@ h4 {
 }
 #mrating2 .ui-icon {
 	background: url("mycons/rating2.png") no-repeat scroll 50% 50%  transparent;
-}
-header img {
-
 }
 .ust {
 	margin:0.3em 30% !important;
