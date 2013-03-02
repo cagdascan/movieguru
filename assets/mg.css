@@ -9,6 +9,12 @@ h2 {
 	text-align:center;
 	text-shadow: 0 -1px 0 #111;
 }
+.ince > .ui-li .ui-btn-inner a.ui-link-inherit, .ince > .ui-li-static.ui-li {
+	font-weight:normal !important;
+}
+.ui-panel {
+
+}
 .ui-body-c, .ui-overlay-c {
 	background:#222 !important;
 }

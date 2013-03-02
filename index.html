@@ -151,27 +151,32 @@
     <body>
 
         <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
-
-				<div data-role="header" data-position="inline">
-					<a href="index.html" data-icon="info">Info</a>
-					<h1><img class="logo" src="logo.png"/></h1>
-					<a id="mgogo" data-icon="arrow-r" href="index.html" data-icon="check" data-iconpos="right">Next</a>
-				</div>				
-				
-				<!--<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#" data-icon="info" data-iconpos="top">info</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<img class="logo" src="logo.png"/>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#" id="mgogo" data-icon="arrow-r" data-iconpos="top">Next</a>
-						</li>
-					</ul>
-				</div>-->
-
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo" data-transition="flip">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a id="mgogo" data-icon="arrow-r" href="index.html" data-icon="check" data-iconpos="right">Next</a>
+			</div>				
 			<div data-role="content" data-theme="a">
 				<h2>Now, choose genre(s)</h2>
 				<form data-role="none" class="secimler">
@@ -225,35 +230,60 @@
 					</div>
 				</form><!--Genre secim formu -->
 			</div>
-			<!-- //Footer Navbar Askýda 24.02.2013//
-			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">
-				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
-					<ul>
-						<li><a href="#page1" id="mgenre2" data-role="button" data-icon="custom" class="ui-btn-up-f ui-btn-active ui-state-persist">Genre</a></li>
-						<li><a href="#page2" id="mtime" data-role="button" data-icon="custom" data-transition="slide">Year</a></li>
-						<li><a href="#page3" id="mrating" data-role="button" data-icon="custom" data-transition="slide">Rating</a></li>
-						<li><a href="#" id="mgogo" data-role="button" data-icon="custom" data-transition="slide">Go Go</a></li>
-					</ul>
-				</div>
-			</div>
-			-->
         </div>
 		<div data-role="page" id="pageinfo">
-			<div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a" class="header_a">
-				<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#" data-icon="info" data-iconpos="top">info</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#" id="mgogo" data-icon="arrow-r" data-iconpos="top">Next</a>
-						</li>
-					</ul>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->			
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="#page1" data-icon="home" data-iconpos="right">Home</a>
+			</div>	
+			<div data-role="content" data-theme="a">
+				<div data-role="collapsible-set" data-theme="a" data-content-theme="d">
+					<div data-role="collapsible">
+						<h2>What is Movie Guru?</h2>
+						<p>Movie Guru is a smart advisor for your movie pleasure.</p>
+					</div>
+					<div data-role="collapsible">
+						<h2>Why is Movie Guru?</h2>
+						<ul data-role="listview" data-theme="d" data-divider-theme="d" class="ince">
+							<li>Make fast and accurate decisions with Movie Guru.</li>
+							<li>Spend your time by watching movies, not by brooding to decide "which one?".</li>
+							<li>Find the right movie according to your current preferences.</li>
+						</ul>
+					</div>
+					<div data-role="collapsible">
+						<h2>How to use?</h2>
+						<ul data-role="listview" data-theme="d" data-divider-theme="d" class="ince">
+							<li>First, choose one or more <b>genres</b> and go next.</li>
+							<li>After choosing genre(s), Movie Guru will bring you a screen of keywords.</li>
+							<li>Choose <b>keyword(s)</b> according to your mood</li>
+							<li>That's it. Now, you see the the most suitable results for your movie pleasure.</li>
+							<li>You may also use your <b>watchlist</b> by adding some movies in it.</li>
+						</ul>
+					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 
 		<div data-role="page" id="page2"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR // yavuz uydurma-->
@@ -261,20 +291,31 @@
 		</div> <!--End of page 2 -->
 
 		<div data-role="page" id="page3"> <!--Page 3 - Watch list sayfasi -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar">
-					<ul class="ui-grid-b">
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#page2" data-icon="arrow-l" data-iconpos="top" >Back</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#"data-icon="arrow-r" data-iconpos="top">Next</a>
-						</li>
-					</ul>
-				</div>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->		
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="index.html" data-icon="home" data-iconpos="right">Home</a>
 			</div>
 			<div data-role="content">
 					<h1>My Watch List</h1>
@@ -301,29 +342,33 @@
   					// getMyAllMovies();
 				</script>
 			</div><!-- /content -->
-			<div data-role="footer" data-id="foo1" data-theme="a" data-position="fixed" class="nav-glyphish-example">
-			</div>
 		</div><!--End of page 3 -->
-
-
 		<div data-role="page" id="result0"><!--Sonuc sayfasi 0-->
-            <div data-role="panel" id="mypanel" data-display="overlay">
-    			<a href = "#page3"> My Watch List</a>
-  			</div><!-- /panel -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#mypanel" data-icon="bars" data-iconpos="top" >Menu</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#result1" data-icon="arrow-r" data-iconpos="top">2nd</a>
-						</li>
-					</ul>
-				</div>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->		
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="#result1" data-transition="slide" data-icon="arrow-r"  data-iconpos="right">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc">
 				<div id="result0_arka" class="arka">
@@ -348,23 +393,31 @@
 		</div>
 
 		<div data-role="page" id="result1"><!--Sonuc sayfasi 1-->
-            <div data-role="panel" id="mypanel" data-display="overlay">
-    			<a href = "#page3"> My Watch List</a>
-  			</div><!-- /panel -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#mypanel" data-icon="grid" data-iconpos="top" >Menu</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#result2" data-icon="arrow-r" data-iconpos="top">3rd</a>
-						</li>
-					</ul>
-				</div>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->		
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="#result2" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc">
 				<div id="result1_arka" class="arka">
@@ -389,23 +442,31 @@
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
 		<div data-role="page" id="result2"><!--Sonuc sayfasi 2-->
-            <div data-role="panel" id="mypanel" data-display="overlay">
-    			<a href = "#page3"> My Watch List</a>
-  			</div><!-- /panel -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#mypanel" data-icon="grid" data-iconpos="top" >Menu</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#result3" data-icon="arrow-r" data-iconpos="top">4th</a>
-						</li>
-					</ul>
-				</div>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->		
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="#result3" data-transition="slide"  data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc">
 				<div id="result2_arka" class="arka">
@@ -430,23 +491,31 @@
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
 		<div data-role="page" id="result3"><!--Sonuc sayfasi 3-->
-            <div data-role="panel" id="mypanel" data-display="overlay">
-    			<a href = "#page3"> My Watch List</a>
-  			</div><!-- /panel -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#" data-icon="grid" data-iconpos="top" >Menu</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#mypanel"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#result4" data-icon="arrow-r" data-iconpos="top">5th</a>
-						</li>
-					</ul>
-				</div>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->		
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="#result4" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc">
 				<div id="result3_arka" class="arka">
@@ -471,23 +540,31 @@
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
 		<div data-role="page" id="result4"><!--Sonuc sayfasi 4-->
-            <div data-role="panel" id="mypanel" data-display="overlay">
-    			<a href = "#page3"> My Watch List</a>
-  			</div><!-- /panel -->
-            <div data-role="header" data-position="fixed" data-id="foo1" style="width:100%;" data-theme="a">
-				<div data-role="navbar" class="ui-navbar" >
-					<ul class="ui-grid-b" >
-						<li class="ui-block-a" style="width:20%;">
-							<a href="#mypanel" data-icon="grid" data-iconpos="top" >Menu</a>
-						</li>
-						<li class="ui-block-b" style="width:60%;">
-							<a href="#"><img class="logo" src="logo.png"/></a>
-						</li>
-						<li class="ui-block-c" style="width:20%;">
-							<a href="#result0" data-icon="arrow-r" data-iconpos="top">1st</a>
-						</li>
-					</ul>
-				</div>
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->		
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a href="#result0" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc">
 				<div id="result4_arka" class="arka">
