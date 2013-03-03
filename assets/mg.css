@@ -139,7 +139,7 @@ border: 1px solid #000;
 }
 
 .icon-action .ui-icon {
-	background:url(mycons/action.png) no-repeat 50% 12px;
+	background:url(mycons/action.png) no-repeat 50% 12px; 
 }
 .icon-adventure .ui-icon {
 	background:url(mycons/adventure.png) no-repeat 50% 12px;

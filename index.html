@@ -55,14 +55,20 @@
 				
 
 			  }
-			  function removeMyMovie() {
+			  function removeMyMovie() { //work in progress 
 				//var id = id;// movies[i]	= id.innerHTML;
 
-				localStorage.removeItem('movie1');
+				// localStorage.removeItem('movie1');
+				// console.log('movie removed');
+
 				// location.reload();
 				// $('#movie_watch_list').replaceWith('<ul id="movie_watch_list" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true"><li>lol</ul>');
 				//location.reload();
-				getMyAllMovies();
+				// $("#1").remove();
+				// localStorage.length = localStorage.length + 1;
+				// getMyAllMovies();
+				//location.reload();
+				// console.log('all movies retrieved');
 				
 
 				//sadece ilk filmi siliyor -- istedigin filmi silecek sekilde yap!!!!
@@ -424,11 +430,11 @@
 						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
 					</a></li>
 				</ul>
-  			</div><!-- /panel -->		
+  			</div><!-- /panel on watch list-->		
 			<div data-role="header" data-position="fixed" data-id="persist">
 				<a href="#mypanel" data-icon="bars">Menu</a>
 				<h1><img class="logo" src="logo.png"/></h1>
-				<a href="index.html" data-icon="home" data-iconpos="right">Home</a>
+				<a href="index.html" data-icon="home" data-iconpos="right" class="home_reset">Home</a>
 			</div>
 			<div data-role="content">
 					<h1>My Watch List</h1>
