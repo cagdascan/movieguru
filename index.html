@@ -83,7 +83,7 @@
 
 
 
-		<script>
+		<script>//KULLANILMIYOR
 			$('#mgogo').live('click',function() //generate my pleasure buttonu
 			{
 				var secilenler = $('.secimler').serialize().toString();
@@ -212,7 +212,7 @@
 						$.each(data, function(i,item)
 						{
 							titles.push(item.name);
-							ratings.push(item.userRating);
+							ratings.push('<p>' + item.userRating + '</p>' );
 							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
 							directors.push(item.director);
 							actors.push(item.actors);
@@ -532,25 +532,19 @@
 				<h1><img class="logo" src="logo.png"/></h1>
 				<a href="#result2" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
-			<div data-role="content" class="content_sonuc">
-				<div id="result1_arka" class="arka">
-					<div class="blackbg"></div>
-				</div>
-				<div class="content_sonuc_inner">
-					<div id="result1_title" class="titlem"> </div>
-					<div class="result1_poster poster"> </div>
-					<div id="result1_rating" class="rating"></div>
-					<div class="addwatch">
-						<div id="addToWatchList2"> <a href="#popupInfo2" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
-						<div data-role="popup" id="popupInfo2" class="ui-content" data-theme="e" style="max-width:200px;">
-  							<p>Added to your watch list</p>
-						</div>
+			<div data-role="content" class="content_sonuc" >
+				<div id="result1_title" class="titlem"> </div>
+				<div id="result1_poster" class="poster"> </div>
+				<div id="result1_rating" class="rating"></div>
+				<div id="result1_director" class="directors"></div>
+				<div id="result1_actor" class="cast"></div>
+				<div class="addwatch">
+					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+  						<p>Added to your watch list</p>
 					</div>
-					<div id="result1_plot" class="plotm"> </div>
 				</div>
-
-
+				<div id="result1_plot" class="plotm"> </div>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -581,25 +575,19 @@
 				<h1><img class="logo" src="logo.png"/></h1>
 				<a href="#result3" data-transition="slide"  data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
-			<div data-role="content" class="content_sonuc">
-				<div id="result2_arka" class="arka">
-					<div class="blackbg"></div>
-				</div>
-				<div class="content_sonuc_inner">
-					<div id="result2_title" class="titlem"> </div>
-					<div class="result2_poster poster"> </div>
-					<div id="result2_rating" class="rating"></div>
-					<div class="addwatch">
-						<div id="addToWatchList3"> <a href="#popupInfo3" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
-						<div data-role="popup" id="popupInfo3" class="ui-content" data-theme="e" style="max-width:200px;">
-  							<p>Added to your watch list</p>
-						</div>
+			<div data-role="content" class="content_sonuc" >
+				<div id="result2_title" class="titlem"> </div>
+				<div id="result2_poster" class="poster"> </div>
+				<div id="result2_rating" class="rating"></div>
+				<div id="result2_director" class="directors"></div>
+				<div id="result2_actor" class="cast"></div>
+				<div class="addwatch">
+					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+  						<p>Added to your watch list</p>
 					</div>
-					<div id="result2_plot" class="plotm"> </div>
 				</div>
-
-
+				<div id="result2_plot" class="plotm"> </div>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -630,25 +618,19 @@
 				<h1><img class="logo" src="logo.png"/></h1>
 				<a href="#result4" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
-			<div data-role="content" class="content_sonuc">
-				<div id="result3_arka" class="arka">
-					<div class="blackbg"></div>
-				</div>
-				<div class="content_sonuc_inner">
-					<div id="result3_title" class="titlem"> </div>
-					<div class="result3_poster poster"> </div>
-					<div id="result3_rating" class="rating"></div>
-					<div class="addwatch">
-						<div id="addToWatchList4"> <a href="#popupInfo4" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
-						<div data-role="popup" id="popupInfo4" class="ui-content" data-theme="e" style="max-width:200px;">
-  							<p>Added to your watch list</p>
-						</div>
+			<div data-role="content" class="content_sonuc" >
+				<div id="result3_title" class="titlem"> </div>
+				<div id="result3_poster" class="poster"> </div>
+				<div id="result3_rating" class="rating"></div>
+				<div id="result3_director" class="directors"></div>
+				<div id="result3_actor" class="cast"></div>
+				<div class="addwatch">
+					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+  						<p>Added to your watch list</p>
 					</div>
-					<div id="result3_plot" class="plotm"> </div>
 				</div>
-
-
+				<div id="result3_plot" class="plotm"> </div>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
@@ -679,24 +661,19 @@
 				<h1><img class="logo" src="logo.png"/></h1>
 				<a href="#result0" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Next</a>
 			</div>
-			<div data-role="content" class="content_sonuc">
-				<div id="result4_arka" class="arka">
-					<div class="blackbg"></div>
-				</div>
-				<div class="content_sonuc_inner">
-					<div id="result4_title" class="titlem"> </div>
-					<div class="result4_poster poster"> </div>
-					<div id="result4_rating" class="rating"></div>
-					<div class="addwatch">
-						<div id="addToWatchList5"> <a href="#popupInfo5" data-rel="popup" data-role="button" class="star" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<!-- <div class = "hidden" style ="display:none; color:white;"> Added to watchlist </div> -->
-						<div data-role="popup" id="popupInfo5" class="ui-content" data-theme="e" style="max-width:200px;">
-  							<p>Added to your watch list</p>
-						</div>
-						
+			<div data-role="content" class="content_sonuc" >
+				<div id="result4_title" class="titlem"> </div>
+				<div id="result4_poster" class="poster"> </div>
+				<div id="result4_rating" class="rating"></div>
+				<div id="result4_director" class="directors"></div>
+				<div id="result4_actor" class="cast"></div>
+				<div class="addwatch">
+					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+  						<p>Added to your watch list</p>
 					</div>
-					<div id="result4_plot" class="plotm"> </div>
 				</div>
+				<div id="result4_plot" class="plotm"> </div>
 			</div><!-- /content -->
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
