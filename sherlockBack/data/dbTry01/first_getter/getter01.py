@@ -22,13 +22,15 @@ def search2ids(search_text):
     search_textL = search_text
     ids = []
     for i in range(1,nosTitles,100):
-        print i*1.0/nosTitles*100
+        print 'search to filIds completion '+ str(i*1.0/nosTitles*100)
         search_textL = search_textL.split('start=')[0] + 'start=' + str(i) + '&title_type=' + search_textL.split('&title_type=')[1]
-        ids.append(page2ids(search_textL))
+        for j in page2ids(search_textL):
+            ids.append(j)
         
     i = i + 100
     ssearch_textL = search_textL.split('start=')[0] + 'start=' + str(i) + '&title_type=' + search_textL.split('&title_type=')[1]
-    ids.append(page2ids(ssearch_textL)) 
+    for j in page2ids(ssearch_textL):
+        ids.append(j) 
     return ids
 
 #search_text = 'http://www.imdb.com/search/title?count=100&num_votes=5000,&porn=0&sort=moviemeter,asc&start=101&title_type=feature,documentary,video&user_rating=6.0,10'
