@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <title>Movie Guru</title>
@@ -231,11 +231,11 @@
 				</form><!--Genre secim formu -->
 			</div>
         </div>
-		<div data-role="page" id="pageinfo">
+		<div data-role="page" id="pageinfo"> <!--Info sayfasi -->
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
 					<li data-icon="info"><a href="#pageinfo">Info</a></li>
 					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
 					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
@@ -256,7 +256,7 @@
 			<div data-role="header" data-position="fixed" data-id="persist">
 				<a href="#mypanel" data-icon="bars">Menu</a>
 				<h1><img class="logo" src="logo.png"/></h1>
-				<a href="#page1" data-icon="home" data-iconpos="right">Home</a>
+				<a href="#page1" data-icon="home" data-iconpos="right" class="home_reset">Home</a>
 			</div>	
 			<div data-role="content" data-theme="a">
 				<div data-role="collapsible-set" data-theme="a" data-content-theme="d">
@@ -294,7 +294,7 @@
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
 					<li data-icon="info"><a href="#pageinfo">Info</a></li>
 					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
 					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
@@ -347,7 +347,7 @@
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
 					<li data-icon="info"><a href="#pageinfo">Info</a></li>
 					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
 					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
@@ -396,7 +396,7 @@
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
 					<li data-icon="info"><a href="#pageinfo">Info</a></li>
 					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
 					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
@@ -445,7 +445,7 @@
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
 					<li data-icon="info"><a href="#pageinfo">Info</a></li>
 					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
 					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
@@ -543,7 +543,7 @@
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
 					<li data-icon="info"><a href="#pageinfo">Info</a></li>
 					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
 					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
@@ -624,6 +624,36 @@
 
 					$("div#popupInfo5").delay(1000).fadeOut( 1000 );	
 
+				});
+
+				$(".home_reset").click(function( event ) { //home butonuna basinca ilk sonuc kumesini sifirlama
+					for ( var i = 0; i <= 4; i++ ) {
+						var result_title = function(i){
+							return "#result"+i+"_title";
+						};
+						var result_rating = function(i){
+							return "#result"+i+"_rating";
+						};
+						var result_year = function(i){
+							return "#result"+i+"_year";
+						};
+						var result_arka = function(i){
+							return "#result"+i+"_arka";
+						};
+						var result_poster = function(i){
+							return ".result"+i+"_poster";
+						};
+						var result_plot = function(i){
+							return "#result"+i+"_plot";
+						};
+			  	  		$(result_title(i)).empty();
+						$(result_rating(i)).empty();
+					    $(result_year(i)).empty();
+						$(result_arka(i)).empty();
+						$(result_poster(i)).empty();
+						$(result_plot(i)).empty();
+		      		}
+		   		console.log("skull pressed");//debug
 				});
 	
 			getMyAllMovies();
