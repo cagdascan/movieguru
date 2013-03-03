@@ -170,7 +170,7 @@
 						$.each(data, function(i,item)
 						{
 							keywords.push(item._id);
-							$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
+							$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>').trigger( "create" );
 							console.log(i);
 					  	});
 
@@ -282,7 +282,7 @@
 							<label for="checkbox5" data-icon="custom" data-iconpos="top" class="icon-comedy" data-wrapperels="span">Comedy</label>
 							<input id="checkbox6" value="Crime" name="genre" type="checkbox" />
 							<label for="checkbox6" data-icon="custom" data-iconpos="top" class="icon-crime" data-wrapperels="span">Crime</label>
-							<input id="checkbox7" value="Docu" name="genre" type="checkbox" />
+							<input id="checkbox7" value="Documentary" name="genre" type="checkbox" />
 							<label for="checkbox7"  data-icon="custom" data-iconpos="top" class="icon-docu" data-wrapperels="span">Docu</label>
 							<input id="checkbox8" value="Drama" name="genre" type="checkbox" style="background:#ff0000;" />
 							<label for="checkbox8" data-icon="custom" data-iconpos="top" class="icon-drama" data-wrapperels="span">Drama</label>
@@ -397,7 +397,7 @@
 				</ul>
   			</div><!-- /panel -->
 			<div data-role="header" data-position="fixed" data-id="persist">
-				<a href="#page1" data-icon="arrow-l">Back</a>
+				<a href="#page1" class="home_reset" data-icon="arrow-l">Back</a>
 				<h1><img class="logo" src="logo.png"/></h1>
 				<a id="mgogo2" data-icon="arrow-r" data-icon="check" data-iconpos="right">Next</a>
 			</div>
@@ -406,7 +406,7 @@
 					<form data-role="none" class="secimler1">
 						<div data-role="field-contain" >
 							<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-								<div id="containkw">
+								<div id="containkw" data-theme="a">
 
 								</div>
 							</fieldset>
@@ -730,34 +730,34 @@
 						var result_rating = function(i){
 							return "#result"+i+"_rating";
 						};
-						var result_year = function(i){
-							return "#result"+i+"_year";
+						var result_director = function(i){
+							return "#result"+i+"_director";
 						};
-						var result_arka = function(i){
-							return "#result"+i+"_arka";
+						var result_actor = function(i){
+							return "#result"+i+"_actor";
 						};
 						var result_poster = function(i){
-							return ".result"+i+"_poster";
+							return "#result"+i+"_poster";
 						};
 						var result_plot = function(i){
 							return "#result"+i+"_plot";
 						};
 			  	  		$(result_title(i)).empty();
 						$(result_rating(i)).empty();
-					    $(result_year(i)).empty();
-						$(result_arka(i)).empty();
+					    $(result_director(i)).empty();
+						$(result_actor(i)).empty();
 						$(result_poster(i)).empty();
 						$(result_plot(i)).empty();
-						$("#containkw").empty();
+						
 						// for (var i = 0; i <= 99; i++){
 						// 	var id = function(i){
 						// 		return "#result_" + i + "_keyword";
 						// 	}
 						// 	$(id).empty();
 						// };
-						
-
 		      		}
+				$(".secimler1")[0].reset();
+				$("#containkw").empty();
 		   		console.log("skull pressed");//debug
 				});
 	
