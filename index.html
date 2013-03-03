@@ -188,7 +188,7 @@
 				var secilenler = $('.secimler1').serialize().toString();
 				console.log(secilenler);//for debugging
 				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?query=3&genre=Action&" + $('.secimler1').serialize(),
+				$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
 					function (data)
 					{
 						var titles = [];
