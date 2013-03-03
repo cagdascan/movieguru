@@ -18,7 +18,13 @@ h2 {
 }
 .ui-content {
 	padding:1%;
+
 }
+/*RESULT SAYFALARINDA ARKAPLAN SİYAH GELMESIN DİYE
+.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal), .ui-panel-animate.ui-panel:not(.ui-panel-display-reveal) > div, .ui-panel-animate.ui-panel-content-wrap, .ui-panel-animate.ui-panel-content-fixed-toolbar {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+}
+/* BİTTİ */
 h1 {
 	margin:6px auto 2px!important;
 }
@@ -131,10 +137,10 @@ border: 1px solid #000;
 	}
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .ogedizilim .ui-btn-inner .ui-icon{
-        background-size: 26px 26px;
+        background-size: 52px;
     }
 	.ogedizilim .ui-controlgroup-horizontal .ui-btn-active .ui-icon {
-	background-position: -52px 0px;
+	background-position: -26px 0px;
 	}
 }
 

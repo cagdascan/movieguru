@@ -216,7 +216,7 @@
 							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
 							directors.push(item.director);
 							actors.push(item.actors);
-							plots.push(item.plots);
+							plots.push(item.plotS);
 							$(result_title(i)).append (titles[i]);
 							$(result_rating(i)).append (ratings[i]);
 							$(result_poster(i)).append (posters[i]);
@@ -474,7 +474,6 @@
 				<div id="result0_rating" class="rating"></div>
 				<div id="result0_director" class="directors"></div>
 				<div id="result0_actor" class="cast"></div>
-				<div id="result0_plot" class="plotm"></div>
 				<div class="addwatch">
 					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
 					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
