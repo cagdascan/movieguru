@@ -286,7 +286,85 @@
 		</div>
 
 		<div data-role="page" id="page2"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR // yavuz uydurma-->
-
+            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+				<ul data-role="listview" data-theme="c">
+					<li data-role="list-divider">Main Menu</li>
+					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+					<li data-icon="info"><a href="#pageinfo" data-transition="flip">Info</a></li>
+					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+					<li><a href="page3">
+						<h3>The Dark Knight</h3>
+						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+					</a></li>
+					<li><a href="index.html">
+						<h3>Fight Club</h3>
+						<p><strong>Boston Conference Planning</strong></p>
+						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+					</a></li>
+				</ul>
+  			</div><!-- /panel -->
+			<div data-role="header" data-position="fixed" data-id="persist">
+				<a href="#mypanel" data-icon="bars">Menu</a>
+				<h1><img class="logo" src="logo.png"/></h1>
+				<a id="mgogo" data-icon="arrow-r" data-icon="check" data-iconpos="right">Next</a>
+			</div>
+			<div data-role="content" data-theme="a">
+				<h2>Now, choose genre(s)</h2>
+				<form data-role="none" class="secimler">
+					<div data-role="field-contain" >
+						<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+							<input id="checkbox1" value="Action" name="genre" type="checkbox" />
+							<label for="checkbox1">Helikopter</label>
+							<input id="checkbox2" value="Adventure" name="genre" type="checkbox" />
+							<label for="checkbox2" data-icon="custom" data-iconpos="top" class="icon-adventure" data-wrapperels="span">Adventure</label>
+							<input id="checkbox3" value="Animation" name="genre" type="checkbox" />
+							<label for="checkbox3" data-role="button" data-icon="custom" data-iconpos="top" class="icon-animation" data-wrapperels="span">Animation</label>
+							<input id="checkbox4" value="Biography" name="genre" type="checkbox" />
+							<label for="checkbox4" data-role="button" data-icon="custom" data-iconpos="top" class="icon-biography" data-wrapperels="span">Biography</label>
+							<input id="checkbox5" value="Comedy" name="genre" type="checkbox" />
+							<label for="checkbox5" data-icon="custom" data-iconpos="top" class="icon-comedy" data-wrapperels="span">Comedy</label>
+							<input id="checkbox6" value="Crime" name="genre" type="checkbox" />
+							<label for="checkbox6" data-icon="custom" data-iconpos="top" class="icon-crime" data-wrapperels="span">Crime</label>
+							<input id="checkbox7" value="Docu" name="genre" type="checkbox" />
+							<label for="checkbox7"  data-icon="custom" data-iconpos="top" class="icon-docu" data-wrapperels="span">Docu</label>
+							<input id="checkbox8" value="Drama" name="genre" type="checkbox" style="background:#ff0000;" />
+							<label for="checkbox8" data-icon="custom" data-iconpos="top" class="icon-drama" data-wrapperels="span">Drama</label>
+							<input id="checkbox9" value="Family" name="genre" type="checkbox" />
+							<label for="checkbox9" data-icon="custom" data-iconpos="top" class="icon-family" data-wrapperels="span">Family</label>
+							<input id="checkbox10" value="Fantasy" name="genre" type="checkbox" />
+							<label for="checkbox10" data-icon="custom" data-iconpos="top" class="icon-fantasy" data-wrapperels="span">Fantasy</label>
+							<input id="checkbox11" value="Film-Noir" name="genre" type="checkbox" />
+							<label for="checkbox11" data-icon="custom" data-iconpos="top" class="icon-film-noir" data-wrapperels="span">Film-Noir</label>
+							<input id="checkbox12" value="History" name="genre" type="checkbox" />
+							<label for="checkbox12" data-icon="custom" data-iconpos="top" class="icon-history" data-wrapperels="span">History</label>
+							<input id="checkbox13" value="Horror" name="genre" type="checkbox" />
+							<label for="checkbox13" data-icon="custom" data-iconpos="top" class="icon-horror">Horror</label>
+							<input id="checkbox14" value="Music" name="genre" type="checkbox" />
+							<label for="checkbox14" data-icon="custom" data-iconpos="top" class="icon-music">Music</label>
+							<input id="checkbox15" value="Musical" name="genre" type="checkbox" />
+							<label for="checkbox15" data-icon="custom" data-iconpos="top" class="icon-musical">Musical</label>
+							<input id="checkbox16" value="Mystery" name="genre" type="checkbox" />
+							<label for="checkbox16" data-icon="custom" data-iconpos="top" class="icon-mystery">Mystery</label>
+							<input id="checkbox17" value="Romance" name="genre" type="checkbox" />
+							<label for="checkbox17" data-icon="custom" data-iconpos="top" class="icon-romance">Romance</label>
+							<input id="checkbox18" value="Sci-Fi" name="genre" type="checkbox"/>
+							<label for="checkbox18" data-icon="custom" data-iconpos="top" class="icon-sci-fi">Sci-Fi</label>
+							<input id="checkbox19" value="Sport" name="genre" type="checkbox"/>
+							<label for="checkbox19" data-icon="custom" data-iconpos="top" class="icon-sport">Sport</label>
+							<input id="checkbox20" value="Thriller" name="genre" type="checkbox"/>
+							<label for="checkbox20" data-icon="custom" data-iconpos="top" class="icon-thriller">Thriller</label>
+							<input id="checkbox21" value="War" name="genre" type="checkbox"/>
+							<label for="checkbox21" data-icon="custom" data-iconpos="top" class="icon-war">War</label>
+							<input id="checkbox22" value="Western" name="genre" type="checkbox"/>
+							<label for="checkbox22" data-icon="custom" data-iconpos="top" class="icon-western">Western</label>
+						</fieldset>
+					</div>
+				</form><!--Genre secim formu -->
+			</div>
 		</div> <!--End of page 2 -->
 
 		<div data-role="page" id="page3"> <!--Page 3 - Watch list sayfasi -->
