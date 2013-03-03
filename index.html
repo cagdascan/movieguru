@@ -27,6 +27,7 @@
 			var db = openDatabase("myMovies", "1", "My Watch List", 100000);
 			var movies = [];
 			var movie_wish_list = [];
+			//var keywords = [];
 			var i = 1;
 
 			function storeMyMovie(id) {
@@ -170,10 +171,15 @@
 						{
 							keywords.push(item._id);
 							$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
+							console.log(i);
 					  	});
+
+
 						
 					  $.mobile.changePage('#pagekw');
+					  
 					});
+
 			});	
 		</script>
 		<script>
@@ -742,6 +748,15 @@
 						$(result_arka(i)).empty();
 						$(result_poster(i)).empty();
 						$(result_plot(i)).empty();
+						$("#containkw").empty();
+						// for (var i = 0; i <= 99; i++){
+						// 	var id = function(i){
+						// 		return "#result_" + i + "_keyword";
+						// 	}
+						// 	$(id).empty();
+						// };
+						
+
 		      		}
 		   		console.log("skull pressed");//debug
 				});
