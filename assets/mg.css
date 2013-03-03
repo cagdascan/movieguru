@@ -17,7 +17,7 @@ h2 {
 	background:#222 !important;
 }
 .ui-content {
-	padding:5px;
+	padding:1%;
 }
 h1 {
 	margin:6px auto 2px!important;
@@ -131,145 +131,214 @@ border: 1px solid #000;
 	}
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .ogedizilim .ui-btn-inner .ui-icon{
-        background-size: 13px 13px;
+        background-size: 26px 26px;
     }
 	.ogedizilim .ui-controlgroup-horizontal .ui-btn-active .ui-icon {
-	background-position: -26px 0px;
+	background-position: -52px 0px;
 	}
-	
 }
+
 .icon-action .ui-icon {
 	background:url(mycons/action.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-action .ui-btn-text {
-	color:#CB2F5C !important;
 }
 .icon-adventure .ui-icon {
 	background:url(mycons/adventure.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-adventure .ui-btn-text {
-	color:#7CCA1D !important;
-}
 .icon-animation .ui-icon{
 	background:url(mycons/animation.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-animation .ui-btn-text {
-	color:#DBC41E !important;
 }
 .icon-biography .ui-icon{
 	background:url(mycons/biography.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-biography .ui-btn-text {
-	color:#E37136 !important;
-}
 .icon-comedy .ui-icon {
 	background:url(mycons/comedy.png);
-}
-.ui-btn-active.icon-comedy .ui-btn-text {
-	color:#48C7E7 !important;
 }
 .icon-crime .ui-icon{
 	background:url(mycons/crime.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-crime .ui-btn-text {
-	color:#a300aa !important;
-}
 .icon-docu .ui-icon{
 	background:url(mycons/docu.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-docu .ui-btn-text {
-	color:#647587 !important;
 }
 .icon-drama .ui-icon{
 	background:url(mycons/drama.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-drama .ui-btn-text {
-	color:#a20025 !important;
-}
 .icon-family .ui-icon{
 	background:url(mycons/family.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-family .ui-btn-text {
-	color:#5fa916 !important;
 }
 .icon-fantasy .ui-icon{
 	background:url(mycons/fantasy.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-fantasy .ui-btn-text {
-	color:#fa6900 !important;
-}
 .icon-film-noir .ui-icon{
 	background:url(mycons/film-noir.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-film-noir .ui-btn-text {
-	color:#783a3d !important;
 }
 .icon-history .ui-icon{
 	background:url(mycons/history.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-history .ui-btn-text {
-	color:#d8c101 !important;
-}
 .icon-horror .ui-icon{
 	background:url(mycons/horror.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-horror .ui-btn-text {
-	color:#a20025 !important;
 }
 .icon-music .ui-icon{
 	background:url(mycons/music.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-music .ui-btn-text {
-	color:#0050ef !important;
-}
 .icon-musical .ui-icon{
 	background:url(mycons/musical.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-musical .ui-btn-text {
-	color:#6c8663 !important;
 }
 .icon-mystery .ui-icon{
 	background:url(mycons/mystery.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-mystery .ui-btn-text {
-	color:#01abaa !important;
-}
 .icon-romance .ui-icon{
 	background:url(mycons/romance.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-romance .ui-btn-text {
-	color:#f372cf !important;
 }
 .icon-sci-fi .ui-icon{
 	background:url(mycons/sci-fi.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-sci-fi .ui-btn-text {
-	color:#e51400 !important;
-}
 .icon-sport .ui-icon{
 	background:url(mycons/sport.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-sport .ui-btn-text {
-	color:#1ba0e1 !important;
 }
 .icon-thriller .ui-icon{
 	background:url(mycons/thriller.png) no-repeat 50% 12px;
 }
-.ui-btn-active.icon-thriller .ui-btn-text {
-	color:#d90073 !important;
-}
 .icon-war .ui-icon{
 	background:url(mycons/war.png) no-repeat 50% 12px;
-}
-.ui-btn-active.icon-war .ui-btn-text {
-	color:#5fa916 !important;
 }
 .icon-western .ui-icon{
 	background:url(mycons/western.png) no-repeat 50% 12px;
 }
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+.icon-action .ui-icon {
+	background:url(mycons/action_tn.png) no-repeat 50% 12px;
+}
+.icon-adventure .ui-icon {
+	background:url(mycons/adventure_tn.png) no-repeat 50% 12px;
+}
+.icon-animation .ui-icon{
+	background:url(mycons/animation_tn.png) no-repeat 50% 12px;
+}
+.icon-biography .ui-icon{
+	background:url(mycons/biography_tn.png) no-repeat 50% 12px;
+}
+.icon-comedy .ui-icon {
+	background:url(mycons/comedy_tn.png);
+}
+.icon-crime .ui-icon{
+	background:url(mycons/crime_tn.png) no-repeat 50% 12px;
+}
+.icon-docu .ui-icon{
+	background:url(mycons/docu_tn.png) no-repeat 50% 12px;
+}
+.icon-drama .ui-icon{
+	background:url(mycons/drama_tn.png) no-repeat 50% 12px;
+}
+.icon-family .ui-icon{
+	background:url(mycons/family_tn.png) no-repeat 50% 12px;
+}
+.icon-fantasy .ui-icon{
+	background:url(mycons/fantasy_tn.png) no-repeat 50% 12px;
+}
+.icon-film-noir .ui-icon{
+	background:url(mycons/film-noir_tn.png) no-repeat 50% 12px;
+}
+.icon-history .ui-icon{
+	background:url(mycons/history_tn.png) no-repeat 50% 12px;
+}
+.icon-horror .ui-icon{
+	background:url(mycons/horror_tn.png) no-repeat 50% 12px;
+}
+.icon-music .ui-icon{
+	background:url(mycons/music_tn.png) no-repeat 50% 12px;
+}
+.icon-musical .ui-icon{
+	background:url(mycons/musical_tn.png) no-repeat 50% 12px;
+}
+.icon-mystery .ui-icon{
+	background:url(mycons/mystery_tn.png) no-repeat 50% 12px;
+}
+.icon-romance .ui-icon{
+	background:url(mycons/romance_tn.png) no-repeat 50% 12px;
+}
+.icon-sci-fi .ui-icon{
+	background:url(mycons/sci-fi_tn.png) no-repeat 50% 12px;
+}
+.icon-sport .ui-icon{
+	background:url(mycons/sport_tn.png) no-repeat 50% 12px;
+}
+.icon-thriller .ui-icon{
+	background:url(mycons/thriller_tn.png) no-repeat 50% 12px;
+}
+.icon-war .ui-icon{
+	background:url(mycons/war_tn.png) no-repeat 50% 12px;
+}
+.icon-western .ui-icon{
+	background:url(mycons/western_tn.png) no-repeat 50% 12px;
+}
+}
+.ui-btn-active.icon-action .ui-btn-text {
+	color:#CB2F5C !important;
+}
+.ui-btn-active.icon-adventure .ui-btn-text {
+	color:#7CCA1D !important;
+}
+.ui-btn-active.icon-animation .ui-btn-text {
+	color:#DBC41E !important;
+}
+.ui-btn-active.icon-biography .ui-btn-text {
+	color:#E37136 !important;
+}
+.ui-btn-active.icon-comedy .ui-btn-text {
+	color:#48C7E7 !important;
+}
+.ui-btn-active.icon-crime .ui-btn-text {
+	color:#a300aa !important;
+}
+.ui-btn-active.icon-docu .ui-btn-text {
+	color:#647587 !important;
+}
+.ui-btn-active.icon-drama .ui-btn-text {
+	color:#a20025 !important;
+}
+.ui-btn-active.icon-family .ui-btn-text {
+	color:#5fa916 !important;
+}
+.ui-btn-active.icon-fantasy .ui-btn-text {
+	color:#fa6900 !important;
+}
+.ui-btn-active.icon-film-noir .ui-btn-text {
+	color:#783a3d !important;
+}
+.ui-btn-active.icon-history .ui-btn-text {
+	color:#d8c101 !important;
+}
+.ui-btn-active.icon-horror .ui-btn-text {
+	color:#a20025 !important;
+}
+.ui-btn-active.icon-music .ui-btn-text {
+	color:#0050ef !important;
+}
+.ui-btn-active.icon-musical .ui-btn-text {
+	color:#6c8663 !important;
+}
+.ui-btn-active.icon-mystery .ui-btn-text {
+	color:#01abaa !important;
+}
+.ui-btn-active.icon-romance .ui-btn-text {
+	color:#f372cf !important;
+}
+.ui-btn-active.icon-sci-fi .ui-btn-text {
+	color:#e51400 !important;
+}
+.ui-btn-active.icon-sport .ui-btn-text {
+	color:#1ba0e1 !important;
+}
+.ui-btn-active.icon-thriller .ui-btn-text {
+	color:#d90073 !important;
+}
+.ui-btn-active.icon-war .ui-btn-text {
+	color:#5fa916 !important;
+}
 .ui-btn-active.icon-western .ui-btn-text {
 	color:#d8c101 !important;
 }
+
 .ui-icon {
 -webkit-touch-callout: none !important;
 -webkit-user-select: none !important;
@@ -282,7 +351,7 @@ user-select: none !important;
 .content_sonuc {
 	background:#fff;
 	display:block;
-	width:100%;
+	width:98%;
 	height:100%;
 }
 .titlem {
@@ -322,10 +391,11 @@ user-select: none !important;
     font-weight: bold;
     height: auto;
     margin-left: 3.5%;
+	margin-right:2%;
     padding: 3% 0;
     text-align: center;
     text-shadow: 1px 1px 0 #FDDC44;
-    width: 30%;
+    width: 32.5%;
 	margin-bottom:2%;
 }
 .rating p {
@@ -363,15 +433,15 @@ user-select: none !important;
     width: 87.5%;
 }
 .directors, .cast {
-    float: left;
-    font-size: 3.4vw;
-    font-weight: normal !important;
-    margin: 2% 0 2% 3.5%;
-    padding: 2%;
-    text-align: center;
-    text-shadow: 0 0;
-    width: 26%;
-	color:#fff;
+	float: left;
+	font-size: 3.4vw;
+	font-weight: normal !important;
+	margin: 2% 2% 2% 3.5%;
+	padding: 2%;
+	text-align: center;
+	text-shadow: 0 0;
+	width: 28.5%;
+	color: #fff;
 }
 .directors {
 	background:#a20025;

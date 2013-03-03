@@ -83,7 +83,7 @@
 				var secilenler = $('.secimler').serialize().toString();
 				console.log(secilenler);//for debugging
 				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?rating=7.0&rating=10.0&year=2000&" + $('.secimler').serialize(),
+				$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler').serialize(),
 					function (data)
 					{
 						var titles = [];
@@ -146,6 +146,83 @@
         //		$.mobile.changePage('#result0');
         //	});
 		</script>
+		<script>
+			$('#mgogo1').live('click',function() //generate my pleasure buttonu
+			{
+				var secilenler = $('.secimler1').serialize().toString();
+				console.log(secilenler);//for debugging
+				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
+				$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
+					function (data)
+					{
+						var keywords = [];
+						var result_keyword = function(i){
+							return "#result"+i+"_keyword";
+						};
+						
+						$.each(data, function(i,item)
+						{
+							keywords.push(item._id);
+							$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
+					  	});
+						
+					  $.mobile.changePage('#pagekw');
+					});
+			});	
+		</script>
+		<script>
+			$('#mgogo2').live('click',function() //generate my pleasure buttonu
+			{
+				var secilenler = $('.secimler1').serialize().toString();
+				console.log(secilenler);//for debugging
+				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
+				$.getJSON("http://bayez.biz/moviegurus/?query=3&genre=Action&" + $('.secimler1').serialize(),
+					function (data)
+					{
+						var titles = [];
+						var ratings = [];
+						var posters = [];
+						var directors = [];
+						var actors = [];
+						var plots = [];
+						var result_title = function(i){
+							return "#result"+i+"_title";
+						};
+						var result_rating = function(i){
+							return "#result"+i+"_rating";
+						};
+						var result_poster = function(i){
+							return "#result"+i+"_poster";
+						};
+						var result_director = function(i){
+							return "#result"+i+"_director";
+						};
+						var result_actor = function(i){
+							return "#result"+i+"_actor";
+						};
+						var result_plot = function(i){
+							return "#result"+i+"_plot";
+						};
+						$.each(data, function(i,item)
+						{
+							titles.push(item.name);
+							ratings.push(item.userRating);
+							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
+							directors.push(item.director);
+							actors.push(item.actors);
+							plots.push(item.plots);
+							$(result_title(i)).append (titles[i]);
+							$(result_rating(i)).append (ratings[i]);
+							$(result_poster(i)).append (posters[i]);
+							$(result_director(i)).append (directors[i]);
+							$(result_actor(i)).append (actors[i]);
+							$(result_plot(i)).append (plots[i]);
+						});
+						
+					  $.mobile.changePage('#result0');
+					});
+			});	
+		</script>
     </head>
     <body>
 
@@ -174,11 +251,11 @@
 			<div data-role="header" data-position="fixed" data-id="persist">
 				<a href="#mypanel" data-icon="bars">Menu</a>
 				<h1><img class="logo" src="logo.png"/></h1>
-				<a id="mgogo" data-icon="arrow-r" data-icon="check" data-iconpos="right">Next</a>
+				<a id="mgogo1" data-icon="arrow-r" data-icon="check" data-iconpos="right">Next</a>
 			</div>				
 			<div data-role="content" data-theme="a">
 				<h2>Now, choose genre(s)</h2>
-				<form data-role="none" class="secimler">
+				<form data-role="none" class="secimler1">
 					<div data-role="field-contain" class="ogedizilim" >
 						<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 							<input id="checkbox1" value="Action" name="genre" type="checkbox" />
@@ -285,7 +362,7 @@
 			</div>
 		</div>
 
-		<div data-role="page" id="page2"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR // yavuz uydurma-->
+		<div data-role="page" id="pagekw"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR // yavuz uydurma-->
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
@@ -308,62 +385,21 @@
 				</ul>
   			</div><!-- /panel -->
 			<div data-role="header" data-position="fixed" data-id="persist">
-				<a href="#mypanel" data-icon="bars">Menu</a>
+				<a href="#page1" data-icon="arrow-l">Back</a>
 				<h1><img class="logo" src="logo.png"/></h1>
-				<a id="mgogo" data-icon="arrow-r" data-icon="check" data-iconpos="right">Next</a>
+				<a id="mgogo2" data-icon="arrow-r" data-icon="check" data-iconpos="right">Next</a>
 			</div>
 			<div data-role="content" data-theme="a">
-				<h2>Now, choose genre(s)</h2>
-				<form data-role="none" class="secimler">
-					<div data-role="field-contain" >
-						<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-							<input id="checkbox1" value="Action" name="genre" type="checkbox" />
-							<label for="checkbox1">Helikopter</label>
-							<input id="checkbox2" value="Adventure" name="genre" type="checkbox" />
-							<label for="checkbox2" data-icon="custom" data-iconpos="top" class="icon-adventure" data-wrapperels="span">Adventure</label>
-							<input id="checkbox3" value="Animation" name="genre" type="checkbox" />
-							<label for="checkbox3" data-role="button" data-icon="custom" data-iconpos="top" class="icon-animation" data-wrapperels="span">Animation</label>
-							<input id="checkbox4" value="Biography" name="genre" type="checkbox" />
-							<label for="checkbox4" data-role="button" data-icon="custom" data-iconpos="top" class="icon-biography" data-wrapperels="span">Biography</label>
-							<input id="checkbox5" value="Comedy" name="genre" type="checkbox" />
-							<label for="checkbox5" data-icon="custom" data-iconpos="top" class="icon-comedy" data-wrapperels="span">Comedy</label>
-							<input id="checkbox6" value="Crime" name="genre" type="checkbox" />
-							<label for="checkbox6" data-icon="custom" data-iconpos="top" class="icon-crime" data-wrapperels="span">Crime</label>
-							<input id="checkbox7" value="Docu" name="genre" type="checkbox" />
-							<label for="checkbox7"  data-icon="custom" data-iconpos="top" class="icon-docu" data-wrapperels="span">Docu</label>
-							<input id="checkbox8" value="Drama" name="genre" type="checkbox" style="background:#ff0000;" />
-							<label for="checkbox8" data-icon="custom" data-iconpos="top" class="icon-drama" data-wrapperels="span">Drama</label>
-							<input id="checkbox9" value="Family" name="genre" type="checkbox" />
-							<label for="checkbox9" data-icon="custom" data-iconpos="top" class="icon-family" data-wrapperels="span">Family</label>
-							<input id="checkbox10" value="Fantasy" name="genre" type="checkbox" />
-							<label for="checkbox10" data-icon="custom" data-iconpos="top" class="icon-fantasy" data-wrapperels="span">Fantasy</label>
-							<input id="checkbox11" value="Film-Noir" name="genre" type="checkbox" />
-							<label for="checkbox11" data-icon="custom" data-iconpos="top" class="icon-film-noir" data-wrapperels="span">Film-Noir</label>
-							<input id="checkbox12" value="History" name="genre" type="checkbox" />
-							<label for="checkbox12" data-icon="custom" data-iconpos="top" class="icon-history" data-wrapperels="span">History</label>
-							<input id="checkbox13" value="Horror" name="genre" type="checkbox" />
-							<label for="checkbox13" data-icon="custom" data-iconpos="top" class="icon-horror">Horror</label>
-							<input id="checkbox14" value="Music" name="genre" type="checkbox" />
-							<label for="checkbox14" data-icon="custom" data-iconpos="top" class="icon-music">Music</label>
-							<input id="checkbox15" value="Musical" name="genre" type="checkbox" />
-							<label for="checkbox15" data-icon="custom" data-iconpos="top" class="icon-musical">Musical</label>
-							<input id="checkbox16" value="Mystery" name="genre" type="checkbox" />
-							<label for="checkbox16" data-icon="custom" data-iconpos="top" class="icon-mystery">Mystery</label>
-							<input id="checkbox17" value="Romance" name="genre" type="checkbox" />
-							<label for="checkbox17" data-icon="custom" data-iconpos="top" class="icon-romance">Romance</label>
-							<input id="checkbox18" value="Sci-Fi" name="genre" type="checkbox"/>
-							<label for="checkbox18" data-icon="custom" data-iconpos="top" class="icon-sci-fi">Sci-Fi</label>
-							<input id="checkbox19" value="Sport" name="genre" type="checkbox"/>
-							<label for="checkbox19" data-icon="custom" data-iconpos="top" class="icon-sport">Sport</label>
-							<input id="checkbox20" value="Thriller" name="genre" type="checkbox"/>
-							<label for="checkbox20" data-icon="custom" data-iconpos="top" class="icon-thriller">Thriller</label>
-							<input id="checkbox21" value="War" name="genre" type="checkbox"/>
-							<label for="checkbox21" data-icon="custom" data-iconpos="top" class="icon-war">War</label>
-							<input id="checkbox22" value="Western" name="genre" type="checkbox"/>
-							<label for="checkbox22" data-icon="custom" data-iconpos="top" class="icon-western">Western</label>
-						</fieldset>
-					</div>
-				</form><!--Genre secim formu -->
+				<h2>Now, choose keyword(s)</h2>
+					<form data-role="none" class="secimler1">
+						<div data-role="field-contain" >
+							<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+								<div id="containkw">
+
+								</div>
+							</fieldset>
+						</div>
+					</form>
 			</div>
 		</div> <!--End of page 2 -->
 
@@ -428,10 +464,11 @@
 			</div>
 			<div data-role="content" class="content_sonuc" >
 				<div id="result0_title" class="titlem"> </div>
-				<div class="result0_poster poster"> </div>
+				<div id="result0_poster" class="poster"> </div>
 				<div id="result0_rating" class="rating"></div>
-				<div class="directors">Guy Ritchie</div>
-				<div class="cast">Natalie Portman, Ashton Kutcher, Kevin Kline, Cary Elwes</div>
+				<div id="result0_director" class="directors"></div>
+				<div id="result0_actor" class="cast"></div>
+				<div id="result0_plot" class="plotm"></div>
 				<div class="addwatch">
 					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
 					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
