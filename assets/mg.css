@@ -4,12 +4,49 @@ body {
 	padding:0;
 	font-family:Arial, sans-serif, Helvetica;
 }
+h1 {
+margin:.8em 10% !important;
+	
+
+}
 h2 {
-	font-size:5vw;
+	font-size:5vw !important;
 	margin: 4px 0 8px;
 	text-align:center;
 	text-shadow: 0 -1px 0 #111;
 }
+
+
+
+/*Fixed Header'in Sabit durması icin jqm css fix */
+.mgheader {
+	background-image: -webkit-gradient(linear,left top,left bottom,from( #111),to( #000 ));
+	background-image: -webkit-linear-gradient( #111,#000);
+	background-image: -moz-linear-gradient( #111,#000 );
+	background-image: -ms-linear-gradient( #111,#000 );
+	background-image: -o-linear-gradient( #111,#000 );
+	background-image: linear-gradient( #111,#000 );
+	border-top:0 !important;
+	margin-top:0 !important;
+	padding-top:0 !important;
+}
+.ui-header {
+	height:67px !important;
+}
+.ui-header > .ui-btn, .ui-header-fixed > .ui-btn {
+	width:60px;
+	margin:3px 0px;
+}
+.ui-header-fixed, .ui-fixed-hidden {
+	padding-top:0!important;
+	top:0!important;
+	position:fixed;
+}
+.ui-header .ui-btn-left, .ui-header .ui-btn-right, .ui-footer .ui-btn-left, .ui-footer .ui-btn-right, 
+.ui-header-fixed.ui-fixed-hidden .ui-btn-left, .ui-header-fixed.ui-fixed-hidden .ui-btn-right {
+	top:2px !important;
+}
+/*Ends*/
 .ince > .ui-li .ui-btn-inner a.ui-link-inherit, .ince > .ui-li-static.ui-li {
 	font-weight:normal !important;
 }
@@ -25,9 +62,7 @@ h2 {
     background: none repeat scroll 0 0 #FFFFFF !important;
 }
 /* BİTTİ */
-h1 {
-	margin:6px auto 2px!important;
-}
+
 #checkboxes1 {
 	margin-top:0;
 }
@@ -57,9 +92,6 @@ h1 {
 }
 #mrating2 .ui-icon {
 	background: url("mycons/rating2.png") no-repeat scroll 50% 50%  transparent;
-}
-.ust {
-	margin:0.3em 30% !important;
 }
 /*** GENRE SECIM ARAYUZU ***/
 .ogedizilim .ui-btn-up {
@@ -355,10 +387,10 @@ user-select: none !important;
 }
 /*** GENRE SECIM ARAYUZU *** ENDS ***/
 .content_sonuc {
-	background:#fff;
 	display:block;
 	width:98%;
 	height:100%;
+	background:#fff !important;
 }
 .titlem {
     color: #222222;
@@ -455,3 +487,12 @@ user-select: none !important;
 .cast {
 	background:#1ba0e1;
 }
+/** RESULT EKRANLARININ ARKAPLANINI BEYAZ YAPMAK **/
+.result > .ui-panel-content-wrap.ui-body-c.ui-panel-animate.ui-panel-content-wrap-closed
+{
+	background:#fff !important;
+}
+.result {
+	background:#fff !important;
+}
+/** ENDS**/
