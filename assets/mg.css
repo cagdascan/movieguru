@@ -392,23 +392,38 @@ user-select: none !important;
 	height:100%;
 	background:#fff !important;
 }
+
 .titlem {
-    color: #222222;
+	clear:both;
+	display:block;
+    color: #000;
     display: block;
-    font-size: 7.7vw;
+    font-size: 6vw !important;
     font-weight: bold;
     height: auto;
     line-height: 9.6vw;
-    margin: 2vw auto 3vw;
-    text-align: center;
-    width: 100%;
+    margin: 1vw 1% 1px;
+    text-align: left;
+    width: 97.5%;
+	text-shadow:0 1px 0 #fff!important;
+	background:#eee;
+	padding-right:1px;
 }
+.titlem span {
+	margin-right:0px;
+	background:#000;
+	color:#fff;
+	padding:1.3vw 2.5%;
+	text-align:center;
+	height:100%;
+	text-shadow:none !important;
+	}
 .poster {
 	display:block;
 	width: 60%;
 	float:left;
 	padding:0;
-	margin-left: 2%;
+	margin-left: 1%;
 }
 .rating {
 	background-image: linear-gradient(bottom, #CBA706 5%, #E6C329 53%);
@@ -428,13 +443,13 @@ user-select: none !important;
     float: left;
     font-weight: bold;
     height: auto;
-    margin-left: 3.5%;
-	margin-right:2%;
+    margin-left: 1px;
+	margin-right:1%;
     padding: 3% 0;
     text-align: center;
     text-shadow: 1px 1px 0 #FDDC44;
-    width: 32.5%;
-	margin-bottom:2%;
+    width: 37.5%;
+	margin-bottom:1px;
 }
 .rating p {
 	font-size: 16vw;
@@ -464,28 +479,30 @@ user-select: none !important;
     font-family: arial;
     font-size: 3.4vw;
     font-weight: normal;
-    margin-left: 2%;
+    margin-left: 1%;
+	margin-right:1%;
     margin-top: 1vw;
     padding: 2% 0;
     text-shadow: 0 0 0 #000000;
-    width: 96.5%;
+    width: 98%;
 }
 .directors, .cast {
 	float: left;
-	font-size: 3.4vw;
+	font-size: 3.4vw !important;
+	line-height: 4.8vw !important;
 	font-weight: normal !important;
-	margin: 2% 2% 2% 3.5%;
+	margin: 0% 1% 1px 1px;
 	padding: 2%;
 	text-align: center;
 	text-shadow: 0 0;
-	width: 28.5%;
+	width: 33.5%;
 	color: #fff;
 }
 .directors {
 	background:#a20025;
 }
 .cast {
-	background:#1ba0e1;
+	background:#765f89;
 }
 /** RESULT EKRANLARININ ARKAPLANINI BEYAZ YAPMAK **/
 .result > .ui-panel-content-wrap.ui-body-c.ui-panel-animate.ui-panel-content-wrap-closed
