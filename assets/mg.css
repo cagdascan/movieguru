@@ -418,7 +418,7 @@ user-select: none !important;
 	padding-right:1px;
 }
 .titlem span {
-	margin-right:2px;
+	margin-right:5px;
 	background:#000;
 	color:#fff;
 	padding:1.3vw 2.5%;
@@ -520,4 +520,18 @@ user-select: none !important;
 .result {
 	background:#fff !important;
 }
-/** ENDS**/
+/** ENDS **/
+/** KEYWORD SAYFASI BUTTON DESIGN**/
+#containkw > .ui-checkbox {
+	margin: 0.66% !important;
+    width: 32% !important;
+}
+#containkw > .ui-checkbox > label {
+border-right-width: 1px !important;
+}
+#containkw > .ui-checkbox > label > .ui-btn-inner > .ui-btn-text {
+font-size: 11px !important;
+line-height:1 !important;
+}
+
+/** ENDS **/
