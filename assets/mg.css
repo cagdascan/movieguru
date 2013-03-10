@@ -5,9 +5,17 @@ body {
 	font-family:Arial, sans-serif, Helvetica;
 }
 h1 {
-margin:.8em 10% !important;
-	
-
+margin:.8em auto !important;
+background:url("logo.png") no-repeat 50% 0px !important;
+background-size:140px 40px;
+width:140px;
+height:40px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	h1 {
+	background:url("logo-retina.png") no-repeat 50% 0px !important;
+	background-size:140px 40px;
+	}
 }
 h2 {
 	font-size:5vw !important;
