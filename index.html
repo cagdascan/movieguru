@@ -231,8 +231,9 @@
 							return "#result"+i+"_plot";
 						};
 						$.each(data, function(i,item)
-						{
-							titles.push(item.name);
+						{	
+							var orderm = i + 1;
+							titles.push('<span>' + orderm + '</span>' + item.name);
 							ratings.push('<p>' + item.userRating + '</p>' );
 							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
 							var dirdif = item.director.toString();
@@ -494,7 +495,7 @@
 				<a href="#result1" data-transition="slide" data-icon="arrow-r"  data-iconpos="top">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc">
-				<div id="result0_title" class="titlem"><span>1</span> </div>
+				<div id="result0_title" class="titlem"></div>
 				<div id="result0_poster" class="poster"> </div>
 				<div id="result0_rating" class="rating"></div>
 				<div id="result0_director"></div>
@@ -537,7 +538,7 @@
 				<a href="#result2" data-transition="slide" data-icon="arrow-r" data-iconpos="top">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc" >
-				<div id="result1_title" class="titlem"><span>2</span> </div>
+				<div id="result1_title" class="titlem"></div>
 				<div id="result1_poster" class="poster"> </div>
 				<div id="result1_rating" class="rating"></div>
 				<div id="result1_director"></div>
@@ -559,7 +560,7 @@
 				<a href="#result3" data-transition="slide"  data-icon="arrow-r" data-iconpos="top">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc" >
-				<div id="result2_title" class="titlem"><span>3</span> </div>
+				<div id="result2_title" class="titlem"></div>
 				<div id="result2_poster" class="poster"> </div>
 				<div id="result2_rating" class="rating"></div>
 				<div id="result2_director"></div>
@@ -581,7 +582,7 @@
 				<a href="#result4" data-transition="slide" data-icon="arrow-r" data-iconpos="top">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc" >
-				<div id="result3_title" class="titlem"><span>4</span> </div>
+				<div id="result3_title" class="titlem"> </div>
 				<div id="result3_poster" class="poster"> </div>
 				<div id="result3_rating" class="rating"></div>
 				<div id="result3_director"></div>
@@ -603,7 +604,7 @@
 				<a href="#result0" data-transition="slide" data-icon="arrow-r" data-iconpos="top">Next</a>
 			</div>
 			<div data-role="content" class="content_sonuc" >
-				<div id="result4_title" class="titlem"><span>5</span> </div>
+				<div id="result4_title" class="titlem"></div>
 				<div id="result4_poster" class="poster"> </div>
 				<div id="result4_rating" class="rating"></div>
 				<div id="result4_director"></div>
