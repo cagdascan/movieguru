@@ -135,95 +135,107 @@
 		<script>
 			$('#mgogo1').live('click',function() //generate my pleasure buttonu
 			{
-				var secilenler = $('.secimler1').serialize().toString();
-				console.log(secilenler);//for debugging
-				$.mobile.showPageLoadingMsg("b", " ", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
-					function (data)
-					{
-						var keywords = [];
-						var result_keyword = function(i){
-							return "#result"+i+"_keyword";
-						};
-						var d=new Date();
-						var n = d.getMilliseconds();
-						console.log('Basladi ' + n);
-						var fa=0;
-
-						$.each(data, function(i,item)
+				var secimkontrol = $('input[name=\'genre\']:checked').val();
+				if(secimkontrol!=undefined){				
+					var secilenler = $('.secimler1').serialize().toString();
+					console.log(secilenler);//for debugging
+					$.mobile.showPageLoadingMsg("b", " ", false); //loading spinner
+					$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
+						function (data)
 						{
-							keywords.push(item._id);
-							$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
-							fa++;
-							console.log(fa+'.calisti');
+							var keywords = [];
+							var result_keyword = function(i){
+								return "#result"+i+"_keyword";
+							};
+							var d=new Date();
+							var n = d.getMilliseconds();
+							console.log('Basladi ' + n);
+							var fa=0;
+
+							$.each(data, function(i,item)
+							{
+								keywords.push(item._id);
+								$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
+								fa++;
+								console.log(fa+'.calisti');
+							});
+							$('#containkw').trigger('create');
+							
+							
+							var ds=new Date();
+							  var ns = ds.getMilliseconds();
+							console.log('Bitti '+ ns);
+			
+						  $.mobile.changePage('#pagekw');					  
 						});
-						$('#containkw').trigger('create');
-						
-						
-						var ds=new Date();
-						  var ns = ds.getMilliseconds();
-						console.log('Bitti '+ ns);
-		
-					  $.mobile.changePage('#pagekw');					  
-					});
+				}
+				else {
+					$('#popupopen').trigger('click');
+				}				
 			});	
 		</script>
 		<script>
 			$('#mgogo2').live('click',function() //generate my pleasure buttonu
 			{
-				var secilenler = $('.secimler1').serialize().toString();
-				console.log(secilenler);//for debugging
-				$.mobile.showPageLoadingMsg("b", " ", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
-					function (data)
-					{
-						var titles = [];
-						var ratings = [];
-						var posters = [];
-						var directors = [];
-						var actors = [];
-						var plots = [];
-						var result_title = function(i){
-							return "#result"+i+"_title";
-						};
-						var result_rating = function(i){
-							return "#result"+i+"_rating";
-						};
-						var result_poster = function(i){
-							return "#result"+i+"_poster";
-						};
-						var result_director = function(i){
-							return "#result"+i+"_director";
-						};
-						var result_actor = function(i){
-							return "#result"+i+"_actor";
-						};
-						var result_plot = function(i){
-							return "#result"+i+"_plot";
-						};
-						$.each(data, function(i,item)
-						{	
-							var orderm = i + 1;
-							titles.push('<span>' + orderm + '</span>' + item.name);
-							ratings.push('<p>' + item.userRating + '</p>' );
-							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
-							var dirdif = item.director.toString();
-							dirdif = dirdif.replace(/,/g,"<br />");
-							directors.push("<div class='directors'>" + dirdif + "</div>");
-							var actidif = item.actors.toString();
-							actidif = actidif.replace(/,/g,"<br />");
-							actors.push("<div class='cast'>" + actidif + "</div>");							
-							plots.push(item.plotS);
-							$(result_title(i)).append (titles[i]);
-							$(result_rating(i)).append (ratings[i]);
-							$(result_poster(i)).append (posters[i]);
-							$(result_director(i)).append (directors[i]);
-							$(result_actor(i)).append (actors[i]);
-							$(result_plot(i)).append (plots[i]);
+				var secimkontrol2 = $('input[name=\'keyword\']:checked').val();
+				if(secimkontrol2!=undefined){
+					var secilenler = $('.secimler1').serialize().toString();
+					console.log(secilenler);//for debugging
+					$.mobile.showPageLoadingMsg("b", " ", false); //loading spinner
+					$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
+						function (data)
+						{
+							var titles = [];
+							var ratings = [];
+							var posters = [];
+							var directors = [];
+							var actors = [];
+							var plots = [];
+							var result_title = function(i){
+								return "#result"+i+"_title";
+							};
+							var result_rating = function(i){
+								return "#result"+i+"_rating";
+							};
+							var result_poster = function(i){
+								return "#result"+i+"_poster";
+							};
+							var result_director = function(i){
+								return "#result"+i+"_director";
+							};
+							var result_actor = function(i){
+								return "#result"+i+"_actor";
+							};
+							var result_plot = function(i){
+								return "#result"+i+"_plot";
+							};
+							$.each(data, function(i,item)
+							{	
+								var orderm = i + 1;
+								titles.push('<span>' + orderm + '</span>' + item.name);
+								ratings.push('<p>' + item.userRating + '</p>' );
+								posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
+								var dirdif = item.director.toString();
+								dirdif = dirdif.replace(/,/g,"<br />");
+								directors.push("<div class='directors'>" + dirdif + "</div>");
+								var actidif = item.actors.toString();
+								actidif = actidif.replace(/,/g,"<br />");
+								actors.push("<div class='cast'>" + actidif + "</div>");							
+								plots.push(item.plotS);
+								$(result_title(i)).append (titles[i]);
+								$(result_rating(i)).append (ratings[i]);
+								$(result_poster(i)).append (posters[i]);
+								$(result_director(i)).append (directors[i]);
+								$(result_actor(i)).append (actors[i]);
+								$(result_plot(i)).append (plots[i]);
+							});
+							
+						  $.mobile.changePage('#result0');
 						});
-						
-					  $.mobile.changePage('#result0');
-					});
+				}
+				else {
+					$('#popupopen2').trigger('click');
+				}
 			});	
 		</script>
     </head>
@@ -254,8 +266,12 @@
 			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist" class="mgheader">
 				<a href="#mypanel" data-icon="bars" data-iconpos="top">Menu</a>
 				<h1></h1>
-				<a id="mgogo1" data-icon="arrow-r" data-icon="check" data-iconpos="top">Next</a>
-			</div>				
+				<a id="mgogo1" data-icon="arrow-r" data-icon="check" data-iconpos="top" data-role="button" >Next</a>
+				<a href="#positionWindow" id="popupopen" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
+				<div data-role="popup" id="positionWindow" class="ui-content" data-theme="b" data-overlay-theme="a">
+					<p>Please select one or more <b>genres</b></p>
+				</div>
+			</div>			
 			<div data-role="content" data-theme="a">
 				<h2>Now, choose genre(s)</h2>
 				<form data-role="none" class="secimler1">
@@ -391,6 +407,10 @@
 				<a href="#page1" class="home_reset" data-icon="arrow-l" data-iconpos="top">Back</a>
 				<h1></h1>
 				<a id="mgogo2" data-icon="arrow-r" data-icon="check" data-iconpos="top">Next</a>
+				<a href="#positionWindow2" id="popupopen2" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
+				<div data-role="popup" id="positionWindow2" class="ui-content" data-theme="b" data-overlay-theme="a">
+					<p>Please select one or more <b>keywords</b></p>
+				</div>
 			</div>
 			<div data-role="content" data-theme="a" id="yvz">
 				<h2>Now, choose keyword(s)</h2>

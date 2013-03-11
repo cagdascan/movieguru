@@ -535,3 +535,8 @@ line-height:1 !important;
 }
 
 /** ENDS **/
+/** Secmeden gecenlere popup **/
+#positionWindow, #positionWindow2 {
+	padding:20px;
+}
+/** ENDS **/
