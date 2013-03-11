@@ -151,13 +151,18 @@
 							var n = d.getMilliseconds();
 							console.log('Basladi ' + n);
 							var fa=0;
+							var y = 0;
 
 							$.each(data, function(i,item)
 							{
-								keywords.push(item._id);
-								$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
-								fa++;
-								console.log(fa+'.calisti');
+								
+								if(y<20){
+									keywords.push(item._id);
+									$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
+									fa++;
+									console.log(fa+'.calisti');
+								}
+								y++;
 							});
 							$('#containkw').trigger('create');
 							
@@ -273,7 +278,7 @@
 				</div>
 			</div>			
 			<div data-role="content" data-theme="a">
-				<h2>Now, choose genre(s)</h2>
+				<h2>Select genre(s) and go next</h2>
 				<form data-role="none" class="secimler1">
 					<div data-role="field-contain" class="ogedizilim" >
 						<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
@@ -412,11 +417,11 @@
 					<p>Please select one or more <b>keywords</b></p>
 				</div>
 			</div>
-			<div data-role="content" data-theme="a" id="yvz">
-				<h2>Now, choose keyword(s)</h2>
+			<div data-role="content" data-theme="a">
+				<h2>Select keyword(s) and go next</h2>
 					<form data-role="none" class="secimler1">
 						<div data-role="field-contain" >
-							<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+							<fieldset data-role="controlgroup" data-type="horizontal" data-theme="a">
 								<div id="containkw" data-theme="a">
 									<!-- keywordler burayi populate ediyor -->
 								</div>

@@ -522,16 +522,22 @@ user-select: none !important;
 }
 /** ENDS **/
 /** KEYWORD SAYFASI BUTTON DESIGN**/
+
 #containkw > .ui-checkbox {
-	margin: 0.66% !important;
-    width: 32% !important;
+	margin: 0 !important;
+    width: 50% !important;
 }
 #containkw > .ui-checkbox > label {
 border-right-width: 1px !important;
 }
+#containkw > .ui-checkbox > label > .ui-btn-inner {
+padding:.6em 2px;
+/*font-size: 11px !important;
+line-height:1 !important;*/
+}
 #containkw > .ui-checkbox > label > .ui-btn-inner > .ui-btn-text {
-font-size: 11px !important;
-line-height:1 !important;
+/*font-size: 11px !important;
+line-height:1 !important;*/
 }
 
 /** ENDS **/
@@ -539,4 +545,8 @@ line-height:1 !important;
 #positionWindow, #positionWindow2 {
 	padding:20px;
 }
+/** ENDS **/
+/** Solution for blinking **/
+.ui-page {
+-webkit-backface-visibility: hidden;}
 /** ENDS **/
