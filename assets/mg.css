@@ -551,6 +551,9 @@ line-height:1 !important;*/
 }
 /** ENDS **/
 /** Solution for blinking **/
-.ui-page {
--webkit-backface-visibility: hidden;}
+ui.page {
+-webkit-transform: translateZ(0);
+-webkit-perspective:1000;
+-webkit-backface-visibility: hidden;
+}
 /** ENDS **/
