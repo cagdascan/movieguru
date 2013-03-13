@@ -12,10 +12,9 @@
         <script src="assets/jquery.mobile-1.3.0.min.js"></script>
         <script src="cordova-2.5.0.js"></script>
         <script type="text/javascript" charset="utf-8">
-        	document.addEventListener("deviceready", onDeviceReady, false);
-        	function onDeviceReady() {
-        		checkConnection();
-    		}
+        	
+
+    		var network;
 
     		function checkConnection() {
         		var networkState = navigator.connection.type;
@@ -29,7 +28,9 @@
 		        states[Connection.CELL_4G]  = 'Cell 4G connection';
 		        states[Connection.NONE]     = 'No network connection';
 
-        		alert('Connection type: ' + states[networkState]);
+        		//alert('Connection type: ' + states[networkState]);
+        		network = states[networkState];
+        		//console.log(states[networkState]);
     		}
         </script>
 		<script>
@@ -156,121 +157,132 @@
 		<script>
 			$('#mgogo1').live('click',function() //generate my pleasure buttonu
 			{
-				var secimkontrol = $('input[name=\'genre\']:checked').val();
-				if(secimkontrol!=undefined){				
-					var secilenler = $('.secimler1').serialize().toString();
-					console.log(secilenler);//for debugging
-					$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-					$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
-						function (data)
-						{
-							var keywords = [];
-							var result_keyword = function(i){
-								return "#result"+i+"_keyword";
-							};
-							var d=new Date();
-							var n = d.getMilliseconds();
-							console.log('Basladi ' + n);
-							var fa=0;
-							var y = 0;
+				checkConnection();
 
-							$.each(data, function(i,item)
-							{
-								
-								if(y<20){
-									keywords.push(item._id);
-									$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
-									fa++;
-									console.log(fa+'.calisti');
-								}
-								y++;
-							});
-							$('#containkw').trigger('create');
-							
-							
-							var ds=new Date();
-							  var ns = ds.getMilliseconds();
-							console.log('Bitti '+ ns);
-			
-						  $.mobile.changePage('#pagekw');					  
-						});
+				if(network=='No network connection')
+				{
+					alert('Please check your network connection');
 				}
-				else {
-					$('#popupopen').trigger('click');
+				else
+				{
+					var secimkontrol = $('input[name=\'genre\']:checked').val();
+					if(secimkontrol!=undefined){				
+						var secilenler = $('.secimler1').serialize().toString();
+						console.log(secilenler);//for debugging
+						$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
+						$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
+							function (data)
+							{
+								var keywords = [];
+								var result_keyword = function(i){
+									return "#result"+i+"_keyword";
+								};
+								var d=new Date();
+								var n = d.getMilliseconds();
+								console.log('Basladi ' + n);
+								var fa=0;
+								var y = 0;
+
+								$.each(data, function(i,item)
+								{
+									
+									if(y<20){
+										keywords.push(item._id);
+										$('#containkw').append ('<input id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
+										fa++;
+										console.log(fa+'.calisti');
+									}
+									y++;
+								});
+								$('#containkw').trigger('create');
+								
+								
+								var ds=new Date();
+								  var ns = ds.getMilliseconds();
+								console.log('Bitti '+ ns);
+				
+							  $.mobile.changePage('#pagekw');					  
+							});
+					}
+					else {
+						$('#popupopen').trigger('click');
+					}
 				}				
 			});	
 		</script>
 		<script>
 			$('#mgogo2').live('click',function() //generate my pleasure buttonu
 			{
-				var secimkontrol2 = $('input[name=\'keyword\']:checked').val();
-				if(secimkontrol2!=undefined){
-					var secilenler = $('.secimler1').serialize().toString();
-					console.log(secilenler);//for debugging
-					$.mobile.showPageLoadingMsg("a", "Loading", false); //loading spinner
-					$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
-						function (data)
-						{
-							var titles = [];
-							var ratings = [];
-							var posters = [];
-							var directors = [];
-							var actors = [];
-							var plots = [];
-							var result_title = function(i){
-								return "#result"+i+"_title";
-							};
-							var result_rating = function(i){
-								return "#result"+i+"_rating";
-							};
-							var result_poster = function(i){
-								return "#result"+i+"_poster";
-							};
-							var result_director = function(i){
-								return "#result"+i+"_director";
-							};
-							var result_actor = function(i){
-								return "#result"+i+"_actor";
-							};
-							var result_plot = function(i){
-								return "#result"+i+"_plot";
-							};
-							$.each(data, function(i,item)
-							{	
-								var orderm = i + 1;
-								titles.push('<span>' + orderm + '</span>' + item.name);
-								ratings.push('<p>' + item.userRating + '</p>' );
-								posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
-								var dirdif = item.director.toString();
-								dirdif = dirdif.replace(/,/g,"<br />");
-								directors.push("<div class='directors'>" + dirdif + "</div>");
-								var actidif = item.actors.toString();
-								actidif = actidif.replace(/,/g,"<br />");
-								actors.push("<div class='cast'>" + actidif + "</div>");							
-								plots.push(item.plotS);
-								$(result_title(i)).append (titles[i]);
-								$(result_rating(i)).append (ratings[i]);
-								$(result_poster(i)).append (posters[i]);
-								$(result_director(i)).append (directors[i]);
-								$(result_actor(i)).append (actors[i]);
-								$(result_plot(i)).append (plots[i]);
-							});
-							
-						  $.mobile.changePage('#result0');
-						});
+				checkConnection();
+
+				if(network=='No network connection')
+				{
+					alert('Please check your network connection');
 				}
-				else {
-					$('#popupopen2').trigger('click');
+				else
+				{
+					var secimkontrol2 = $('input[name=\'keyword\']:checked').val();
+					if(secimkontrol2!=undefined){
+						var secilenler = $('.secimler1').serialize().toString();
+						console.log(secilenler);//for debugging
+						$.mobile.showPageLoadingMsg("a", "Loading", false); //loading spinner
+						$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
+							function (data)
+							{
+								var titles = [];
+								var ratings = [];
+								var posters = [];
+								var directors = [];
+								var actors = [];
+								var plots = [];
+								var result_title = function(i){
+									return "#result"+i+"_title";
+								};
+								var result_rating = function(i){
+									return "#result"+i+"_rating";
+								};
+								var result_poster = function(i){
+									return "#result"+i+"_poster";
+								};
+								var result_director = function(i){
+									return "#result"+i+"_director";
+								};
+								var result_actor = function(i){
+									return "#result"+i+"_actor";
+								};
+								var result_plot = function(i){
+									return "#result"+i+"_plot";
+								};
+								$.each(data, function(i,item)
+								{	
+									var orderm = i + 1;
+									titles.push('<span>' + orderm + '</span>' + item.name);
+									ratings.push('<p>' + item.userRating + '</p>' );
+									posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
+									var dirdif = item.director.toString();
+									dirdif = dirdif.replace(/,/g,"<br />");
+									directors.push("<div class='directors'>" + dirdif + "</div>");
+									var actidif = item.actors.toString();
+									actidif = actidif.replace(/,/g,"<br />");
+									actors.push("<div class='cast'>" + actidif + "</div>");							
+									plots.push(item.plotS);
+									$(result_title(i)).append (titles[i]);
+									$(result_rating(i)).append (ratings[i]);
+									$(result_poster(i)).append (posters[i]);
+									$(result_director(i)).append (directors[i]);
+									$(result_actor(i)).append (actors[i]);
+									$(result_plot(i)).append (plots[i]);
+								});
+								
+							  $.mobile.changePage('#result0');
+							});
+					}
+					else {
+						$('#popupopen2').trigger('click');
+					}
 				}
 			});	
 		</script>
-		// <script> // TO solve blinking
-		// 	$(document).bind("mobileinit", function(){
-		// 		$.extend($.mobile, {
-		// 		metaViewportContent: "width=device-width, height=device-height, minimum-scale=1, maximum-scale=1"
-		// 		});
-		// 	});
-		// </script>
     </head>
     <body>
 
