@@ -32,11 +32,36 @@
         		network = states[networkState];
         		//console.log(states[networkState]);
     		}
-        </script>
-		<script>
+			
+			
+			
 			$(function() { 
+				document.addEventListener("deviceready", onDeviceReady, false);
 				$.mobile.defaultHomeScroll = 0;
 			});
+			
+			
+			function onDeviceReady() {
+				// Register the event listener
+				cordova.exec(null, null, "SplashScreen", "hide", []);
+				document.addEventListener("backbutton", function(e){
+					
+					if($.mobile.activePage.is('#page1')){
+						e.preventDefault();
+						navigator.app.exitApp();
+					}
+					else {
+						$('.home_reset').trigger('click');
+					}
+					
+					
+				}, false);
+				
+				document.addEventListener("menubutton", function(e){
+					$('.menuac').trigger('click');	
+					
+				}, false);
+			}
 		</script>
         <script>//local database script
 			//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
@@ -232,6 +257,7 @@
     <body>
 
         <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
+			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
@@ -321,6 +347,7 @@
 			</div>
         </div>
 		<div data-role="page" id="pageinfo"> <!--Info sayfasi -->
+			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
@@ -376,6 +403,7 @@
 		</div>
 
 		<div data-role="page" id="pagekw" data-theme="a"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR // -->
+		<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
@@ -421,6 +449,7 @@
 		</div> <!--End of page 2 -->
 
 		<div data-role="page" id="page3"> <!--Page 3 - Watch list sayfasi -->
+		<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
             <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
@@ -472,6 +501,7 @@
 		</div><!--End of page 3 -->
 
 		<div data-role="page" id="result0" class="result"><!--Sonuc sayfasi 0-->
+			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
 			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
 				<a href="#mypanel" data-icon="bars" data-iconpos="top">Menu</a>
 				<h1></h1>
@@ -515,6 +545,7 @@
 		</div>
 
 		<div data-role="page" id="result1"  class="result"><!--Sonuc sayfasi 1-->
+			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
 			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
 				<a href="#result0" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="top">Back</a>
 				<h1></h1>
@@ -537,6 +568,7 @@
 		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
 		<div data-role="page" id="result2"  class="result"><!--Sonuc sayfasi 2-->
+			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
 			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist" data-iconpos="top">
 				<a href="#result1" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="top">Back</a>
 				<h1></h1>
@@ -711,7 +743,7 @@
 	
 			getMyAllMovies();
 
-		</script>		
+		</script>
     </body>
 </html>
 
