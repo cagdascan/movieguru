@@ -104,7 +104,8 @@
 
 				if(network=='No network connection')
 				{
-					alert('Please check your network connection');
+					
+					$('#popupopen3').trigger('click');
 				}
 				else
 				{
@@ -256,8 +257,12 @@
 				<h1></h1>
 				<a id="mgogo1" data-icon="arrow-r" data-icon="check" data-iconpos="top" data-role="button" >Next</a>
 				<a href="#positionWindow" id="popupopen" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
+				<a href="#positionWindow3" id="popupopen3" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
 				<div data-role="popup" id="positionWindow" class="ui-content" data-theme="b" data-overlay-theme="a">
 					<p>Please select one or more <b>genres</b></p>
+				</div>
+				<div data-role="popup" id="positionWindow3" class="ui-content" data-theme="b" data-overlay-theme="a">
+					<p style="padding:20px;text-align:center;">Please check your <strong>internet</strong> connection</p>
 				</div>
 			</div>			
 			<div data-role="content" data-theme="a">
