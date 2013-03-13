@@ -47,8 +47,13 @@
 				document.addEventListener("backbutton", function(e){
 					
 					if($.mobile.activePage.is('#page1')){
-						e.preventDefault();
-						navigator.app.exitApp();
+						
+						
+						var answer = confirm("Uygulamadan Çýkmak Ýstediðinizden Emin misiniz?")
+							if (answer){
+								e.preventDefault();
+								navigator.app.exitApp();
+							}
 					}
 					else {
 						$('.home_reset').trigger('click');
