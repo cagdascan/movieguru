@@ -97,63 +97,6 @@
 			    return false;
 			  }
 		</script><!--local database end-->
-
-
-
-		<script>//KULLANILMIYOR
-			$('#mgogo').live('click',function() //generate my pleasure buttonu
-			{
-				var secilenler = $('.secimler').serialize().toString();
-				console.log(secilenler);//for debugging
-				$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-				$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler').serialize(),
-					function (data)
-					{
-						var titles = [];
-						var years = [];
-						var ratings = [];
-						var arkas = [];
-						var posters = [];
-						var plots = [];
-						var result_title = function(i){
-							return "#result"+i+"_title";
-						};
-						var result_rating = function(i){
-							return "#result"+i+"_rating";
-						};
-						var result_year = function(i){
-							return "#result"+i+"_year";
-						};
-						var result_arka = function(i){
-							return "#result"+i+"_arka";
-						};
-						var result_poster = function(i){
-							return ".result"+i+"_poster";
-						};
-						var result_plot = function(i){
-							return "#result"+i+"_plot";
-						};
-
-						$.each(data, function(i,item)
-						{
-							titles.push(item.title);
-							years.push(item.year);
-							ratings.push("<p>" + item.rating + "</p>");
-							arkas.push("<img src='" + item.poster + "' />");
-							posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.poster + "' />");
-							plots.push(item.plot_simple);
-							$(result_title(i)).append (titles[i]);
-							$(result_rating(i)).append (ratings[i]);
-						    $(result_year(i)).append (years[i]);
-							$(result_arka(i)).append (arkas[i]);
-							$(result_poster(i)).append (posters[i]);
-							$(result_plot(i)).append (plots[i]);
-					  	});
-            $.mobile.changePage('#result0');
-					});
-			});
-
-		</script>
 		<script>
 			$('#mgogo1').live('click',function() //generate my pleasure buttonu
 			{
@@ -225,7 +168,7 @@
 					if(secimkontrol2!=undefined){
 						var secilenler = $('.secimler1').serialize().toString();
 						console.log(secilenler);//for debugging
-						$.mobile.showPageLoadingMsg("a", "Loading", false); //loading spinner
+						$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
 						$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
 							function (data)
 							{
