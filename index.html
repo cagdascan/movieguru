@@ -38,9 +38,8 @@
 			$(function() { 
 				document.addEventListener("deviceready", onDeviceReady, false);
 				$.mobile.defaultHomeScroll = 0;
+
 			});
-			
-			
 			function onDeviceReady() {
 				// Register the event listener
 				cordova.exec(null, null, "SplashScreen", "hide", []);
@@ -56,7 +55,11 @@
 							}
 					}
 					else {
-						$('.home_reset').trigger('click');
+						if($.mobile.activePage.is('#pagekw')){
+							resetapp();
+						}
+						history.back();
+						
 					}
 					
 					
@@ -263,7 +266,7 @@
 
         <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
 			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+            <div data-role="panel" data-position-fixed="true" id="mypanel" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
 					<li data-role="list-divider">Main Menu</li>
 					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
@@ -711,6 +714,10 @@
 	        	});
 
 				$(".home_reset").click(function( event ) { //home butonuna basinca ilk sonuc kumesini sifirlama
+					resetapp();
+				});
+				
+				function resetapp(){
 					for ( var i = 0; i <= 4; i++ ) {
 						var result_title = function(i){
 							return "#result"+i+"_title";
@@ -741,10 +748,15 @@
 				$(".secimler1")[0].reset();
 				$("#containkw").empty();
 				
+				$('.ui-btn-hover-a').each(function(){
+					$(this).trigger('mouseout');
+				});
+				//$('.ui-btn-down-a').removeClass('ui-btn-down-a').addClass('ui-btn-up-a');;
 
 				
 		   		console.log("skull pressed");//debug
-				});
+					
+				}
 	
 			getMyAllMovies();
 
