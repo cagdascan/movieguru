@@ -46,8 +46,8 @@ h2 {
 	height:67px !important;
 }
 .ui-header > .ui-btn, .ui-header-fixed > .ui-btn {
-	width:60px;
-	margin:3px 0px;
+	padding:10px;
+	margin: 3px 0;
 }
 .ui-header-fixed, .ui-fixed-hidden {
 	padding-top:0!important;
@@ -56,7 +56,7 @@ h2 {
 }
 .ui-header .ui-btn-left, .ui-header .ui-btn-right, .ui-footer .ui-btn-left, .ui-footer .ui-btn-right, 
 .ui-header-fixed.ui-fixed-hidden .ui-btn-left, .ui-header-fixed.ui-fixed-hidden .ui-btn-right {
-	top:2px !important;
+	/*top:2px !important;*/
 }
 /*Ends*/
 .ince > .ui-li .ui-btn-inner a.ui-link-inherit, .ince > .ui-li-static.ui-li {
