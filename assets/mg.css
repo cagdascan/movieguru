@@ -410,15 +410,13 @@ user-select: none !important;
 	display:block;
     color: #000;
     display: block;
-    font-size: 21px !important;
+    font-size: 17px !important;
     font-weight: bold;
     height: auto;
-    line-height: 33px !important;
+    line-height: 25px !important;
 	margin: 1% 1% 1px !important;
     text-align: left;
     width: 97.5%;
-	text-shadow:0 1px 0 #fff!important;
-	background:#eee;
 	padding-right:1px;
 }
 .titlem span {

@@ -48,7 +48,7 @@
 					if($.mobile.activePage.is('#page1')){
 						
 						
-						var answer = confirm("Are you sure exit?")
+						var answer = confirm("Exit MovieGuru?")
 							if (answer){
 								e.preventDefault();
 								navigator.app.exitApp();
@@ -147,7 +147,7 @@
 						var secilenler = $('.secimler1').serialize().toString();
 						console.log(secilenler);//for debugging
 						$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-						$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
+						$.getJSON("http://bayez.biz/moviegurus/?query=20&" + $('.secimler1').serialize(),
 							function (data)
 							{
 								var keywords = [];
@@ -204,10 +204,11 @@
 						var secilenler = $('.secimler1').serialize().toString();
 						console.log(secilenler);//for debugging
 						$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-						$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
+						$.getJSON("http://bayez.biz/moviegurus/?query=30&" + $('.secimler1').serialize(),
 							function (data)
 							{
 								var titles = [];
+								var years = [];
 								var ratings = [];
 								var posters = [];
 								var directors = [];
@@ -216,6 +217,9 @@
 								var result_title = function(i){
 									return "#result"+i+"_title";
 								};
+								var result_year = function(i){
+									return "#result"+i+"_year";
+								};							
 								var result_rating = function(i){
 									return "#result"+i+"_rating";
 								};
@@ -233,8 +237,8 @@
 								};
 								$.each(data, function(i,item)
 								{	
-									var orderm = i + 1;
-									titles.push('<span>' + orderm + '</span>' + item.name);
+									//var orderm = i + 1;
+									titles.push(item.name + ' (' + item.date + ')');
 									ratings.push('<p>' + item.userRating + '</p>' );
 									posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
 									var dirdif = item.director.toString();
@@ -245,6 +249,7 @@
 									actors.push("<div class='cast'>" + actidif + "</div>");							
 									plots.push(item.plotS);
 									$(result_title(i)).append (titles[i]);
+									$(result_year(i)).append (years[i]);
 									$(result_rating(i)).append (ratings[i]);
 									$(result_poster(i)).append (posters[i]);
 									$(result_director(i)).append (directors[i]);
