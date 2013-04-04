@@ -418,6 +418,7 @@ user-select: none !important;
     text-align: left;
     width: 97.5%;
 	padding-right:1px;
+	font-family: arial, Helvetica !important;
 }
 .titlem span {
 	margin-right:5px;
@@ -432,7 +433,7 @@ user-select: none !important;
 	}
 .poster {
 	display:block;
-	width: 60%;
+	width: 54%;
 	float:left;
 	padding:0;
 	margin-left: 1%;
@@ -457,14 +458,14 @@ user-select: none !important;
     height: auto;
     margin-left: 1px;
 	margin-right:1%;
-    padding: 3% 0;
+    padding: 0% 0;
     text-align: center;
     text-shadow: 1px 1px 0 #FDDC44;
-    width: 37.5%;
+    width: 43.5%;
 	margin-bottom:1px;
 }
 .rating p {
-	font-size: 60px;
+	font-size: 50px;
 	line-height:60px;
 	padding:0;
 	margin:0;
@@ -502,17 +503,29 @@ user-select: none !important;
 	float: left;
     line-height: 19px !important;
 	margin: 0% 1% 1px 1px !important;
-	padding:3px 2%;
+	padding:2px 2%;
 	text-align: center;
 	text-shadow: 0 -1px 0 #444;
-	width: 33.5%;
+	width: 39.5%;
 	color: #fff;
 	font-family: arial, Helvetica !important;
 }
 .directors {
-	background:#a20025;
-	font-size: 12px !important;
+	background:#111 /*#a20025*/;
+	font-size: 11px !important;
     font-weight: bold !important;
+	font-family: arial, Helvetica !important;
+	text-align: left;
+}
+.directors2 {
+	font-size:11px;
+	font-weight:bold;
+	float:left;
+	width:39.5%;
+	padding:3px 2%;
+	font-family: arial, Helvetica !important;
+	text-align: left;
+	line-height: 17px !important;
 }
 .cast {
 	background:#765f89;

@@ -243,10 +243,10 @@
 									posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
 									var dirdif = item.director.toString();
 									dirdif = dirdif.replace(/,/g,"<br />");
-									directors.push("<div class='directors'>" + dirdif + "</div>");
+									directors.push("<div class='directors'>Director(s)</div>" + '<div class="directors2">' + dirdif + '</div>');
 									var actidif = item.actors.toString();
 									actidif = actidif.replace(/,/g,"<br />");
-									actors.push("<div class='cast'>" + actidif + "</div>");							
+									actors.push("<div class='directors'>Actors</div>" + "<div class='directors2'>" + actidif + "</div>");							
 									plots.push(item.plotS);
 									$(result_title(i)).append (titles[i]);
 									$(result_year(i)).append (years[i]);
@@ -526,13 +526,13 @@
 				<div id="result0_rating" class="rating"></div>
 				<div id="result0_director"></div>
 				<div id="result0_actor"></div>
+				<div id="result0_plot" class="plotm"> </div>
 				<div class="addwatch">
-					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-theme="c">Add to watchlist</a></div>
 					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
   						<p>Added to your watch list</p>
 					</div>
 				</div>
-				<div id="result0_plot" class="plotm"> </div>
 			</div>
 			<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 				<ul data-role="listview" data-theme="c">
