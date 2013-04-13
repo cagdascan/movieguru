@@ -604,31 +604,31 @@
 					var addToAlreadySeenList1= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[0];
 					console.log(addToAlreadySeenList1);//need to send this string to server
 					$.post(addToAlreadySeenList1);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );
+					$("div#popupInfo2").delay(1000).fadeOut( 1000 );
 				});
 				$("#addToAlreadySeenList2").click(function( event ) {
 					var addToAlreadySeenList2= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[1];
 					console.log(addToAlreadySeenList2);//need to send this string to server
 					$.post(addToAlreadySeenList2);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );				
+					$("div#popupInfo2").delay(1000).fadeOut( 1000 );				
 				});
 				$("#addToAlreadySeenList3").click(function( event ) {
 					var addToAlreadySeenList3= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[2];
 					console.log(addToAlreadySeenList3);//need to send this string to server
 					$.post(addToAlreadySeenList3);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );		
+					$("div#popupInfo2").delay(1000).fadeOut( 1000 );		
 				});
 				$("#addToAlreadySeenList4").click(function( event ) {
 					var addToAlreadySeenList4= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[3];
 					console.log(addToAlreadySeenList4);//need to send this string to server
 					$.post(addToAlreadySeenList4);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
+					$("div#popupInfo2").delay(1000).fadeOut( 1000 );	
 				});
 				$("#addToAlreadySeenList5").click(function( event ) {
 					var addToAlreadySeenList5= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[4];
 					console.log(addToAlreadySeenList5);//need to send this string to server
 					$.post(addToAlreadySeenList5);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
+					$("div#popupInfo2").delay(1000).fadeOut( 1000 );	
 				});
 				$('#result0').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
 					$.mobile.changePage('#result1', {transition: "slide"});
