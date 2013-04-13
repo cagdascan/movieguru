@@ -565,3 +565,6 @@ ui.page {
 -webkit-backface-visibility: hidden;
 }
 /** ENDS **/
+#resultArea{
+	display:block;
+}

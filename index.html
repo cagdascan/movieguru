@@ -8,15 +8,19 @@
 			<title>Movie Guru</title>
 			<link rel="stylesheet" href="assets/jquery.mobile-1.3.0.min.css" />
 			<link rel="stylesheet" href="assets/mg.css" />
+            <link rel="stylesheet" href="assets/sonuc.css" />
+            <link rel="stylesheet" href="assets/rs-default-inverted.css" />           
 			<script src="assets/jquery-1.8.2.min.js"></script>
 			<script src="assets/jquery.mobile-1.3.0.min.js"></script>
 			<script src="cordova-2.5.0.js"></script>
+            <script src="js/sonuc.js"></script>
 			<script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
 			<script type="text/javascript" charset="utf-8">
 
 			var email = '';
 			var network;
 			var ttids = [];
+			var resulthtml =  '';
 			function checkConnection() {
 				var networkState = navigator.connection.type;
 				var states = {};
@@ -118,6 +122,7 @@
 						$.getJSON("http://bayez.biz/moviegurus/?query=30&" + $('.secimler1').serialize(),
 							function (data)
 							{
+								resulthtml = '';
 								var titles = [];
 								var ratings = [];
 								var posters = [];
@@ -147,26 +152,73 @@
 								};
 								$.each(data, function(i,item)
 								{	
+								//$('.result').clone().attr('id','result'+i).appendTo('body');
 									var orderm = i + 1;
-									titles.push('<span>' + orderm + '</span>' + item.name);
-									ratings.push('<p>' + item.userRating + '</p>' );
-									posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
+									//titles.push('<span>' + orderm + '</span>' + item.name);
+									//ratings.push('<p>' + item.userRating + '</p>' );
+									//posters.push("<img style='display:block;width:100%;height:auto;' src='" + item.pLink + "' />");
 									var dirdif = item.director.toString();
 									dirdif = dirdif.replace(/,/g,"<br />");
-									directors.push("<div class='directors'>" + dirdif + "</div>");
+									//directors.push("<div class='directors'>" + dirdif + "</div>");
 									var actidif = item.actors.toString();
 									actidif = actidif.replace(/,/g,"<br />");
-									actors.push("<div class='cast'>" + actidif + "</div>");
-									plots.push(item.plotS);
-									ttids.push(item.ttid);
-									$(result_title(i)).append (titles[i]);
+									//actors.push("<div class='cast'>" + actidif + "</div>");
+									//plots.push(item.plotS);
+									//ttids.push(item.ttid);
+									/*$(result_title(i)).append (titles[i]);
 									$(result_rating(i)).append (ratings[i]);
 									$(result_poster(i)).append (posters[i]);
 									$(result_director(i)).append (directors[i]);
 									$(result_actor(i)).append (actors[i]);
-									$(result_plot(i)).append (plots[i]);
+									$(result_plot(i)).append (plots[i]);*/
+									
+									resulthtml = '<div data-role="content" class="content_sonuc">'+
+											 '<div id="result0_title" class="titlem">'+ item.name +'</div>'+
+											 '<div id="result0_poster" class="poster"><img style="display:block;width:100%;height:auto;" src="' + item.pLink + '" /></div>'+
+											 '<div id="result0_rating" class="rating">'+ item.userRating +'</div>'+
+											 '<div id="result0_director"><div class="directors">'+ dirdif +'</div></div>'+
+											 '<div id="result0_actor"><div class="cast">'+ actidif +'</div></div>'+
+											 '<div class="addwatch">'+
+											 '	<div> <a style="margin-left:0;" class="addToWatchList" href="#popupInfo" data-rel="popup" data-role="button" data-inline="true" data-transition="flow" data-icon="star" data-mini="true" data-theme="e" data-film="'+ item.ttid +'">Watch later</a></div>'+
+											 '</div>'+
+											 '<div class="addseen">'+
+											 '	<div> <a style="margin-left:0;" class="addToAlreadySeenList" href="#popupInfos" data-rel="popup" data-role="button" data-inline="true" data-transition="flow" data-icon="star" data-mini="true" data-theme="a" data-film="'+ item.ttid +'">I saw this</a></div>'+
+											 '</div>'+
+											 '<div id="result0_plot" class="plotm">'+ item.plotS +'</div>'+
+										 	 '</div>';
+									$('#resultArea').append(resulthtml);
+											 
 								});
-							  $.mobile.changePage('#result0');
+								$('#resultArea').trigger('create');
+								
+								var genislik = $('#result').width();
+								var uzunluk = $('#result').height();
+								
+								$('#resultArea').width(genislik);
+								$('#resultArea').height(uzunluk);
+								
+								var rsi = $('#resultArea').royalSlider({
+												autoHeight: true,
+												arrowsNav: false,
+												fadeinLoadedSlide: false,
+												controlNavigation: 'none',
+												imageScaleMode: 'fit',
+												imageAlignCenter: true,
+												loop: false,
+												loopRewind: true,
+												keyboardNavEnabled: true,
+												navigateByClick: false,
+												autoScaleSlider: false
+											  }).data('royalSlider');
+											  $('#rsonraki').click(function() {
+												rsi.next();
+											  });
+											  $('#slider-prev').click(function() {
+												rsi.prev();
+											  });
+							  $.mobile.changePage('#result');
+							  
+
 							});
 					}
 					else {
@@ -414,34 +466,27 @@
 				</div><!-- /content -->
 			</div><!--End of page 3 -->
 
-			<div data-role="page" id="result0" class="result"><!--Sonuc sayfasi 0-->
-				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+			<div data-role="page" id="result" class="result">
+            	<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
 				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
 					<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
 					<h1></h1>
-					<a href="#result1" data-transition="slide" data-icon="arrow-r"  data-iconpos="notext">Next</a>
+					<a href="javascript:void(0)" data-transition="slide" data-icon="arrow-r" id="rsonraki" data-iconpos="notext">Next</a>
 				</div>
-				<div data-role="content" class="content_sonuc">
-					<div id="result0_title" class="titlem"></div>
-					<div id="result0_poster" class="poster"> </div>
-					<div id="result0_rating" class="rating"></div>
-					<div id="result0_director"></div>
-					<div id="result0_actor"></div>
-					<div class="addwatch">
-						<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="e" >Watch later</a></div>
-						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-	  						<p>Added to your watch list</p>
-						</div>
-					</div>
-					<div class="addseen">
-						<div id="addToAlreadySeenList1"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
-						<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
-	  						<p>Added to your watched list</p>
-						</div>
-					</div>
-					<div id="result0_plot" class="plotm"></div>
-				</div>
-				<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+                
+				<div id="resultArea" class="royalSlider rsDefaultInv"></div>
+                
+                <div data-role="popup" id="popupInfo" data-theme="c" style="max-width:200px;">
+                	<p>Added to your watch list</p>
+                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="cancels" style="display:none;">Cancel</a>
+                 </div>
+                
+                <div data-role="popup" id="popupInfos" data-theme="a" style="max-width:200px;">
+                	<p>Added to your seen list</p>
+                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="cancelss" style="display:none;">Cancel</a>
+                </div>
+                
+                <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
 					<ul data-role="listview" data-theme="c">
 						<li data-role="list-divider">Main Menu</li>
 						<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
@@ -451,218 +496,28 @@
 					</ul>
 				</div>
 			</div>
-
-			<div data-role="page" id="result1"  class="result"><!--Sonuc sayfasi 1-->
-				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-					<a href="#result0" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
-					<h1></h1>
-					<a href="#result2" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
-				</div>
-				<div data-role="content" class="content_sonuc" >
-					<div id="result1_title" class="titlem"></div>
-					<div id="result1_poster" class="poster"> </div>
-					<div id="result1_rating" class="rating"></div>
-					<div id="result1_director"></div>
-					<div id="result1_actor"></div>
-					<div class="addwatch">
-						<div id="addToWatchList2"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-	 						<p>Added to your watch list</p>
-						</div>
-					</div>
-						<div class="addseen">
-							<div id="addToAlreadySeenList2"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
-							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
-									<p>Added to your watched list</p>
-							</div>
-						</div>
-					</div>
-					<div id="result1_plot" class="plotm"> </div>
-				</div><!-- /content -->
-			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
-
-			<div data-role="page" id="result2"  class="result"><!--Sonuc sayfasi 2-->
-				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-					<a href="#result1" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
-					<h1></h1>
-					<a href="#result3" data-transition="slide"  data-icon="arrow-r" data-iconpos="notext">Next</a>
-				</div>
-				<div data-role="content" class="content_sonuc" >
-					<div id="result2_title" class="titlem"></div>
-					<div id="result2_poster" class="poster"> </div>
-					<div id="result2_rating" class="rating"></div>
-					<div id="result2_director"></div>
-					<div id="result2_actor"></div>
-					<div class="addwatch">
-						<div id="addToWatchList3"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-							<p>Added to your watch list</p>
-						</div>
-					</div>
-						<div class="addseen">
-							<div id="addToAlreadySeenList3"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
-							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
-									<p>Added to your watched list</p>
-							</div>
-						</div>
-					</div>
-					<div id="result2_plot" class="plotm"> </div>
-				</div><!-- /content -->
-			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
-
-			<div data-role="page" id="result3"  class="result"><!--Sonuc sayfasi 3-->
-				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-					<a href="#result2" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
-					<h1></h1>
-					<a href="#result4" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
-				</div>
-				<div data-role="content" class="content_sonuc" >
-					<div id="result3_title" class="titlem"> </div>
-					<div id="result3_poster" class="poster"> </div>
-					<div id="result3_rating" class="rating"></div>
-					<div id="result3_director"></div>
-					<div id="result3_actor"></div>
-					<div class="addwatch">
-						<div id="addToWatchList4"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-							<p>Added to your watch list</p>
-						</div>
-					</div>
-						<div class="addseen">
-							<div id="addToAlreadySeenList4"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
-							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
-									<p>Added to your watched list</p>
-							</div>
-					</div>
-					</div>
-					<div id="result3_plot" class="plotm"> </div>
-				</div><!-- /content -->
-			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
-
-			<div data-role="page" id="result4"  class="result"><!--Sonuc sayfasi 4-->
-				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-					<a href="#result3" data-direction="reverse" data-transition="slide"  data-transition="slide" data-icon="arrow-l" data-iconpos="notext">Back</a>
-					<h1></h1>
-					<a href="#result0" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
-				</div>
-				<div data-role="content" class="content_sonuc" >
-					<div id="result4_title" class="titlem"></div>
-					<div id="result4_poster" class="poster"> </div>
-					<div id="result4_rating" class="rating"></div>
-					<div id="result4_director"></div>
-					<div id="result4_actor"></div>
-					<div class="addwatch">
-						<div id="addToWatchList5"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-							<p>Added to your watch list</p>
-						</div>
-					</div>
-						<div class="addseen">
-							<div id="addToAlreadySeenList5"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
-							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
-									<p>Added to your watched list</p>
-							</div>
-						</div>
-						</div>
-					<div id="result4_plot" class="plotm"> </div>
-				</div><!-- /content -->
-			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
-
 		<script>
-			$("#addToWatchList1").click(function( event ) {
-					var addToWatchList1= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[0];
+			$(".addToWatchList").live('click', function() {
+					var filmID = $(this).data('film');
+					var addToWatchList1= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + filmID;
 					console.log(addToWatchList1);//need to send this string to server
 					$.post(addToWatchList1);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );
+					setTimeout(function(){
+						$('#cancels').trigger('click');
+					},1000);
 				});
-				$("#addToWatchList2").click(function( event ) {
-					var addToWatchList2= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[1];
-					console.log(addToWatchList2);//need to send this string to server
-					$.post(addToWatchList2);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );				
-				});
-				$("#addToWatchList3").click(function( event ) {
-					var addToWatchList3= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[2];
-					console.log(addToWatchList3);//need to send this string to server
-					$.post(addToWatchList3);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );		
-				});
-				$("#addToWatchList4").click(function( event ) {
-					var addToWatchList4= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[3];
-					console.log(addToWatchList4);//need to send this string to server
-					$.post(addToWatchList4);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
-				});
-				$("#addToWatchList5").click(function( event ) {
-					var addToWatchList5= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[4];
-					console.log(addToWatchList5);//need to send this string to server
-					$.post(addToWatchList5);
-					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
-				});
-				$("#addToAlreadySeenList1").click(function( event ) {
-					var addToAlreadySeenList1= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[0];
+				
+				$(".addToAlreadySeenList").live('click', function() {
+					var filmID = $(this).data('film');
+					var addToAlreadySeenList1= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + filmID;
 					console.log(addToAlreadySeenList1);//need to send this string to server
 					$.post(addToAlreadySeenList1);
-					$("div#popupInfo2").delay(1000).fadeOut( 1000 );
+					setTimeout(function(){
+						$('#cancelss').trigger('click');
+					},1000);
 				});
-				$("#addToAlreadySeenList2").click(function( event ) {
-					var addToAlreadySeenList2= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[1];
-					console.log(addToAlreadySeenList2);//need to send this string to server
-					$.post(addToAlreadySeenList2);
-					$("div#popupInfo2").delay(1000).fadeOut( 1000 );				
-				});
-				$("#addToAlreadySeenList3").click(function( event ) {
-					var addToAlreadySeenList3= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[2];
-					console.log(addToAlreadySeenList3);//need to send this string to server
-					$.post(addToAlreadySeenList3);
-					$("div#popupInfo2").delay(1000).fadeOut( 1000 );		
-				});
-				$("#addToAlreadySeenList4").click(function( event ) {
-					var addToAlreadySeenList4= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[3];
-					console.log(addToAlreadySeenList4);//need to send this string to server
-					$.post(addToAlreadySeenList4);
-					$("div#popupInfo2").delay(1000).fadeOut( 1000 );	
-				});
-				$("#addToAlreadySeenList5").click(function( event ) {
-					var addToAlreadySeenList5= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[4];
-					console.log(addToAlreadySeenList5);//need to send this string to server
-					$.post(addToAlreadySeenList5);
-					$("div#popupInfo2").delay(1000).fadeOut( 1000 );	
-				});
-				$('#result0').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result1', {transition: "slide"});
-				});
-				$('#result1').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result2', {transition: "slide"});
-				});
-				$('#result2').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result3', {transition: "slide"});
-				});
-				$('#result3').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result4', {transition: "slide"});
-				});
-				$('#result4').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result0', {transition: "slide"});
-				});
-				$('#result0').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result4', {transition: "slide", reverse: "true"});
-				});
-				$('#result1').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result0', {transition: "slide", reverse: "true"});
-				});
-				$('#result2').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result1', {transition: "slide", reverse: "true"});
-				});
-				$('#result3').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result2', {transition: "slide", reverse: "true"});
-				});
-				$('#result4').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result3', {transition: "slide", reverse: "true"});
-				});
-
-				$(".home_reset").click(function( event ) { //home butonuna basinca ilk sonuc kumesini sifirlama
+				
+				$(".home_reset").live('click', function() { //home butonuna basinca ilk sonuc kumesini sifirlama
 					resetapp();
 				});
 				
