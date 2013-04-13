@@ -607,37 +607,37 @@
 					$("div#popupInfo1").delay(1000).fadeOut( 1000 );
 				});
 				$("#addToAlreadySeenList2").click(function( event ) {
-					var addToWatchList2= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[1];
-					console.log(addToWatchList2);//need to send this string to server
-					$.post(addToWatchList2);
+					var addToAlreadySeenList2= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[1];
+					console.log(addToAlreadySeenList2);//need to send this string to server
+					$.post(addToAlreadySeenList2);
 					$("div#popupInfo1").delay(1000).fadeOut( 1000 );				
 				});
-				$("#addToWatchList3").click(function( event ) {
-					var addToWatchList3= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[2];
-					console.log(addToWatchList3);//need to send this string to server
-					$.post(addToWatchList3);
+				$("#addToAlreadySeenList3").click(function( event ) {
+					var addToAlreadySeenList3= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[2];
+					console.log(addToAlreadySeenList3);//need to send this string to server
+					$.post(addToAlreadySeenList3);
 					$("div#popupInfo1").delay(1000).fadeOut( 1000 );		
 				});
-				$("#addToWatchList4").click(function( event ) {
-					var addToWatchList4= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[3];
-					console.log(addToWatchList4);//need to send this string to server
-					$.post(addToWatchList4);
+				$("#addToAlreadySeenList4").click(function( event ) {
+					var addToAlreadySeenList4= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[3];
+					console.log(addToAlreadySeenList4);//need to send this string to server
+					$.post(addToAlreadySeenList4);
 					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
 				});
-				$("#addToWatchList5").click(function( event ) {
-					var addToWatchList5= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[4];
-					console.log(addToWatchList5);//need to send this string to server
-					$.post(addToWatchList5);
+				$("#addToAlreadySeenList5").click(function( event ) {
+					var addToAlreadySeenList5= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[4];
+					console.log(addToAlreadySeenList5);//need to send this string to server
+					$.post(addToAlreadySeenList5);
 					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
 				});
 				$('#result0').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result1', {transition: "fade"});
+					$.mobile.changePage('#result1', {transition: "slide"});
 				});
 				$('#result1').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result2', {transition: "flip"});
+					$.mobile.changePage('#result2', {transition: "slide"});
 				});
 				$('#result2').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-					$.mobile.changePage('#result3', {transition: "pop"});
+					$.mobile.changePage('#result3', {transition: "slide"});
 				});
 				$('#result3').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
 					$.mobile.changePage('#result4', {transition: "slide"});
