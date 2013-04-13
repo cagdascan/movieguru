@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-		    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
-		    <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <title>Movie Guru</title>
-        <link rel="stylesheet" href="assets/jquery.mobile-1.3.0.min.css" />
-        <link rel="stylesheet" href="assets/mg.css" />
-        <script src="assets/jquery-1.8.2.min.js"></script>
-        <script src="assets/jquery.mobile-1.3.0.min.js"></script>
-        <script src="cordova-2.5.0.js"></script>
-        <script type="text/javascript" charset="utf-8">
-        	
+	<head>
+		<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+			<meta name="apple-mobile-web-app-capable" content="yes" />
+			<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+			<title>Movie Guru</title>
+			<link rel="stylesheet" href="assets/jquery.mobile-1.3.0.min.css" />
+			<link rel="stylesheet" href="assets/mg.css" />
+			<script src="assets/jquery-1.8.2.min.js"></script>
+			<script src="assets/jquery.mobile-1.3.0.min.js"></script>
+			<script src="cordova-2.5.0.js"></script>
+			<script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
+			<script type="text/javascript" charset="utf-8">
 
-    		var network;
-
-    		function checkConnection() {
-        		var networkState = navigator.connection.type;
-
-        		var states = {};
-		        states[Connection.UNKNOWN]  = 'Unknown connection';
-		        states[Connection.ETHERNET] = 'Ethernet connection';
-		        states[Connection.WIFI]     = 'WiFi connection';
-		        states[Connection.CELL_2G]  = 'Cell 2G connection';
-		        states[Connection.CELL_3G]  = 'Cell 3G connection';
-		        states[Connection.CELL_4G]  = 'Cell 4G connection';
-		        states[Connection.NONE]     = 'No network connection';
-
-        		//alert('Connection type: ' + states[networkState]);
-        		network = states[networkState];
-        		//console.log(states[networkState]);
-    		}
-			
-			
-			
+			var email = '';
+			var network;
+			var ttids = [];
+			function checkConnection() {
+				var networkState = navigator.connection.type;
+				var states = {};
+				states[Connection.UNKNOWN]  = 'Unknown connection';
+				states[Connection.ETHERNET] = 'Ethernet connection';
+				states[Connection.WIFI]     = 'WiFi connection';
+				states[Connection.CELL_2G]  = 'Cell 2G connection';
+				states[Connection.CELL_3G]  = 'Cell 3G connection';
+				states[Connection.CELL_4G]  = 'Cell 4G connection';
+				states[Connection.NONE]     = 'No network connection';
+				network = states[networkState];
+				}
 			$(function() { 
 				document.addEventListener("deviceready", onDeviceReady, false);
 				$.mobile.defaultHomeScroll = 0;
-
 			});
 			function onDeviceReady() {
 				// Register the event listener
+				var ref = window.open('http://apache.org', '_blank', 'location=yes');
+				ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
+				ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
+				ref.addEventListener('exit', function() { alert(event.type); });
 				cordova.exec(null, null, "SplashScreen", "hide", []);
-				document.addEventListener("backbutton", function(e){
-					
+				document.addEventListener("backbutton", function(e){ //back button functionality (for android)
 					if($.mobile.activePage.is('#page1')){
-						
-						
-						var answer = confirm("Are you sure exit?")
+						var answer = confirm("Are you sure you want to exit?")
 							if (answer){
 								e.preventDefault();
 								navigator.app.exitApp();
@@ -59,140 +53,56 @@
 							resetapp();
 						}
 						history.back();
-						
 					}
-					
-					
-				}, false);
+				}, false); //end of back button
 				
-				document.addEventListener("menubutton", function(e){
-					$('.menuac').trigger('click');	
-					
-				}, false);
-			}
-		</script>
-        <script>//local database script
-			//OPEN AND OR CREATE THE DATABASE ON THE USERS MACHINE
-			var db = openDatabase("myMovies", "1", "My Watch List", 100000);
-			var movies = [];
-			var movie_wish_list = [];
-			//var keywords = [];
-			var i = 1;
-
-			function storeMyMovie(id) {
-				var i = localStorage.length + 1;
-				movies[i]	= id.innerHTML;
-				localStorage.setItem('movie'+i, movies[i]);
-				//console.log(localStorage.length);
-			}
-
-
-
-			//GET STORED VALUES FROM KEYS TO DEFINE JAVASCRIPT VALUES
-			function getMyAllMovies() {
-		  	  	for ( var i = 1; i <= localStorage.length; i++ ) {
-		  	  		movie_wish_list[i] = localStorage.getItem('movie'+i);
-		      		$('#movie_watch_list').append('<li><a href="#"><img src="logo.png"><h2>'+movie_wish_list[i]+'</h2><p>'+movie_wish_list[i]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
+				document.addEventListener("menubutton", function(e){ //menu button functionality (for android)
+						$('.menuac').trigger('click');	
+					}, false);
 				}
-			  }
 
-			function getMyMovie() {
-
-		  	  		movie_wish_list[localStorage.length] = localStorage.getItem('movie'+localStorage.length);
-
-
-		      		$('#movie_watch_list').append('<li id ='+ i +'"><a href="#"><img src="logo.png"><h2>'+movie_wish_list[localStorage.length]+'</h2><p>'+movie_wish_list[localStorage.length]+'</p></a><a href="#delete" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a></li>');
-				
-
-			  }
-			  function removeMyMovie() { //work in progress 
-				//var id = id;// movies[i]	= id.innerHTML;
-
-				// localStorage.removeItem('movie1');
-				// console.log('movie removed');
-
-				// location.reload();
-				// $('#movie_watch_list').replaceWith('<ul id="movie_watch_list" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true"><li>lol</ul>');
-				//location.reload();
-				// $("#1").remove();
-				// localStorage.length = localStorage.length + 1;
-				// getMyAllMovies();
-				//location.reload();
-				// console.log('all movies retrieved');
-				
-
-				//sadece ilk filmi siliyor -- istedigin filmi silecek sekilde yap!!!!
-				//console.log(id);
-			}
-
-			function clearLocal() {
-			    clear: localStorage.clear();
-			    return false;
-			  }
-		</script><!--local database end-->
-		<script>
-			$('#mgogo1').live('click',function() //generate my pleasure buttonu
+			$('#mgogo1').live('click',function() //next button pressed on genres screen
 			{
 				checkConnection();
-
 				if(network=='No network connection')
 				{
-					
 					$('#popupopen3').trigger('click');
 				}
 				else
 				{
 					var secimkontrol = $('input[name=\'genre\']:checked').val();
-					if(secimkontrol!=undefined){				
+					if(secimkontrol!=undefined){
 						var secilenler = $('.secimler1').serialize().toString();
 						console.log(secilenler);//for debugging
 						$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-						$.getJSON("http://bayez.biz/moviegurus/?query=2&" + $('.secimler1').serialize(),
+						$.getJSON("http://bayez.biz/moviegurus/?query=20&" + $('.secimler1').serialize(),
 							function (data)
 							{
 								var keywords = [];
 								var result_keyword = function(i){
 									return "#result"+i+"_keyword";
 								};
-								var d=new Date();
-								var n = d.getMilliseconds();
-								console.log('Basladi ' + n);
-								var fa=0;
 								var y = 0;
-								
-
 								$.each(data, function(i,item)
 								{
-									
 									if(y<20){
 										keywords.push(item._id);
 										$('#containkw').append ('<input class="ui-body-a" id="result_'+i+'_keyword" value="'+keywords[i]+'" name="keyword" type="checkbox" /><label for="result_'+i+'_keyword" style="">'+keywords[i]+'</label>');
-										fa++;
-										console.log(fa+'.calisti');
 									}
 									y++;
 								});
 								$('#containkw').trigger('create');
-								
-								
-								var ds=new Date();
-								  var ns = ds.getMilliseconds();
-								console.log('Bitti '+ ns);
-				
-							  $.mobile.changePage('#pagekw');					  
+								$.mobile.changePage('#pagekw');
 							});
 					}
 					else {
 						$('#popupopen').trigger('click');
 					}
-				}				
-			});	
-		</script>
-		<script>
-			$('#mgogo2').live('click',function() //generate my pleasure buttonu
+				}
+			});
+			$('#mgogo2').live('click',function() //next button pressed on keyword screen
 			{
 				checkConnection();
-
 				if(network=='No network connection')
 				{
 					alert('Please check your network connection');
@@ -204,7 +114,7 @@
 						var secilenler = $('.secimler1').serialize().toString();
 						console.log(secilenler);//for debugging
 						$.mobile.showPageLoadingMsg("b", "Loading", false); //loading spinner
-						$.getJSON("http://bayez.biz/moviegurus/?query=3&" + $('.secimler1').serialize(),
+						$.getJSON("http://bayez.biz/moviegurus/?query=30&" + $('.secimler1').serialize(),
 							function (data)
 							{
 								var titles = [];
@@ -231,6 +141,9 @@
 								var result_plot = function(i){
 									return "#result"+i+"_plot";
 								};
+								var result_ttid = function(i){
+									return "#result"+i+"_ttid";
+								};
 								$.each(data, function(i,item)
 								{	
 									var orderm = i + 1;
@@ -242,8 +155,9 @@
 									directors.push("<div class='directors'>" + dirdif + "</div>");
 									var actidif = item.actors.toString();
 									actidif = actidif.replace(/,/g,"<br />");
-									actors.push("<div class='cast'>" + actidif + "</div>");							
+									actors.push("<div class='cast'>" + actidif + "</div>");
 									plots.push(item.plotS);
+									ttids.push(item.ttid);
 									$(result_title(i)).append (titles[i]);
 									$(result_rating(i)).append (ratings[i]);
 									$(result_poster(i)).append (posters[i]);
@@ -251,7 +165,6 @@
 									$(result_actor(i)).append (actors[i]);
 									$(result_plot(i)).append (plots[i]);
 								});
-								
 							  $.mobile.changePage('#result0');
 							});
 					}
@@ -259,49 +172,49 @@
 						$('#popupopen2').trigger('click');
 					}
 				}
-			});	
+			});
 		</script>
-    </head>
-    <body>
-
-        <div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
-			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-            <div data-role="panel" data-position-fixed="true" id="mypanel" data-divider-theme="d" data-theme="d">
-				<ul data-role="listview" data-theme="c">
-					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
-					<li data-icon="info"><a href="#pageinfo" data-transition="flip">Info</a></li>
-					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
-					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
-					<li><a href="page3">
-						<h3>The Dark Knight</h3>
-						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
-					</a></li>
-					<li><a href="index.html">
-						<h3>Fight Club</h3>
-						<p><strong>Boston Conference Planning</strong></p>
-						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
-						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
-					</a></li>
-				</ul>
-  			</div><!-- /panel -->
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist" class="mgheader">
-				<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
-				<h1></h1>
-				<a id="mgogo1" data-icon="arrow-r" data-icon="check" data-iconpos="notext" data-role="button" >Next</a>
-				<a href="#positionWindow" id="popupopen" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
-				<a href="#positionWindow3" id="popupopen3" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
-				<div data-role="popup" id="positionWindow" class="ui-content" data-theme="b" data-overlay-theme="a">
-					<p>Please select one or more <b>genres</b></p>
-				</div>
-				<div data-role="popup" id="positionWindow3" class="ui-content" data-theme="b" data-overlay-theme="a">
-					<p style="padding:20px;text-align:center;">Please check your <strong>internet</strong> connection</p>
-				</div>
-			</div>			
-			<div data-role="content" data-theme="a">
+		</head>
+		<body>
+			<div data-role = "page" id = "login_page"> <!--Login page -->
+				<span id="signinButton">
+					<span
+						class="g-signin"
+						data-callback="signinCallback"
+						data-clientid=248012238476.apps.googleusercontent.com
+						data-cookiepolicy="single_host_origin"
+						data-requestvisibleactions="http://schemas.google.com/AddActivity"
+						data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email">
+					</span>
+				</span>
+			</div>
+			<div data-role="page" id="page1"> <!--Page 1 - Genre secim sayfasi -->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+					<div data-role="panel" data-position-fixed="true" id="mypanel" data-divider-theme="d" data-theme="d">
+						<ul data-role="listview" data-theme="c">
+							<li data-role="list-divider">Main Menu</li>
+							<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+							<li data-icon="info"><a href="#pageinfo" data-transition="flip">Info</a></li>
+							<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+							<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+						</ul>
+					</div><!-- /panel -->
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist" class="mgheader">
+					<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
+					<h1></h1>
+					<a id="mgogo1" data-icon="arrow-r" data-icon="check" data-iconpos="notext" data-role="button" >Next</a>
+					<a href="#positionWindow" id="popupopen" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
+					<a href="#positionWindow3" id="popupopen3" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
+					<div data-role="popup" id="positionWindow" class="ui-content" data-theme="b" data-overlay-theme="a">
+						<p>Please select one or more <b>genres</b></p>
+					</div>
+					<div data-role="popup" id="positionWindow3" class="ui-content" data-theme="b" data-overlay-theme="a">
+						<p style="padding:20px;text-align:center;">Please check your <strong>internet</strong> connection</p>
+					</div>
+				</div><!--end of header-->
+				<div data-role="content" data-theme="a">
 				<h2>Select genre(s) and go next</h2>
+						<div id="email" class="hide"></div>
 				<form data-role="none" class="secimler1">
 					<div data-role="field-contain" class="ogedizilim" >
 						<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
@@ -352,37 +265,37 @@
 						</fieldset>
 					</div>
 				</form><!--Genre secim formu -->
+				</div>
 			</div>
-        </div>
-		<div data-role="page" id="pageinfo"> <!--Info sayfasi -->
-			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
-				<ul data-role="listview" data-theme="c">
-					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="top" id="skull"><a href="#page1" class="home_reset">Home</a></li>
-					<li data-icon="info"><a href="#pageinfo">Info</a></li>
-					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
-					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
-					<li><a href="page3">
+			<div data-role="page" id="pageinfo"> <!--Info sayfasi -->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+				<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+					<ul data-role="listview" data-theme="c">
+						<li data-role="list-divider">Main Menu</li>
+						<li data-icon="home" data-iconpos="top" id="skull"><a href="#page1" class="home_reset">Home</a></li>
+						<li data-icon="info"><a href="#pageinfo">Info</a></li>
+						<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+						<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+						<li><a href="page3">
 						<h3>The Dark Knight</h3>
 						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
 						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
 						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
-					</a></li>
-					<li><a href="index.html">
+						</a></li>
+						<li><a href="index.html">
 						<h3>Fight Club</h3>
 						<p><strong>Boston Conference Planning</strong></p>
 						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
 						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
-					</a></li>
-				</ul>
-  			</div><!-- /panel -->			
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#mypanel" data-icon="bars">Menu</a>
-				<h1></h1>
-				<a href="#page1" data-icon="home" data-iconpos="notext" class="home_reset">Home</a>
-			</div>	
-			<div data-role="content" data-theme="a">
+						</a></li>
+					</ul>
+				</div><!-- /panel -->
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#mypanel" data-icon="bars">Menu</a>
+					<h1></h1>
+					<a href="#page1" data-icon="home" data-iconpos="notext" class="home_reset">Home</a>
+				</div>
+				<div data-role="content" data-theme="a">
 				<div data-role="collapsible-set" data-theme="a" data-content-theme="d">
 					<div data-role="collapsible">
 						<h2>What is Movie Guru?</h2>
@@ -398,320 +311,355 @@
 					</div>
 					<div data-role="collapsible">
 						<h2>How to use?</h2>
-						<ul data-role="listview" data-theme="d" data-divider-theme="d" class="ince">
-							<li>First, choose one or more <b>genres</b> and go next.</li>
-							<li>After choosing genre(s), Movie Guru will bring you a screen of keywords.</li>
-							<li>Choose <b>keyword(s)</b> according to your mood</li>
-							<li>That's it. Now, you see the the most suitable results for your movie pleasure.</li>
-							<li>You may also use your <b>watchlist</b> by adding some movies in it.</li>
+							<ul data-role="listview" data-theme="d" data-divider-theme="d" class="ince">
+								<li>First, choose one or more <b>genres</b> and go next.</li>
+								<li>After choosing genre(s), Movie Guru will bring you a screen of keywords.</li>
+								<li>Choose <b>keyword(s)</b> according to your mood</li>
+								<li>That's it. Now, you see the the most suitable results for your movie pleasure.</li>
+								<li>You may also use your <b>watchlist</b> by adding some movies in it.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="page" id="pagekw" data-theme="a"><!--Keyword page -->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+				<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+					<ul data-role="listview" data-theme="c">
+						<li data-role="list-divider">Main Menu</li>
+						<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
+						<li data-icon="info"><a href="#pageinfo" data-transition="flip">Info</a></li>
+						<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+						<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+						<li><a href="page3">
+							<h3>The Dark Knight</h3>
+							<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+							<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+							<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+						</a></li>
+						<li><a href="index.html">
+							<h3>Fight Club</h3>
+							<p><strong>Boston Conference Planning</strong></p>
+							<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+							<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+						</a></li>
+					</ul>
+				</div><!-- /panel -->
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#page1" class="home_reset" data-icon="arrow-l" data-iconpos="notext">Back</a>
+					<h1></h1>
+					<a id="mgogo2" data-icon="arrow-r" data-icon="check" data-iconpos="notext">Next</a>
+					<a href="#positionWindow2" id="popupopen2" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
+					<div data-role="popup" id="positionWindow2" class="ui-content" data-theme="b" data-overlay-theme="a">
+						<p>Please select one or more <b>keywords</b></p>
+					</div>
+				</div>
+				<div data-role="content" data-theme="a">
+					<h2>Select keyword(s) and go next</h2>
+						<form data-role="none" class="secimler1">
+							<div data-role="field-contain" >
+								<fieldset data-role="controlgroup" data-type="horizontal" data-theme="a">
+									<div id="containkw" data-theme="a">
+										<!-- keywordler burayi populate ediyor -->
+									</div>
+								</fieldset>
+							</div>
+						</form>
+				</div>
+				</div> <!--End of page 2 -->
+
+			<div data-role="page" id="page3"> <!--Page 3 - Watch list sayfasi -->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+				<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+					<ul data-role="listview" data-theme="c">
+						<li data-role="list-divider">Main Menu</li>
+						<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
+						<li data-icon="info"><a href="#pageinfo">Info</a></li>
+						<li data-icon="gear"><a href="#page3">Watchlist</a></li>
+						<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
+						<li><a href="page3">
+							<h3>The Dark Knight</h3>
+							<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+							<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+							<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+						</a></li>
+						<li><a href="index.html">
+							<h3>Fight Club</h3>
+							<p><strong>Boston Conference Planning</strong></p>
+							<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+							<p class="ui-li-aside"><strong>9:18</strong>AM</p>
+						</a></li>
+					</ul>
+				</div><!-- /panel on watch list-->
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
+					<h1></h1>
+					<a href="index.html" data-icon="home" data-iconpos="notext" class="home_reset">Home</a>
+				</div>
+				<div data-role="content">
+						<h1>My Watch List</h1>
+					<div class ="movie_wish_list">
+						<ul id="movie_watch_list" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
+							<!-- watch list itemlari burayi populate edecek -->
 						</ul>
 					</div>
-				</div>
-			</div>
-		</div>
+					<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;"> <!-- delete movie from watchlist -->
+						<h3>Delete Movie?</h3>
+						<p>The movie will be deleted from your Watch List</p>
+						<a onclick="removeMyMovie();" href="#page3" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
+						<a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
+					</div>
+					<div><a onclick="clearLocal(); getMyAllMovies(); location.reload();" href="javascript:void(0);">Clear My List</a></div>
+				</div><!-- /content -->
+			</div><!--End of page 3 -->
 
-		<div data-role="page" id="pagekw" data-theme="a"><!--Page 2 -KEYWORD SEÇÝM SAYFASI // HAZIRLANIYOR // -->
-		<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
-				<ul data-role="listview" data-theme="c">
-					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1">Home</a></li>
-					<li data-icon="info"><a href="#pageinfo" data-transition="flip">Info</a></li>
-					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
-					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
-					<li><a href="page3">
-						<h3>The Dark Knight</h3>
-						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
-					</a></li>
-					<li><a href="index.html">
-						<h3>Fight Club</h3>
-						<p><strong>Boston Conference Planning</strong></p>
-						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
-						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
-					</a></li>
-				</ul>
-  			</div><!-- /panel -->
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#page1" class="home_reset" data-icon="arrow-l" data-iconpos="notext">Back</a>
-				<h1></h1>
-				<a id="mgogo2" data-icon="arrow-r" data-icon="check" data-iconpos="notext">Next</a>
-				<a href="#positionWindow2" id="popupopen2" data-role="button" data-inline="true" data-rel="popup" data-position-to="window" style="display:none;">Popup</a>
-				<div data-role="popup" id="positionWindow2" class="ui-content" data-theme="b" data-overlay-theme="a">
-					<p>Please select one or more <b>keywords</b></p>
+			<div data-role="page" id="result0" class="result"><!--Sonuc sayfasi 0-->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
+					<h1></h1>
+					<a href="#result1" data-transition="slide" data-icon="arrow-r"  data-iconpos="notext">Next</a>
 				</div>
-			</div>
-			<div data-role="content" data-theme="a">
-				<h2>Select keyword(s) and go next</h2>
-					<form data-role="none" class="secimler1">
-						<div data-role="field-contain" >
-							<fieldset data-role="controlgroup" data-type="horizontal" data-theme="a">
-								<div id="containkw" data-theme="a">
-									<!-- keywordler burayi populate ediyor -->
-								</div>
-							</fieldset>
+				<div data-role="content" class="content_sonuc">
+					<div id="result0_title" class="titlem"></div>
+					<div id="result0_poster" class="poster"> </div>
+					<div id="result0_rating" class="rating"></div>
+					<div id="result0_director"></div>
+					<div id="result0_actor"></div>
+					<div class="addwatch">
+						<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="e" >Watch later</a></div>
+						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+	  						<p>Added to your watch list</p>
 						</div>
-					</form>
-			</div>
-		</div> <!--End of page 2 -->
-
-		<div data-role="page" id="page3"> <!--Page 3 - Watch list sayfasi -->
-		<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-            <div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
-				<ul data-role="listview" data-theme="c">
-					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
-					<li data-icon="info"><a href="#pageinfo">Info</a></li>
-					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
-					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
-					<li><a href="page3">
-						<h3>The Dark Knight</h3>
-						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
-					</a></li>
-					<li><a href="index.html">
-						<h3>Fight Club</h3>
-						<p><strong>Boston Conference Planning</strong></p>
-						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
-						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
-					</a></li>
-				</ul>
-  			</div><!-- /panel on watch list-->		
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
-				<h1></h1>
-				<a href="index.html" data-icon="home" data-iconpos="notext" class="home_reset">Home</a>
-			</div>
-			<div data-role="content">
-					<h1>My Watch List</h1>
-
-					<div class ="movie_wish_list">	  					
-  						<ul id="movie_watch_list" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
-						    
-
-						    <!-- watch list itemlari burayi populate edecek -->
-						</ul>
 					</div>
-						<div data-role="popup" id="delete" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;"> <!-- delete movie from watchlist -->
-						    <h3>Delete Movie?</h3>
-						    <p>The movie will be deleted from your Watch List</p>
-						    <a onclick="removeMyMovie();" href="#page3" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Confirm</a>
-						    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
+					<div class="addseen">
+						<div id="addToAlreadySeenList1"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
+						<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
+	  						<p>Added to your watched list</p>
 						</div>
-
-  					<script type="text/javascript">//console.log ("lol");</script> <!-- for debugging purposes -->
-
-
-  					<div><a onclick="clearLocal(); getMyAllMovies(); location.reload();" href="javascript:void(0);">Clear My List</a></div>
-			</div><!-- /content -->
-		</div><!--End of page 3 -->
-
-		<div data-role="page" id="result0" class="result"><!--Sonuc sayfasi 0-->
-			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
-				<h1></h1>
-				<a href="#result1" data-transition="slide" data-icon="arrow-r"  data-iconpos="notext">Next</a>
-			</div>
-			<div data-role="content" class="content_sonuc">
-				<div id="result0_title" class="titlem"></div>
-				<div id="result0_poster" class="poster"> </div>
-				<div id="result0_rating" class="rating"></div>
-				<div id="result0_director"></div>
-				<div id="result0_actor"></div>
-				<div class="addwatch">
-					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-  						<p>Added to your watch list</p>
 					</div>
+					<div id="result0_plot" class="plotm"></div>
 				</div>
-				<div id="result0_plot" class="plotm"> </div>
+				<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
+					<ul data-role="listview" data-theme="c">
+						<li data-role="list-divider">Main Menu</li>
+						<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
+						<li data-icon="info"><a href="#pageinfo">Info</a></li>
+						<li data-icon="star"><a href="#page3">My Watchlist</a></li>
+						<li data-icon="gear"><a href="#page3">Films I saw before</a></li>
+					</ul>
+				</div>
 			</div>
-			<div data-role="panel" id="mypanel" data-display="overlay" data-divider-theme="d" data-theme="d">
-				<ul data-role="listview" data-theme="c">
-					<li data-role="list-divider">Main Menu</li>
-					<li data-icon="home" data-iconpos="left" id="skull"><a href="#page1" class="home_reset">Home</a></li>
-					<li data-icon="info"><a href="#pageinfo">Info</a></li>
-					<li data-icon="gear"><a href="#page3">Watchlist</a></li>
-					<li data-role="list-divider">My Watchlist (In Progress)<span class="ui-li-count">2</span></li>
-					<li><a href="page3">
-						<h3>The Dark Knight</h3>
-						<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-						<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-						<p class="ui-li-aside"><strong>6:24</strong>PM</p>
-					</a></li>
-					<li><a href="index.html">
-						<h3>Fight Club</h3>
-						<p><strong>Boston Conference Planning</strong></p>
-						<p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
-						<p class="ui-li-aside"><strong>9:18</strong>AM</p>
-					</a></li>
-				</ul>
-  			</div>
-		</div>
 
-		<div data-role="page" id="result1"  class="result"><!--Sonuc sayfasi 1-->
-			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#result0" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
-				<h1></h1>
-				<a href="#result2" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
-			</div>
-			<div data-role="content" class="content_sonuc" >
-				<div id="result1_title" class="titlem"></div>
-				<div id="result1_poster" class="poster"> </div>
-				<div id="result1_rating" class="rating"></div>
-				<div id="result1_director"></div>
-				<div id="result1_actor"></div>
-				<div class="addwatch">
-					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-  						<p>Added to your watch list</p>
-					</div>
+			<div data-role="page" id="result1"  class="result"><!--Sonuc sayfasi 1-->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#result0" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
+					<h1></h1>
+					<a href="#result2" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
 				</div>
-				<div id="result1_plot" class="plotm"> </div>
-			</div><!-- /content -->
-		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+				<div data-role="content" class="content_sonuc" >
+					<div id="result1_title" class="titlem"></div>
+					<div id="result1_poster" class="poster"> </div>
+					<div id="result1_rating" class="rating"></div>
+					<div id="result1_director"></div>
+					<div id="result1_actor"></div>
+					<div class="addwatch">
+						<div id="addToWatchList2"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+	 						<p>Added to your watch list</p>
+						</div>
+					</div>
+						<div class="addseen">
+							<div id="addToAlreadySeenList2"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
+							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
+									<p>Added to your watched list</p>
+							</div>
+						</div>
+					</div>
+					<div id="result1_plot" class="plotm"> </div>
+				</div><!-- /content -->
+			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
-		<div data-role="page" id="result2"  class="result"><!--Sonuc sayfasi 2-->
-			<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#result1" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
-				<h1></h1>
-				<a href="#result3" data-transition="slide"  data-icon="arrow-r" data-iconpos="notext">Next</a>
-			</div>
-			<div data-role="content" class="content_sonuc" >
-				<div id="result2_title" class="titlem"></div>
-				<div id="result2_poster" class="poster"> </div>
-				<div id="result2_rating" class="rating"></div>
-				<div id="result2_director"></div>
-				<div id="result2_actor"></div>
-				<div class="addwatch">
-					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-  						<p>Added to your watch list</p>
-					</div>
+			<div data-role="page" id="result2"  class="result"><!--Sonuc sayfasi 2-->
+				<a href="#mypanel" class="menuac" style="display:none;">Menu</a>
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#result1" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
+					<h1></h1>
+					<a href="#result3" data-transition="slide"  data-icon="arrow-r" data-iconpos="notext">Next</a>
 				</div>
-				<div id="result2_plot" class="plotm"> </div>
-			</div><!-- /content -->
-		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+				<div data-role="content" class="content_sonuc" >
+					<div id="result2_title" class="titlem"></div>
+					<div id="result2_poster" class="poster"> </div>
+					<div id="result2_rating" class="rating"></div>
+					<div id="result2_director"></div>
+					<div id="result2_actor"></div>
+					<div class="addwatch">
+						<div id="addToWatchList3"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+							<p>Added to your watch list</p>
+						</div>
+					</div>
+						<div class="addseen">
+							<div id="addToAlreadySeenList3"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
+							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
+									<p>Added to your watched list</p>
+							</div>
+						</div>
+					</div>
+					<div id="result2_plot" class="plotm"> </div>
+				</div><!-- /content -->
+			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
-		<div data-role="page" id="result3"  class="result"><!--Sonuc sayfasi 3-->
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#result2" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
-				<h1></h1>
-				<a href="#result4" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
-			</div>
-			<div data-role="content" class="content_sonuc" >
-				<div id="result3_title" class="titlem"> </div>
-				<div id="result3_poster" class="poster"> </div>
-				<div id="result3_rating" class="rating"></div>
-				<div id="result3_director"></div>
-				<div id="result3_actor"></div>
-				<div class="addwatch">
-					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-  						<p>Added to your watch list</p>
-					</div>
+			<div data-role="page" id="result3"  class="result"><!--Sonuc sayfasi 3-->
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#result2" data-direction="reverse" data-transition="slide"  data-icon="arrow-l" data-iconpos="notext">Back</a>
+					<h1></h1>
+					<a href="#result4" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
 				</div>
-				<div id="result3_plot" class="plotm"> </div>
-			</div><!-- /content -->
-		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+				<div data-role="content" class="content_sonuc" >
+					<div id="result3_title" class="titlem"> </div>
+					<div id="result3_poster" class="poster"> </div>
+					<div id="result3_rating" class="rating"></div>
+					<div id="result3_director"></div>
+					<div id="result3_actor"></div>
+					<div class="addwatch">
+						<div id="addToWatchList4"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+							<p>Added to your watch list</p>
+						</div>
+					</div>
+						<div class="addseen">
+							<div id="addToAlreadySeenList4"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
+							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
+									<p>Added to your watched list</p>
+							</div>
+					</div>
+					</div>
+					<div id="result3_plot" class="plotm"> </div>
+				</div><!-- /content -->
+			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
-		<div data-role="page" id="result4"  class="result"><!--Sonuc sayfasi 4-->
-			<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
-				<a href="#result3" data-direction="reverse" data-transition="slide"  data-transition="slide" data-icon="arrow-l" data-iconpos="notext">Back</a>
-				<h1></h1>
-				<a href="#result0" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
-			</div>
-			<div data-role="content" class="content_sonuc" >
-				<div id="result4_title" class="titlem"></div>
-				<div id="result4_poster" class="poster"> </div>
-				<div id="result4_rating" class="rating"></div>
-				<div id="result4_director"></div>
-				<div id="result4_actor"></div>
-				<div class="addwatch">
-					<div id="addToWatchList1"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
-					<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
-  						<p>Added to your watch list</p>
-					</div>
+			<div data-role="page" id="result4"  class="result"><!--Sonuc sayfasi 4-->
+				<div data-role="header" class="mgheader" data-position="fixed" data-id="persist">
+					<a href="#result3" data-direction="reverse" data-transition="slide"  data-transition="slide" data-icon="arrow-l" data-iconpos="notext">Back</a>
+					<h1></h1>
+					<a href="#result0" data-transition="slide" data-icon="arrow-r" data-iconpos="notext">Next</a>
 				</div>
-				<div id="result4_plot" class="plotm"> </div>
-			</div><!-- /content -->
-		</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
+				<div data-role="content" class="content_sonuc" >
+					<div id="result4_title" class="titlem"></div>
+					<div id="result4_poster" class="poster"> </div>
+					<div id="result4_rating" class="rating"></div>
+					<div id="result4_director"></div>
+					<div id="result4_actor"></div>
+					<div class="addwatch">
+						<div id="addToWatchList5"> <a style="margin-left:0;" href="#popupInfo1" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-theme="e" >Add</a></div>
+						<div data-role="popup" id="popupInfo1" data-theme="e" style="max-width:200px;">
+							<p>Added to your watch list</p>
+						</div>
+					</div>
+						<div class="addseen">
+							<div id="addToAlreadySeenList5"> <a style="margin-left:0;" href="#popupInfo2" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="star" data-mini="true" data-theme="a" >I saw this</a></div>
+							<div data-role="popup" id="popupInfo2" data-theme="e" style="max-width:200px;">
+									<p>Added to your watched list</p>
+							</div>
+						</div>
+						</div>
+					<div id="result4_plot" class="plotm"> </div>
+				</div><!-- /content -->
+			</div> <!--end of sonuc sayfasi --> <!--end of sonuc sayfasi -->
 
 		<script>
 			$("#addToWatchList1").click(function( event ) {
-	  				storeMyMovie(document.getElementById('result0_title'));
-	  				getMyMovie();	  				
-	  				$("div#popupInfo1").delay(1000).fadeOut( 1000 );
+					var addToWatchList1= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[0];
+					console.log(addToWatchList1);//need to send this string to server
+					$.post(addToWatchList1);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );
 				});
-
 				$("#addToWatchList2").click(function( event ) {
-					storeMyMovie(document.getElementById('result1_title'));
-					getMyMovie();
-
-					$("div#popupInfo2").delay(1000).fadeOut( 1000 );				
-
+					var addToWatchList2= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[1];
+					console.log(addToWatchList2);//need to send this string to server
+					$.post(addToWatchList2);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );				
 				});
-
 				$("#addToWatchList3").click(function( event ) {
-					storeMyMovie(document.getElementById('result2_title'));
-					getMyMovie();
-
-					$("div#popupInfo3").delay(1000).fadeOut( 1000 );		
-
+					var addToWatchList3= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[2];
+					console.log(addToWatchList3);//need to send this string to server
+					$.post(addToWatchList3);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );		
 				});
-
 				$("#addToWatchList4").click(function( event ) {
-					storeMyMovie(document.getElementById('result3_title'));
-					getMyMovie();
-
-					$("div#popupInfo4").delay(1000).fadeOut( 1000 );	
-
+					var addToWatchList4= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[3];
+					console.log(addToWatchList4);//need to send this string to server
+					$.post(addToWatchList4);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
 				});
-
 				$("#addToWatchList5").click(function( event ) {
-					storeMyMovie(document.getElementById('result4_title'));
-					getMyMovie();
-
-					$("div#popupInfo5").delay(1000).fadeOut( 1000 );	
-
+					var addToWatchList5= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[4];
+					console.log(addToWatchList5);//need to send this string to server
+					$.post(addToWatchList5);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
 				});
-
+				$("#addToAlreadySeenList1").click(function( event ) {
+					var addToAlreadySeenList1= "http://bayez.biz/moviegurus/?query=51&userid=" + email + "&ttid=" + ttids[0];
+					console.log(addToAlreadySeenList1);//need to send this string to server
+					$.post(addToAlreadySeenList1);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );
+				});
+				$("#addToAlreadySeenList2").click(function( event ) {
+					var addToWatchList2= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[1];
+					console.log(addToWatchList2);//need to send this string to server
+					$.post(addToWatchList2);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );				
+				});
+				$("#addToWatchList3").click(function( event ) {
+					var addToWatchList3= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[2];
+					console.log(addToWatchList3);//need to send this string to server
+					$.post(addToWatchList3);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );		
+				});
+				$("#addToWatchList4").click(function( event ) {
+					var addToWatchList4= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[3];
+					console.log(addToWatchList4);//need to send this string to server
+					$.post(addToWatchList4);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
+				});
+				$("#addToWatchList5").click(function( event ) {
+					var addToWatchList5= "http://bayez.biz/moviegurus/?query=41&userid=" + email + "&ttid=" + ttids[4];
+					console.log(addToWatchList5);//need to send this string to server
+					$.post(addToWatchList5);
+					$("div#popupInfo1").delay(1000).fadeOut( 1000 );	
+				});
 				$('#result0').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        		$.mobile.changePage('#result1', {transition: "fade"});
-	        	});
-	        	$('#result1').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result2', {transition: "flip"});
-	        	});
-	        	$('#result2').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result3', {transition: "pop"});
-	        	});
-	        	$('#result3').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result4', {transition: "slide"});
-	        	});
-	        	$('#result4').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result0', {transition: "slide"});
-	        	});
-
-	        	$('#result0').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-        		$.mobile.changePage('#result4', {transition: "slide", reverse: "true"});
-	        	});
-	        	$('#result1').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result0', {transition: "slide", reverse: "true"});
-	        	});
-	        	$('#result2').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result1', {transition: "slide", reverse: "true"});
-	        	});
-	        	$('#result3').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result2', {transition: "slide", reverse: "true"});
-	        	});
-	        	$('#result4').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
-	        		$.mobile.changePage('#result3', {transition: "slide", reverse: "true"});
-	        	});
+					$.mobile.changePage('#result1', {transition: "fade"});
+				});
+				$('#result1').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result2', {transition: "flip"});
+				});
+				$('#result2').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result3', {transition: "pop"});
+				});
+				$('#result3').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result4', {transition: "slide"});
+				});
+				$('#result4').live('swipeleft',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result0', {transition: "slide"});
+				});
+				$('#result0').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result4', {transition: "slide", reverse: "true"});
+				});
+				$('#result1').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result0', {transition: "slide", reverse: "true"});
+				});
+				$('#result2').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result1', {transition: "slide", reverse: "true"});
+				});
+				$('#result3').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result2', {transition: "slide", reverse: "true"});
+				});
+				$('#result4').live('swiperight',function(){ //iphone icin click yerine 'swipeleft' 'swiperightkullan'
+					$.mobile.changePage('#result3', {transition: "slide", reverse: "true"});
+				});
 
 				$(".home_reset").click(function( event ) { //home butonuna basinca ilk sonuc kumesini sifirlama
 					resetapp();
@@ -737,29 +685,77 @@
 						var result_plot = function(i){
 							return "#result"+i+"_plot";
 						};
-			  	  		$(result_title(i)).empty();
+			  	 	$(result_title(i)).empty();
 						$(result_rating(i)).empty();
-					    $(result_director(i)).empty();
+					  $(result_director(i)).empty();
 						$(result_actor(i)).empty();
 						$(result_poster(i)).empty();
 						$(result_plot(i)).empty();
 						
-		      		}
-				$(".secimler1")[0].reset();
-				$("#containkw").empty();
-				
-				$('.ui-btn-hover-a').each(function(){
-					$(this).trigger('mouseout');
-				});
-				
-		   		console.log("skull pressed");//debug
+					}
+					$(".secimler1")[0].reset();
+					$("#containkw").empty();
+					ttids=[];
 					
+					$('.ui-btn-hover-a').each(function(){
+						$(this).trigger('mouseout');
+					});
 				}
 	
-			getMyAllMovies();
-
-	
 		</script>
-    </body>
+		<script type="text/javascript"> //google plus authorization stuff starts
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client:plusone.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     	})();
+	
+			function signinCallback(authResult) {
+				if (authResult['access_token']) {
+					// Successfully authorized
+					console.log("Auth success");
+					getEmail();
+					// Hide the sign-in button now that the user is authorized, for example:
+					document.getElementById('signinButton').setAttribute('style', 'display: none');
+					$.mobile.changePage('#page1');
+				} else if (authResult['error']) {
+				// There was an error.
+				// Possible error codes:
+				//   "access_denied" - User denied access to your app
+				//   "immediate_failed" - Could not automatially log in the user
+				// console.log('There was an error: ' + authResult['error']);
+				}
+			}
+
+			function getEmail(){
+    	// Load the oauth2 libraries to enable the userinfo methods.
+				gapi.client.load('oauth2', 'v2', function() {
+        	  var request = gapi.client.oauth2.userinfo.get();
+          	request.execute(getEmailCallback);
+        	});
+			}
+
+			function getEmailCallback(obj){
+				var el = document.getElementById('email');
+				if (obj['email']) {
+					email = obj['email'];
+				}
+
+				console.log(obj);   // Uncomment to inspect the full object.
+
+				el.innerHTML = email;
+				toggleElement('email');
+			}
+
+			function toggleElement(id) {
+				var el = document.getElementById(id);
+				if (el.getAttribute('class') == 'hide') {
+					el.setAttribute('class', 'show');
+				} else {
+					el.setAttribute('class', 'hide');
+				}
+			}
+    </script><!--google plus authorization stuff ends -->
+	</body>
 </html>
 

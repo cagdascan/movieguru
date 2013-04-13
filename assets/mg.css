@@ -6,6 +6,9 @@ body {
 	padding:0;
 	font-family:Arial, sans-serif, Helvetica !important;
 }
+new {
+ margin=0
+}
 .ui-header > h1 {
 margin:.8em auto !important;
 background:url("logo.png") no-repeat 50% 0px !important;
