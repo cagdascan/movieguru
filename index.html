@@ -197,7 +197,7 @@
 								$('#resultArea').width(genislik);
 								$('#resultArea').height(uzunluk);
 								
-								var rsi = $('#resultArea').royalSlider({
+								var slider = $('#resultArea').royalSlider({
 												autoHeight: true,
 												arrowsNav: false,
 												fadeinLoadedSlide: false,
@@ -211,11 +211,15 @@
 												autoScaleSlider: false
 											  }).data('royalSlider');
 											  $('#rsonraki').click(function() {
-												rsi.next();
+												slider.next();
 											  });
 											  $('#slider-prev').click(function() {
-												rsi.prev();
+												slider.prev();
 											  });
+											  $('.home_reset').click(function() {
+												slider.destroy();
+											  });
+											  
 							  $.mobile.changePage('#result');
 							  
 
@@ -476,7 +480,7 @@
                 
 				<div id="resultArea" class="royalSlider rsDefaultInv"></div>
                 
-                <div data-role="popup" id="popupInfo" data-theme="c" style="max-width:200px;">
+                <div data-role="popup" id="popupInfo" data-theme="e" style="max-width:200px;">
                 	<p>Added to your watch list</p>
                     <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="cancels" style="display:none;">Cancel</a>
                  </div>
@@ -522,33 +526,9 @@
 				});
 				
 				function resetapp(){
-					for ( var i = 0; i <= 4; i++ ) {
-						var result_title = function(i){
-							return "#result"+i+"_title";
-						};
-						var result_rating = function(i){
-							return "#result"+i+"_rating";
-						};
-						var result_director = function(i){
-							return "#result"+i+"_director";
-						};
-						var result_actor = function(i){
-							return "#result"+i+"_actor";
-						};
-						var result_poster = function(i){
-							return "#result"+i+"_poster";
-						};
-						var result_plot = function(i){
-							return "#result"+i+"_plot";
-						};
-			  	 	$(result_title(i)).empty();
-						$(result_rating(i)).empty();
-					  $(result_director(i)).empty();
-						$(result_actor(i)).empty();
-						$(result_poster(i)).empty();
-						$(result_plot(i)).empty();
-						
-					}
+					$('#resultArea div').remove();
+					$('#resultArea').removeAttr('class');
+					
 					$(".secimler1")[0].reset();
 					$("#containkw").empty();
 					ttids=[];
