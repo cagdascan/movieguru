@@ -21,6 +21,7 @@
 			var network;
 			var ttids = [];
 			var resulthtml =  '';
+			var slider;
 			function checkConnection() {
 				var networkState = navigator.connection.type;
 				var states = {};
@@ -197,7 +198,7 @@
 								$('#resultArea').width(genislik);
 								$('#resultArea').height(uzunluk);
 								
-								var slider = $('#resultArea').royalSlider({
+								slider = $('#resultArea').royalSlider({
 												autoHeight: true,
 												arrowsNav: false,
 												fadeinLoadedSlide: false,
@@ -218,6 +219,7 @@
 											  });
 											  $('.home_reset').click(function() {
 												slider.destroy();
+												console.log('Destroy');
 											  });
 											  
 							  $.mobile.changePage('#result');
