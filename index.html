@@ -20,7 +20,7 @@
 			var network;
 			//var ttids = [];
 			var resulthtml =  '';
-			var slider;
+			var slider = null;
 			function checkConnection() {
 				var networkState = navigator.connection.type;
 				var states = {};
@@ -152,6 +152,13 @@
 								var result_ttid = function(i){
 									return "#result"+i+"_ttid";
 								};
+								
+								$('#resultArea').remove();
+								jQuery('<div/>', {
+									id: 'resultArea',
+									class: 'royalSlider rsDefaultInv'
+								}).appendTo('#result');
+								
 								$.each(data, function(i,item)
 								{	
 								//$('.result').clone().attr('id','result'+i).appendTo('body');
@@ -199,7 +206,7 @@
 								$('#resultArea').width(genislik);
 								$('#resultArea').height(uzunluk);
 								
-								slider = $('#resultArea').royalSlider({
+								var slider = $('#resultArea').royalSlider({
 												autoHeight: true,
 												arrowsNav: false,
 												fadeinLoadedSlide: false,
@@ -219,8 +226,8 @@
 												slider.prev();
 											  });
 											  $('.home_reset').click(function() {
-												slider.destroy();
 												console.log('Destroy');
+												var slider = null;
 											  });
 											  
 							  $.mobile.changePage('#result');
@@ -467,7 +474,6 @@
 					<h1></h1>
 					<a href="javascript:void(0)" data-transition="slide" data-icon="arrow-r" id="rsonraki" data-iconpos="notext">Next</a>
 				</div>
-				<div id="resultArea" class="royalSlider rsDefaultInv"></div>
           <div data-role="popup" id="popupInfo" data-theme="e" style="max-width:200px;">
           	<p>Added to your watch list</p>
               <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="cancels" style="display:none;">Cancel</a>
@@ -512,10 +518,6 @@
 				});
 				
 				function resetapp(){
-					$('#resultArea div').remove();
-					$('#resultArea').removeAttr('class');
-					$('#resultArea').removeAttr('style');
-					
 					$(".secimler1")[0].reset();
 					$("#containkw").empty();
 					//ttids=[];
